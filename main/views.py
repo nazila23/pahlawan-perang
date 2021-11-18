@@ -6,9 +6,9 @@ from django.http.response import Http404
 
 
 
-# def index(request):
-#     return HttpResponse("Hello, world. You're at the polls index.")
-def profil(request):
-    return render(request, 'profil.html')
-def beranda(request):
-    return render(request, 'beranda.html')
+def index(request):
+    return render(request, 'home.html')
+# def profil(request):
+#     return render(request, 'profil.html')
+# def beranda(request):
+#     return render(request, 'beranda.html')
