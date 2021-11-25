@@ -11,4 +11,6 @@ def order(request):
     return render(request,'order.html')
 def dashboard(request):
     return render(request,'dashboard.html')
+def tambah(request):
+    return render(request,'tambah.html')
 
