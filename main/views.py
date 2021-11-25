@@ -7,4 +7,8 @@ def index(request):
     return render(request,'index.html')
 def register(request):
     return render(request,'register.html')
+def order(request):
+    return render(request,'order.html')
+def dashboard(request):
+    return render(request,'dashboard.html')
 
