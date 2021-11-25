@@ -7,4 +7,6 @@ def index(request):
     return render(request,'index.html')
 def register(request):
     return render(request,'register.html')
+def usersprof(request):
+    return render(request,'usersprof.html')
 
