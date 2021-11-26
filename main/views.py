@@ -15,4 +15,14 @@ def tambah(request):
     return render(request,'tambah.html')
 def usersprof(request):
     return render(request,'usersprof.html')
+def usulan(request):
+    return render(request,'usulan.html')
+def upload(request):
+    return render(request,'upload-karya.html')
+def order(request):
+    return render(request,'order-buku.html')
+def bebas(request):
+    return render(request,'bebas-pustaka.html')
+
+
 
