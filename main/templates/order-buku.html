@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Usulan Koleksi</title>
+  <title>Order Online</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -76,10 +76,13 @@
         </li><!-- End Notification Nav -->
 
         <li class="nav-item dropdown">
+
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
             <!-- <span class="badge bg-success badge-number">3</span> -->
           </a><!-- End Messages Icon -->
+
+         
         </li><!-- End Messages Nav -->
 
         <li class="nav-item dropdown pe-3">
@@ -129,7 +132,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="index.html">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -157,13 +160,13 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/usersprof.html/">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="{% url 'usersprof' %}">
           <i class="bi bi-menu-button-wide"></i><span>Biodata Diri</span>
         </a>
         <!-- End Biodata Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="forms-nav" data-bs-toggle="collapse" href="usersprof/usulan">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/usulan">
           <i class="bi bi-journal-text"></i><span>Usulan Koleksi</span>
         </a>
         <!-- End usulan Nav -->
@@ -178,15 +181,6 @@
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal"></i><span>Bebas Pustaka</span>
         </a>
-        <!-- End putaka Nav --
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li> End Profile Page Nav -->
-
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-faq.html">
           <i class="bi bi-question-circle"></i>
@@ -215,71 +209,187 @@
           <span>Logout</span>
         </a>
       </li><!-- End Logout Page Nav -->
-
     </ul>
-
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Usulan Koleksi</h1>
+      <h1>Profile</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Usulan Koleksi</li>
+          <li class="breadcrumb-item active">Profile</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
-    <div class="col-lg-12">
 
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Silahkan Usul Buku yang anda butuhkan</h3>
-          <!-- Vertical Form -->
-          <form class="row g-3">
-            <div class="col-12">
-              <label for="inputNanme4" class="form-label">Your Name</label>
-              <input type="text" class="form-control" id="inputNanme4">
+    <section class="section profile">
+      <div class="row">
+        <div class="col-xl-12">
+        </div>
+
+        <div class="col-xl-12">
+
+          <div class="card">
+            <div class="card-body pt-3">
+              <!-- Bordered Tabs -->
+              <ul class="nav nav-tabs nav-tabs-bordered">
+
+                <li class="nav-item">
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Order Online</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Ambil Nanti</button>
+                </li>
+
+              </ul>
+              <div class="tab-content pt-2">
+              <div class="tab-pane fade profile-edit pt-3" id="profile-overview">
+
+                <!-- Profile Edit Form -->
+                <form>            
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Pilih Anggota</label>
+                    <div class="col-sm-9">
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>No.Anggota</option>
+                        <option value="1">123123</option>
+                        <option value="2">34232</option>
+                        <option value="3">344334</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="company" class="col-sm-2 col-form-label">Lama Pinjam</label>
+                    <div class="col-md-3 col-lg-9">
+                      <input name="company" type="text" class="form-control" id="company" >
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Job" class="col-sm-2 col-form-label">Kode buku</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="job" type="text" class="form-control" id="Job" >
+                    </div>
+                  </div>
+
+                  
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Nama Kota</label>
+                    <div class="col-sm-5">
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected> Kota</option>
+                        <option value="1">Yogyakarta</option>
+                        <option value="2">Palembang</option>
+                        <option value="3">surabaya</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Nama Kabupaten</label>
+                    <div class="col-sm-5">
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected> Kabupaten</option>
+                        <option value="1">Bantul</option>
+                        <option value="2">Sleman</option>
+                        <option value="3">Kulon Progo</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Nama Kecamatan</label>
+                    <div class="col-sm-5">
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected> Kecamatan</option>
+                        <option value="1">selomartani</option>
+                        <option value="2">trimortani</option>
+                        <option value="3">suryatani</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Nama Desa</label>
+                    <div class="col-sm-5">
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected> Kecamatan</option>
+                        <option value="1">selomartani</option>
+                        <option value="2">trimortani</option>
+                        <option value="3">suryatani</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Address" class="col-sm-2 col-form-label">Detail Alamat</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="address" type="text" class="form-control" id="Address" placeholder="Jl/Rumah/Lt..">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Address" class="col-sm-2 col-form-label">Kode pos</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="address" type="text" class="form-control" id="Address" >
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Nama Ekspedisi</label>
+                    <div class="col-sm-5">
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected> Ekspedisi </option>
+                        <option value="1">JNE</option>
+                        <option value="2">POS</option>
+                        <option value="3">Tiki</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Address" class="col-sm-2 col-form-label">Pembayaran</label>
+                    <h6>Melalui Bank Mandiri : 9488435y8472884 a/n perpustakaan kita</h6>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                  </div>
+                </form><!-- End order onlineForm -->
+              </div>
+
+              <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                <!-- Ambiil nantiForm -->
+                <form>            
+                  <div class="row mb-3">
+                    <label for="Job" class="col-sm-2 col-form-label">Kode buku</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="job" type="text" class="form-control" id="Job" >
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                  </div>
+                </form><!-- End Profile Edit Form -->
+
+                
+              </div>
             </div>
-            <div class="col-12">
-              <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4">
             </div>
-            <div class="col-12">
-              <label for="inputJudul4" class="form-label">Judul</label>
-              <input type="text" class="form-control" id="inputJudul">
-            </div>
-            <div class="col-12">
-              <label for="inputPengarang" class="form-label">Pengarang</label>
-              <input type="text" class="form-control" id="inputPengarang">
-            </div>
-            <div class="col-12">
-              <label for="inputTahun Terbit" class="form-label">Tahun Terbit</label>
-              <input type="text" class="form-control" id="inputTahun Terbit">
-            </div>
-            <div class="col-12">
-              <label for="inputPenerbit" class="form-label">Penerbit</label>
-              <input type="text" class="form-control" id="inputPenerbit">
-            </div>
-            <div class="col-12">
-              <label for="inputISBN" class="form-label">ISBN</label>
-              <input type="text" class="form-control" id="inputISBN">
-            </div>
-            <div class="col-12">
-              <label for="inputHarga" class="form-label">Harga</label>
-              <input type="number" class="form-control" id="inputHarga">
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <button type="reset" class="btn btn-secondary">Reset</button>
-            </div>
-          </form><!-- Vertical Form -->
+          </div>
+
         </div>
       </div>
-  </main><!-- End #main -->
+    </section>
 
+  </main><!-- End #main -->
 
   <footer id="footer" class="footer">
     <div class="copyright">
