@@ -15,4 +15,15 @@ def tambah(request):
     return render(request,'tambah.html')
 def usersprof(request):
     return render(request,'usersprof.html')
+def daftaranggota(request):
+    return render(request,'daftaranggota.html')
+def biblografi(request):
+    return render(request,'biblografi.html')
+def daftarbiblografi(request):
+    return render(request,'daftarbiblografi.html')
+def daftarexsemplar(request):
+    return render(request,'daftarexsemplar.html')
+def dataexsemplar(request):
+    return render(request,'dataexsemplar.html')
+
 

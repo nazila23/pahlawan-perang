@@ -242,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-body {
-  padding: 0 20px 20px 20px;
+  padding: 0 30px 50px 50px;
 }
 
 .card-img-overlay {
@@ -321,7 +321,7 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 2px solid #ebeef4;
 }
 .nav-tabs-bordered .nav-link {
-  margin-bottom: -2px;
+  margin-bottom: -4px;
   border: none;
   color: #2c384e;
 }
@@ -379,10 +379,10 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 1199px) {
   .header .search-bar {
     position: fixed;
-    top: 50px;
+    top: 100px;
     left: 0;
     right: 0;
-    padding: 20px;
+    padding: 50px;
     box-shadow: 0px 0px 15px 0px rgba(1, 41, 112, 0.1);
     background: white;
     z-index: 9999;
