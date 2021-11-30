@@ -11,5 +11,10 @@ urlpatterns = [
     path('usulan/', views.usulan, name='usulan'),
     path('upload/', views.upload, name='upload-karya'),
     path('order/', views.order, name='order-buku'),
-     path('bebas/', views.bebas, name='bebas-pustaka'),
+    path('bebas/', views.bebas, name='bebas-pustaka'),
+    path('daftaranggota/', views.daftaranggota, name='daftaranggota'),
+    path('biblografi', views.biblografi, name='biblografi'),
+    path('daftarbiblografi/',views.daftarbiblografi, name='daftarbiblografi'),
+    path('daftarexemplar/', views.daftarexemplar, name='daftarexemplar'),
+    path('dataexemplar/', views.dataexemplar, name='dataexemplar'),
 ]
