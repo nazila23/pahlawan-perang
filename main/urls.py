@@ -12,17 +12,9 @@ urlpatterns = [
     path('upload/', views.upload, name='upload-karya'),
     path('order/', views.order, name='order-buku'),
     path('bebas/', views.bebas, name='bebas-pustaka'),
-<<<<<<< HEAD
     path('daftaranggota/', views.daftaranggota, name='daftaranggota'),
     path('biblografi', views.biblografi, name='biblografi'),
     path('daftarbiblografi/',views.daftarbiblografi, name='daftarbiblografi'),
     path('daftarexemplar/', views.daftarexemplar, name='daftarexemplar'),
     path('dataexemplar/', views.dataexemplar, name='dataexemplar'),
-=======
-    path('biblografi/', views.biblografi, name='biblografi'),
-    path('daftarbiblografi/', views.daftarbiblografi, name='daftarbiblografi'),
-    path('daftaranggota/', views.daftaranggota, name='daftaranggota'),
-    path('dataexemplar/', views.dataexemplar, name='dataexemplar'),
-
->>>>>>> 6aab4421cfc759ffbd1ca7f8996ca4f5419c017c
 ]

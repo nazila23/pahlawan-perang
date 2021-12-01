@@ -47,7 +47,6 @@ def bebas(request):
     return render(request,'bebas-pustaka.html')
 def biblografi(request):
     return render(request,'biblografi.html')
-<<<<<<< HEAD
 def daftaranggota(request):
     return render(request,'daftaranggota.html')
 def daftarbiblografi(request):
@@ -58,13 +57,5 @@ def daftarexemplar(request):
     return render(request,'daftarexemplar.html')
 
 
-=======
-def daftarbiblografi(request):
-    return render(request,'daftarbiblografi.html')
-def daftaranggota(request):
-    return render(request,'daftaranggota.html')
-def dataexemplar(request):
-    return render(request,'daftarexsemplar.html')
->>>>>>> 6aab4421cfc759ffbd1ca7f8996ca4f5419c017c
 
 
