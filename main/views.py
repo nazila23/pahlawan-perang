@@ -1,16 +1,29 @@
 from django.core.checks import messages
 from django.shortcuts import redirect, render
 from django.http.response import Http404
-from.import models
+from main import forms
+from.import models, forms
 from django.db.models.base import Model
-# from .forms import SignUpForm
+from .forms import SignUpForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
+# sigin
 def index(request):
-    return render(request,'index.html')
-# def register(request):
-#     return render(request,'register.html')
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form = SignUpForm()
+    return render(request,'index.html', {
+        'form': form,
+    })
 
 def register(request):
     if request.method == 'POST':
@@ -20,13 +33,12 @@ def register(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            # return redirect('home')
+            login(request, user)    
     else:
         form = UserCreationForm()
-    return render(request, 'register.html', {
-            'form':form,
-            })
+    return render(request, 'index.html', {
+        'form':form,
+    })
 
 
 def order(request):
@@ -55,7 +67,10 @@ def dataexemplar(request):
     return render(request,'dataexemplar.html')
 def daftarexemplar(request):
     return render(request,'daftarexemplar.html')
-
-
+    return render(request,'daftarexsemplar.html')
+def detail1(request):
+    return render(request,'detail1.html')
+def detail(request):
+    return render(request,'detail.html')
 
 
