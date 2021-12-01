@@ -8,6 +8,7 @@ from .forms import SignUpForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
+# sigin
 def index(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -23,8 +24,6 @@ def index(request):
     return render(request,'index.html', {
         'form': form,
     })
-# def register(request):
-#     return render(request,'register.html')
 
 def register(request):
     if request.method == 'POST':
@@ -34,13 +33,12 @@ def register(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            # return redirect('home')
+            login(request, user)    
     else:
         form = UserCreationForm()
     return render(request, 'index.html', {
-            'form':form,
-            })
+        'form':form,
+    })
 
 
 def order(request):
@@ -67,5 +65,9 @@ def daftaranggota(request):
     return render(request,'daftaranggota.html')
 def dataexemplar(request):
     return render(request,'daftarexsemplar.html')
+def detail1(request):
+    return render(request,'detail1.html')
+def detail(request):
+    return render(request,'detail.html')
 
 
