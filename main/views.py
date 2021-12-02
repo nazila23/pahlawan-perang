@@ -57,17 +57,4 @@ def order(request):
     return render(request,'order-buku.html')
 def bebas(request):
     return render(request,'bebas-pustaka.html')
-def biblografi(request):
-    return render(request,'biblografi.html')
-def daftarbiblografi(request):
-    return render(request,'daftarbiblografi.html')
-def daftaranggota(request):
-    return render(request,'daftaranggota.html')
-def dataexemplar(request):
-    return render(request,'daftarexsemplar.html')
-def detail1(request):
-    return render(request,'detail1.html')
-def detail(request):
-    return render(request,'detail.html')
-
 
