@@ -6,9 +6,7 @@ from django.db.models.base import Model
 
 def biblografi(request):
     return render(request,'biblografi.html')
-def daftarbiblografi(request):
-    return render(request,'daftarbiblografi.html')
-def daftaranggota(request):
-    return render(request,'daftaranggota.html')
-def dataexemplar(request):
-    return render(request,'daftarexsemplar.html')
+def anggota(request):
+    return render(request,'anggota.html')
+def exemplar(request):
+    return render(request,'exemplar.html')

@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('biblografi/', views.biblografi, name='biblografi'),
-    path('daftarbiblografi/', views.daftarbiblografi, name='daftarbiblografi'),
-    path('daftaranggota/', views.daftaranggota, name='daftaranggota'),
-    path('dataexemplar/', views.dataexemplar, name='dataexemplar'),
+    path('anggota/', views.anggota, name='anggota'),
+    path('exemplar/', views.exemplar, name='exemplar'),
 ]
