@@ -19,4 +19,5 @@ urlpatterns = [
     path('dataexemplar/', views.dataexemplar, name='dataexemplar'),
     path('detail/', views.detail, name='detail'),
     path('detail1/', views.detail1, name='detail1'),
+    path('tambahanggota/', views.tambahanggota, name='tambahanggota'),
 ]

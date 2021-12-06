@@ -72,5 +72,9 @@ def detail1(request):
     return render(request,'detail1.html')
 def detail(request):
     return render(request,'detail.html')
+def tambahanggota(request):
+    return render(request,'tambahanggota.html')
+
+
 
 
