@@ -171,7 +171,7 @@
           <i class="bi bi-menu-button-wide"></i><span>Keanggotaan</span>
         </a>
         <a class="nav-link collapsed" href="{% url 'sirkulasi' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Sirkulasi</span>
+            <i class="bi bi-menu-button-wide"></i><span>Sirkulasi</span>
         </a>
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
@@ -182,14 +182,41 @@
 
     </ul>
   </aside><!-- End Sidebar-->
- 
   <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Profile</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Users</li>
+          <li class="breadcrumb-item active">Profile</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
     <section class="section profile">
       <div class="row">
         <div class="col-xl-4">
+
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+              <img src="{%static 'img/messages-2.jpg' %}" alt="Profile" class="rounded-circle">
+              <h2>Aulia Hamidah</h2>
+              <h3>Pustakawan</h3>
+              <!-- <div class="social-links mt-2">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div> -->
+            </div>
+          </div>
+
         </div>
 
-        <div class="col-xl-10">
+        <div class="col-xl-8">
 
           <div class="card">
             <div class="card-body pt-3">
@@ -197,157 +224,136 @@
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Daftar Exemplar</button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Data Exemplar</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Biodata</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
                 </li>
 
               </ul>
-              <div class="tab-content pt-6">
-                <br>
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <div class="row mb-3">
-                    <label for="Judul" class="col-md-4 col-lg-3 col-form-label">Judul</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="Judul" type="text" class="form-control" id="Judul" >
-                    </div>
+              <div class="tab-content pt-2">
+
+                <div class="tab-pane fade show active profile-overview" id="profile-overview"></div>
+                  <h5 class="card-title">Profile Details</h5>
+                  {% for data in isi %}
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                    <div class="col-lg-9 col-md-8">{{data.nama}}</div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label for="Pengarang" class="col-md-4 col-lg-3 col-form-label">Pengarang</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="Pengarang" type="text" class="form-control" id="Pengarang" >
-                    </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Company</div>
+                    <div class="col-lg-9 col-md-8">{{data.instansi}}</div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label for="Edisi" class="col-md-4 col-lg-3 col-form-label">Kode Exemplar</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="Edisi" type="text" class="form-control" id="Edisi" >
-                    </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Job</div>
+                    <div class="col-lg-9 col-md-8">{{data.pekerjaan}}</div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label for="ids" class="col-md-4 col-lg-3 col-form-label">No Panggil</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="ids" type="text" class="form-control" id="ids" >
-                    </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Country</div>
+                    <div class="col-lg-9 col-md-8">{{data.negara}}</div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label for="ids" class="col-md-4 col-lg-3 col-form-label">Kode Inventaris</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="ids" type="text" class="form-control" id="ids" >
-                    </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Address</div>
+                    <div class="col-lg-9 col-md-8">{{data.alamat}}</div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label for="isbn" class="col-md-4 col-lg-3 col-form-label">Lokasi</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="isbn" type="text" class="form-control" id="isbn" >
-                    </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                    <div class="col-lg-9 col-md-8">{{data.no_hp}}</div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label for="penerbit" class="col-md-4 col-lg-3 col-form-label">Exemplar</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="penerbit" type="text" class="form-control" id="penerbit" >
-                    </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Email</div>
+                    <div class="col-lg-9 col-md-8">{{data.email}}</div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label for="tpenerbit" class="col-md-4 col-lg-3 col-form-label">Kode Pemesanan</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="tpenerbit" type="number" class="form-control" id="tpenerbit" >
-                    </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Password</div>
+                    <div class="col-lg-9 col-md-8">{{data.password}}</div>
                   </div>
-
-                  <div class="row mb-5">
-                    <label for="tterbit" class="col-md-4 col-lg-3 col-form-label">Tanggal Pemesanan</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="tterbit" type="text" class="form-control" id="tterbit" >
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="ds" class="col-md-4 col-lg-3 col-form-label">Tanggal Perimaan</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="ds" type="text" class="form-control" id="ds" >
-                    </div>
-                  </div>
-
-                  
-                <fieldset class="row mb-3">
-                  <legend class="col-form-label col-sm-3 pt-0">Promosikan di Beranda</legend>
-                  <div class="col-sm-5">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                      <label class="form-check-label" for="gridRadios1">
-                        Promosikan
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                      <label class="form-check-label" for="gridRadios2">
-                        Jangan Promosikan
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-
-                <br>
-                <div class="row mb-3">
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Tambahkan</button>
-                    <button type="submit" class="btn btn-primary">Edit</button>
-                  </div>
+                  {% endfor %} 
                 </div>
-              </div>
+
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-              <!-- Profile Tampil Form -->
-              <form>
-                  <table class="table">
-                    <thead>
-                    <tr>
-                      <th scope="col">Kode Exem</th>
-                      <th scope="col">Judul</th>
-                      <th scope="col">Tipe Koleksi</th>
-                      <th scope="col">Lokasi</th>
-                      <th scope="col">NO Panggil</th>
-                      <th scope="col">Tanggal</th>
-                      <th scope="col">Hapus</th>
-                      <th scope="col">Sunting</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>EX00SOS</td>
-                      <td>Sosiologi 
-                        Hadi Susilo.S.Om</td>
-                      <td>Piskologi</td>
-                      <td>Perpus UNU Yogyakarta</td>
-                      <td>UNUY23</td>
-                      <td>05-12-2021</td>
-                      <td>Hapus</td>
-                      <td>Sunting</td>
-                    </tr>
-                  </tbody>  
-                  <tbody>
-                    <tr>
-                      <td>EX00SOS</td>
-                      <td>Sosiologi 
-                        Hadi Susilo.S.Om</td>
-                      <td>Piskologi</td>
-                      <td>Perpus UNU Yogyakarta</td>
-                      <td>UNUY23</td>
-                      <td>05-12-2021</td>
-                      <td>Hapus</td>
-                      <td>Sunting</td>
-                    </tr>
-                  </tbody>                                     
-                </table>
+
+                  <!-- Profile Edit Form -->
+                  <form>
+                    <div class="row mb-3">
+                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                      <div class="col-md-8 col-lg-9">
+                        <img src="{%static 'img/messages-2.jpg' %}" alt="Profile">
+                        <div class="pt-2">
+                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="fullName" type="text" class="form-control" id="fullName" value="Aulia Hamidah">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Pendidikan</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="company" type="text" class="form-control" id="company" value="Sarjana Sastra UGM">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Jabatan</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="job" type="text" class="form-control" id="Job" value="Pustakawan">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="country" type="text" class="form-control" id="Country" value="Indonesia">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="Address" class="col-md-4 col-lg-3 col-form-label">Alamat Domisili</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="address" type="text" class="form-control" id="Address" value="kab.Banyuasin Sumatera Selatan">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="email" type="email" class="form-control" id="Email" value="Aulia32@gmail.com">
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
                   </form><!-- End Profile Edit Form -->
 
                 </div>
@@ -356,7 +362,6 @@
 
                   <!-- Settings Form -->
                   <form>
-
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
                       <div class="col-md-8 col-lg-9">
@@ -411,7 +416,7 @@
                         <input name="newpassword" type="password" class="form-control" id="newPassword">
                       </div>
                     </div>
--
+
                     <div class="row mb-3">
                       <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                       <div class="col-md-8 col-lg-9">
@@ -436,7 +441,7 @@
     </section>
 
   </main><!-- End #main -->
-
+  
   <footer id="footer" class="footer">
     <div class="copyright">
       &copy; Copyright <strong><span>Perpustakaankita </span></strong>. All Rights Reserved

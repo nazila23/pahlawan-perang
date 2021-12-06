@@ -61,3 +61,7 @@ def delete_anggota(request,id):
 
 def exemplar(request):
     return render(request,'exemplar.html')
+def biodata(request):
+    return render(request,'biodata.html')
+def sirkulasi(request):
+    return render(request,'sirkulasi.html')

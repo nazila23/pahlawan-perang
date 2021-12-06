@@ -6,4 +6,6 @@ urlpatterns = [
     path('<id>/delete/', views.delete_anggota),
     path('anggota/', views.anggota, name='anggota'),
     path('exemplar/', views.exemplar, name='exemplar'),
+    path('biodata/', views.biodata, name='biodata'),
+    path('sirkulasi/', views.sirkulasi, name='sirkulasi'),
 ]
