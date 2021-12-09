@@ -171,9 +171,8 @@
           <i class="bi bi-menu-button-wide"></i><span>Keanggotaan</span>
         </a>
         <a class="nav-link collapsed" href="{% url 'sirkulasi' %}">
-            <i class="bi bi-menu-button-wide"></i><span>Sirkulasi</span>
+          <i class="bi bi-menu-button-wide"></i><span>Sirkulasi</span>
         </a>
-        
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>
@@ -194,31 +193,123 @@
 
           <div class="card">
             <div class="card-body pt-3">
+              <h2 class="card-title">Sirkulasi</h2>
+              <h5>Nama Anggota : Aulia Hamidah</h5>
+              <h5>Tanggal      : 04-12-2029</h5>
               <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-transaksi">Mulai Transaksi</button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Peminjaman</button>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Aturan Peminjaman</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Peminjaman saat ini</button>
                 </li>
 
-             </ul>
-                <div class="tab-pane fade profile-transaksi pt-3" id="profile-transaksi">
-                <!-- Profile Tampil Form -->
+              </ul>
+              <div class="tab-content pt-6">
+                <br>
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">ID Anggota</label>
+                    <label for="formGroupExampleInput" class="form-label">Kode Buku</label>
                     <input type="text" class="form-control" id="445555" placeholder="3554">
                   </div>
                   <div>
-
+                    <button  type="button" class="btn btn-primary">Input</button>
                   </div>
-                  <button  type="button" class="btn btn-primary" >
-                    <a href="/transaksi">Mulai Transaksi</a>
-                  </button>
-                </div>     
+                   
+                  <div>
+                    <table class="table">
+                      <thead class="table-danger">
+                        <tr>
+                          <th scope="col">Aksi</th>
+                          <th scope="col">Kode Buku</th>
+                          <th scope="col">Judul Buku</th>
+                          <th scope="col">Tanggal Pinjam</th>
+                          <th scope="col">Tanggal Pengambalian</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><button type="button" class="btn btn-danger">Hapus</button></td>
+                          <td>007</td>
+                          <td>Penembak Jitu</td>
+                          <td>03-12-2021</td>
+                          <td>07-12-2021</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+              <!-- Profile Tampil Form -->
+              <div>
+                <table class="table">
+                  <thead class="table-danger">
+                    <tr>
+                      <th scope="col">Aksi</th>
+                      <th scope="col">Kode Buku</th>
+                      <th scope="col">Judul Buku</th>
+                      <th scope="col">Tanggal Pinjam</th>
+                      <th scope="col">Tanggal Pengambalian</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><button type="button" class="btn btn-danger">Hapus</button></td>
+                      <td>007</td>
+                      <td>Penembak Jitu</td>
+                      <td>03-12-2021</td>
+                      <td>07-12-2021</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+                </div>
+
+                <div class="tab-pane fade pt-3" id="profile-settings">
+
+                  <!-- Settings Form -->
+                  <form>
+
+                    <div class="row mb-3">
+                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
+                      <div class="col-md-8 col-lg-9">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="changesMade" checked>
+                          <label class="form-check-label" for="changesMade">
+                            Changes made to your account
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="newProducts" checked>
+                          <label class="form-check-label" for="newProducts">
+                            Information on new products and services
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="proOffers">
+                          <label class="form-check-label" for="proOffers">
+                            Marketing and promo offers
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
+                          <label class="form-check-label" for="securityNotify">
+                            Security alerts
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                  </form><!-- End settings Form -->
+
+                </div>
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->

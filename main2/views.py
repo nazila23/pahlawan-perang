@@ -14,3 +14,5 @@ def biodata(request):
     return render(request,'biodata.html')
 def sirkulasi(request):
     return render(request,'sirkulasi.html')
+def transaksi(request):
+    return render(request,'transaksi.html')
