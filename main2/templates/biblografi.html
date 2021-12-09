@@ -206,6 +206,8 @@
               <div class="tab-content pt-6">
                 <br>
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
+              <form method="post" action="">
+                    {% csrf_token %}
                   <div class="row mb-3">
                     <label for="Judul" class="col-md-4 col-lg-3 col-form-label">Judul</label>
                     <div class="col-md-8 col-lg-9">
@@ -237,10 +239,10 @@
                   <div class="row mb-3">
                     <label for="ids" class="col-md-4 col-lg-3 col-form-label">Tipe Isi</label>
                     <div class="col-md-8 col-lg-5">
-                      <select id="inputState" class="form-select">
+                      <select id="inputState" name="isi" class="form-select">
                         <option selected>Pilih</option>
-                        <option>aaaa</option>
-                        <option>bbbb</option>
+                        <option>Fiksi</option>
+                        <option>Pendidikan</option>
                       </select>
                     </div>
                   </div>
@@ -248,10 +250,10 @@
                   <div class="row mb-3">
                     <label for="ids" class="col-md-4 col-lg-3 col-form-label">Tipe Media</label>
                     <div class="col-md-8 col-lg-5">
-                      <select id="inputState" class="form-select">
+                      <select id="inputState" name="media" class="form-select">
                         <option selected>Pilih</option>
-                        <option>aaaa</option>
-                        <option>bbbb</option>
+                        <option>Cetak</option>
+                        <option>Online</option>
                       </select>
                     </div>
                   </div>
@@ -270,12 +272,21 @@
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label class="mt-1">Tahun Penerbit</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="number" name="tpenerbit">
+                    </div>
+                  </div>
+
+                  <!-- <div class="row mb-3">
                     <label for="tpenerbit" class="col-md-4 col-lg-3 col-form-label">Tahun Penerbit</label>
                     <div class="col-md-8 col-lg-9">
                       <input name="tpenerbit" type="number" class="form-control" id="tpenerbit" >
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="row mb-3">
                     <label for="tterbit" class="col-md-4 col-lg-3 col-form-label">Tempat terbit</label>
@@ -294,7 +305,7 @@
                   <div class="row mb-3">
                     <label for="klasifikasi" class="col-md-4 col-lg-3 col-form-label">Klasifikasi</label>
                     <div class="col-md-8 col-lg-5">
-                      <select id="inputState" class="form-select">
+                      <select id="inputState" name="klasifikasi" class="form-select">
                         <option selected>Pilih</option>
                         <option>123</option>
                         <option>23432</option>
@@ -302,17 +313,26 @@
                     </div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label for="ds" class="col-md-4 col-lg-3 col-form-label">No Panggil</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="ds" type="text" class="form-control" id="ds" >
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label class="mt-1">No Panggil</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="number" name="np">
                     </div>
                   </div>
+
+                  <!-- <div class="row mb-3">
+                    <label for="np" class="col-md-4 col-lg-3 col-form-label">No Panggil</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="np" type="text" class="form-control" id="ds" >
+                    </div>
+                  </div> -->
 
                   <div class="row mb-3">
                     <label for="bhs" class="col-md-4 col-lg-3 col-form-label">Bahasa</label>
                     <div class="col-md-8 col-lg-5">
-                      <select id="inputState" class="form-select">
+                      <select id="inputState" name="bhs" class="form-select">
                         <option selected>Pilih</option>
                         <option>Bahasa Indonesia</option>
                         <option>English</option>
@@ -321,10 +341,9 @@
                   </div>
 
                   <div class="row mb-3">
-                    <label for="inputNumber" class="col-sm-3 col-form-label">Cover Upload</label>
+                    <label for="img" class="col-sm-3 col-form-label">Cover Upload</label>
                     <div class="col-sm-5">
-                    <input class="form-control" type="file" id="formFile"><br>
-                    <button type="button" class="btn btn-primary">Primary</button>
+                    <input class="form-control" name="cover" type="file" id="formFile"><br>
                     </div>
                 </div>
 
@@ -340,7 +359,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
                       <label class="form-check-label" for="gridRadios2">
-                        Seembunyikan
+                        Sembunyikan
                       </label>
                     </div>
                   </div>
@@ -350,13 +369,13 @@
                   <legend class="col-form-label col-sm-3 pt-0">Promosikan di Beranda</legend>
                   <div class="col-sm-5">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                      <input class="form-check-input" type="radio" name="gridRadioss" id="gridRadios1" value="option1" checked>
                       <label class="form-check-label" for="gridRadios1">
                         Promosikan
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                      <input class="form-check-input" type="radio" name="gridRadioss" id="gridRadios2" value="option2">
                       <label class="form-check-label" for="gridRadios2">
                         Jangan Promosikan
                       </label>
@@ -370,38 +389,42 @@
                     <button type="submit" class="btn btn-primary">Submit Form</button>
                   </div>
                 </div>
+              </form>
               </div>
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+            <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
               <!-- Profile Tampil Form -->
-              <form>
-                  <table class="table">
-                    <thead>
-                    <tr>
-                      <th scope="col">No</th>
-                      <th scope="col">Judul</th>
-                      <th scope="col">Info Detail Spesifik</th>
-                      <th scope="col">Pengarang</th>
-                      <th scope="col">Bahasa</th>
-                      <th scope="col">Cover</th>
-                      <th scope="col">Detail</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Sikap Usaha</td>
-                      <td>L X B 3 X 4</td>
-                      <td>jatmiko</td>
-                      <td>indonesia</td>
-                    </tr>
-                  </tbody>                           
-                </table>
-                  </form><!-- End Profile Edit Form -->
-
-                </div>
+              <table class="table">
+                <thead>
+                <tr>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Judul</th>
+                    <th scope="col">Info Detail Spesifik</th>
+                    <th scope="col">Pengarang</th>
+                    <th scope="col">Bahasa</th>
+                    <th scope="col">Cover</th>
+                    <th scope="col">Detail</th>
+                  </tr>
+                </tr>
+              </thead>  
+              <tbody>
+                     
+                {% for z in data %} 
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td>{{z.judul}}</td>
+                  <td>{{z.info_detail_spesifikasi}}</td>
+                  <td>{{z.pengarang}}</td>
+                  <td>{{z.bahasa}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                {% endfor %}     
+              </tbody>                
+            </table>
+          </div>
 
                 <div class="tab-pane fade pt-3" id="profile-settings">
-
                   <!-- Settings Form -->
                   <form>
 
