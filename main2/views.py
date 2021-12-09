@@ -97,3 +97,6 @@ def sirkulasi(request):
     return render(request,'sirkulasi.html')
 def sidebarpustaka(request):
     return render(request,'sidebarpustaka.html')
+def transaksi(request):
+    return render(request,'transaksi.html')
+

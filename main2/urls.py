@@ -11,4 +11,6 @@ urlpatterns = [
     path('sidebarpustaka/', views.sidebarpustaka, name='sidebarpustaka'),
     path('anggota/<id>/edit_anggota', views.edit_anggota,name='edit_anggota'),
     path('anggota/<id>/detail_anggota', views.detail_anggota,name='detail_anggota'),
+    path('sirkulasi/transaksi/', views.transaksi, name='transaksi'),
+
 ]

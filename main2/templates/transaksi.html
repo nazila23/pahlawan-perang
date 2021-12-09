@@ -1,0 +1,387 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Profil Pustakawan</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{%static 'img/favicon.png'%}" rel="icon">
+  <link href="{%static 'img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{%static 'vendor2/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{%static 'vendor2/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{%static 'vendor2/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{%static 'vendor2/quill/quill.snow.css'%}" rel="stylesheet">
+  <link href="{%static 'vendor2/quill/quill.bubble.css'%}" rel="stylesheet">
+  <link href="{%static 'vendor2/remixicon/remixicon.css'%}" rel="stylesheet">
+  <link href="{%static 'vendor2/simple-datatables/style.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{%static 'css2/style.css'%}" rel="stylesheet">
+
+  <!-- =======================================================-->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- <img src="static/img/logo.png" alt=""> -->
+        <span class="d-none d-lg-block">PERPUSTAKAAN KITA</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <!-- <span class="badge bg-primary badge-number">4</span> -->
+          </a><!-- End Notification Icon -->
+
+        </li><!-- End Notification Nav -->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <!-- <span class="badge bg-success badge-number">3</span> -->
+          </a><!-- End Messages Icon -->
+
+        </li><!-- End Messages Nav -->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="{%static 'img/messages-2.jpg' %}" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Alny Nurafia</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Alny Nurafia</h6>
+              <span>Pustakawan</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="usersprof">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="usersprof">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="bi bi-card-list"></i>
+          <span>Katalog Online</span>
+        </a>
+      </li><!-- End Katalog Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'biodata' %}">
+          <i class="bi bi-menu-button-wide"></i><span>Biodata Diri</span>
+        </a>
+        <a class="nav-link collapsed" href="{% url 'biblografi' %}">
+          <i class="bi bi-menu-button-wide"></i><span>Biblografi</span>
+        </a>
+        <a class="nav-link collapsed" href="% url 'exemplar' %}">
+          <i class="bi bi-menu-button-wide"></i><span>Exemplar</span>
+        </a>
+        <a class="nav-link collapsed" href="{% url 'anggota' %}">
+          <i class="bi bi-menu-button-wide"></i><span>Keanggotaan</span>
+        </a>
+        <a class="nav-link collapsed" href="{% url 'sirkulasi' %}">
+          <i class="bi bi-menu-button-wide"></i><span>Sirkulasi</span>
+        </a>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+
+    </ul>
+  </aside><!-- End Sidebar-->
+ 
+  <main id="main" class="main">
+    <section class="section profile">
+      <div class="row">
+        <div class="col-xl-4">
+        </div>
+
+        <div class="col-xl-10">
+
+          <div class="card">
+            <div class="card-body pt-3">
+              <h2 class="card-title">Sirkulasi</h2>
+              <h5>Nama Anggota : Aulia Hamidah</h5>
+              <h5>Tanggal      : 04-12-2029</h5>
+              <!-- Bordered Tabs -->
+              <ul class="nav nav-tabs nav-tabs-bordered">
+
+                <li class="nav-item">
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Peminjaman</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Peminjaman saat ini</button>
+                </li>
+
+              </ul>
+              <div class="tab-content pt-6">
+                <br>
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Kode Buku</label>
+                    <input type="text" class="form-control" id="445555" placeholder="3554">
+                  </div>
+                  <div>
+                    <button  type="button" class="btn btn-primary">Input</button>
+                  </div>
+                   
+                  <div>
+                    <table class="table">
+                      <thead class="table-danger">
+                        <tr>
+                          <th scope="col">Aksi</th>
+                          <th scope="col">Kode Buku</th>
+                          <th scope="col">Judul Buku</th>
+                          <th scope="col">Tanggal Pinjam</th>
+                          <th scope="col">Tanggal Pengambalian</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><button type="button" class="btn btn-danger">Hapus</button></td>
+                          <td>007</td>
+                          <td>Penembak Jitu</td>
+                          <td>03-12-2021</td>
+                          <td>07-12-2021</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+              <!-- Profile Tampil Form -->
+              <div>
+                <table class="table">
+                  <thead class="table-danger">
+                    <tr>
+                      <th scope="col">Aksi</th>
+                      <th scope="col">Kode Buku</th>
+                      <th scope="col">Judul Buku</th>
+                      <th scope="col">Tanggal Pinjam</th>
+                      <th scope="col">Tanggal Pengambalian</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><button type="button" class="btn btn-danger">Hapus</button></td>
+                      <td>007</td>
+                      <td>Penembak Jitu</td>
+                      <td>03-12-2021</td>
+                      <td>07-12-2021</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+                </div>
+
+                <div class="tab-pane fade pt-3" id="profile-settings">
+
+                  <!-- Settings Form -->
+                  <form>
+
+                    <div class="row mb-3">
+                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
+                      <div class="col-md-8 col-lg-9">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="changesMade" checked>
+                          <label class="form-check-label" for="changesMade">
+                            Changes made to your account
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="newProducts" checked>
+                          <label class="form-check-label" for="newProducts">
+                            Information on new products and services
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="proOffers">
+                          <label class="form-check-label" for="proOffers">
+                            Marketing and promo offers
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
+                          <label class="form-check-label" for="securityNotify">
+                            Security alerts
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                  </form><!-- End settings Form -->
+
+                </div>
+
+                <div class="tab-pane fade pt-3" id="profile-change-password">
+                  <!-- Change Password Form -->
+                  <form>
+
+                    <div class="row mb-3">
+                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="password" type="password" class="form-control" id="currentPassword">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="newpassword" type="password" class="form-control" id="newPassword">
+                      </div>
+                    </div>
+-
+                    <div class="row mb-3">
+                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Change Password</button>
+                    </div>
+                  </form><!-- End Change Password Form -->
+
+                </div>
+
+              </div><!-- End Bordered Tabs -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Perpustakaankita </span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">Sidiq_Jr14</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{%static 'vendor2/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{%static 'vendor2/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{%static 'vendor2/chart.js/chart.min.js' %}"></script>
+  <script src="{%static 'vendor2/echarts/echarts.min.js' %}"></script>
+  <script src="{%static 'vendor2/quill/quill.min.js' %}"></script>
+  <script src="{%static 'vendor2/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{%static 'vendor2/tinymce/tinymce.min.js' %}"></script>
+  <script src="{%static 'vendor2/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{%static 'js2/main.js' %}"></script>
+
+</body>
+
+</html>
