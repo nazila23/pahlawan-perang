@@ -1,212 +1,28 @@
+{% extends "sidebarpustaka.html" %}
+{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Profil Pustakawan</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="{%static 'img/favicon.png'%}" rel="icon">
-  <link href="{%static 'img/apple-touch-icon.png'%}" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{%static 'vendor2/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
-  <link href="{%static 'vendor2/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
-  <link href="{%static 'vendor2/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
-  <link href="{%static 'vendor2/quill/quill.snow.css'%}" rel="stylesheet">
-  <link href="{%static 'vendor2/quill/quill.bubble.css'%}" rel="stylesheet">
-  <link href="{%static 'vendor2/remixicon/remixicon.css'%}" rel="stylesheet">
-  <link href="{%static 'vendor2/simple-datatables/style.css'%}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{%static 'css2/style.css'%}" rel="stylesheet">
-
-  <!-- =======================================================-->
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-</head>
-
-<body>
-
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- <img src="static/img/logo.png" alt=""> -->
-        <span class="d-none d-lg-block">PERPUSTAKAAN KITA</span>
-      </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
-
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
-
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <!-- <span class="badge bg-primary badge-number">4</span> -->
-          </a><!-- End Notification Icon -->
-
-        </li><!-- End Notification Nav -->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <!-- <span class="badge bg-success badge-number">3</span> -->
-          </a><!-- End Messages Icon -->
-
-        </li><!-- End Messages Nav -->
-
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{%static 'img/messages-2.jpg' %}" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Alny Nurafia</span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Alny Nurafia</h6>
-              <span>Pustakawan</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="usersprof">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="usersprof">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
-
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-      </ul>
-    </nav><!-- End Icons Navigation -->
-
-  </header><!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
-          <i class="bi bi-card-list"></i>
-          <span>Katalog Online</span>
-        </a>
-      </li><!-- End Katalog Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="usersprof">
-          <i class="bi bi-menu-button-wide"></i><span>Biodata Diri</span>
-        </a>
-        <a class="nav-link collapsed" href="{% url 'biblografi' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Biblografi</span>
-        </a>
-        <a class="nav-link collapsed" href="{% url 'exemplar' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Exemplar</span>
-        </a>
-        <a class="nav-link collapsed" href="{% url 'anggota' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Keanggotaan</span>
-        </a>
-      
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Logout</span>
-        </a>
-      </li>
-
-    </ul>
-  </aside><!-- End Sidebar-->
- 
-  <main id="main" class="main">
     <section class="section profile">
       <div class="row">
-        <div class="col-xl-4">
-        </div>
-        <form class="col-12" action="" method="POST">
-          {% csrf_token %} 
-            <div class="card">
-              <div class="card-body pt-3">
-              <!-- Bordered Tabs -->
+        <div class="col-xl-12">
+
+          <div class="card">
+            <div class="card-body pt-3">
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" >Tambah Anggota</button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Tambah Anggota</button>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link"  data-bs-target="#profile-edit">Daftar Anggota</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Daftar Anggota</button>
                 </li>
 
               </ul>
               <div class="tab-content pt-6">
-                <br>
-                <form class="col-2" action="" method="POST">
-                  {% csrf_token %} 
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <div class="tab-content pt-6">
+                  <br>
+                  <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <!-- <div class="row mb-3">
                     <label for="id" class="col-md-4 col-lg-3 col-form-label">ID Anggota</label>
                     <div class="col-md-8 col-lg-9">
@@ -214,294 +30,331 @@
                     </div>
                   </div> -->
 
-                  <div class="row mb-3">
-                    <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama Anggota</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="nama" type="text" class="form-control" id="nama" >
+                <form method="post" action="">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Nama</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="text" name="nama">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Tanggal Lahir</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="date" name="tl">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Jenis Kelamin</label>
+                    </div>
+                    <div class="col">
+                      <select class="form-select" name="jenisk" aria-label="Default select example">
+                        <option selected>Pilih</option>
+                        <option value="Perempuan">Perempuan</option>
+                        <option value="Laki-Laki">Laki-Laki</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Anggota_sejak</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="date" name="as">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Tanggal_registrasi</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="date" name="tr">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Berlaku_hingga</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="date" name="bg">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Tipe_anggota</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="text" name="tk">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Pekerjaan</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="text" name="pekerjaan">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Alamat</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="text" name="almt">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Negara</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="text" name="negara">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">No. HP</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="number" name="hp">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Email</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="text" name="email">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Instansi</label>
+                    </div>                    
+                    <div class="col">
+                      <input class="form-control" type="text" name="ins">
                     </div>
                   </div>
 
+                  <br>
                   <div class="row mb-3">
-                    <label for="tl" class="col-md-4 col-lg-3 col-form-label">Tanggal Lahir</label>
-                    <div class="col-md-5 col-lg-5">
-                      <input name="tl" type="date" class="form-control" id="tl" >
+                    <div class="col-sm-12">
+                      <button type="submit" class="btn btn-primary">Submit Form</button>
                     </div>
                   </div>
-
-                  <div class="row mb-3">
-                    <label for="as" class="col-md-4 col-lg-3 col-form-label">Anggota Sejak</label>
-                    <div class="col-md-8 col-lg-5">
-                      <input name="as" type="date" class="form-control" id="as" >
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="tr" class="col-md-4 col-lg-3 col-form-label">Tanggal Registrasi</label>
-                    <div class="col-md-8 col-lg-5">
-                      <input name="tr" type="date" class="form-control" id="tr" >
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="bh" class="col-md-4 col-lg-3 col-form-label">Berlaku Hingga</label>
-                    <div class="col-md-8 col-lg-5">
-                      <input name="bh" type="date" class="form-control" id="bh" >
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="ins" class="col-md-4 col-lg-3 col-form-label">Institusi</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="ins" type="text" class="form-control" id="ins" >
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="tk" class="col-md-4 col-lg-3 col-form-label">Tipe Keanggotaan</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="tk" type="text" class="form-control" id="tk" >
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="jk" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="jk" type="text" class="form-control" id="jk" >
-                    </div>
-                  </div>
-
-                  <!-- <fieldset class="row mb-3">
-                    <legend class="col-form-label col-sm-3 pt-0">Jenis Kelamin</legend>
-                    <div class="col-sm-5">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                        <label class="form-check-label" for="gridRadios1">
-                          Laki-Laki
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                        <label class="form-check-label" for="gridRadios2">
-                          Perempuan
-                        </label>
-                      </div>
-                    </div>
-                  </fieldset> -->
-
-                  <div class="row mb-3">
-                    <label for="almt" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="almt" type="text" class="form-control" id="almt" >
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="email" type="text" class="form-control" id="email" >
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="hp" class="col-md-4 col-lg-3 col-form-label">No.Hp</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="hp" type="number" class="form-control" id="hp" >
-                    </div>
-                  </div>
-                
-                  <div class="row mb-3">
-                    <label for="pekerjaan" class="col-md-4 col-lg-3 col-form-label">Pekerjaan</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="pekerjaan" type="text" class="form-control" id="pekerjaan" >
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="negara" class="col-md-4 col-lg-3 col-form-label">Negara</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="negara" type="text" class="form-control" id="negara" >
-                    </div>
-                  </div>
-                <br>
-                <div class="row mb-3">
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Submit Form</button>
-                  </div>
-                </form>
-                </div>
+                </form>  
               </div>
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-              <!-- Profile Tampil Form -->
-              <form>
-                  <table class="table">
-                    <thead>
-                    <tr>
-                      <th scope="col">No</th>
-                      <th scope="col">Judul</th>
-                      <th scope="col">Info Detail Spesifik</th>
-                      <th scope="col">Pengarang</th>
-                      <th scope="col">Bahasa</th>
-                      <th scope="col">Cover</th>
-                      <th scope="col">Detail</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Sikap Usaha</td>
-                      <td>L X B 3 X 4</td>
-                      <td>jatmiko</td>
-                      <td>indonesia</td>
-                    </tr>
-                  </tbody>                           
-                </table>
-                  </form><!-- End Profile Edit Form -->
-
-                </div>
-
-                <!-- <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-              <form>
-                  <table class="table">
-                    <thead>
-                    <tr>
-                      <th scope="col">No</th>
-                      <th scope="col">Nama</th>
-                      <th scope="col">Anggota Sejak</th>
-                      <th scope="col">Berlaku Hingga</th>
-                      <th scope="col">Instansi</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Detail</th>
-                    </tr>
-                  </thead>  
-                  <tbody>
-                    {% for z in isi %}
-                    <tr>
-                      <td>1</td>
-                      <td>Sikap Usaha</td>
-                      <td>L X B 3 X 4</td>
-                      <td>jatmiko</td>
-                      <td>indonesia</td>
-                    </tr>
-                    <tr>
-                      <td>{{forloop.counter}}</td>
-                      <td>{{z.nama}}</td>
-                      <td>{{z.anggota_sejak}}</td>
-                      <td>{{z.berlaku_hingga}}</td>
-                      <td>{{z.instansi}}</td>
-                      <td>{{z.email}}</td>
-                      <td></td>
-                    </tr>
-                    {% endfor %}   
-                  </tbody>                           
-                </table>
-              </form>
-                  </div> -->
-
-
-                <div class="tab-pane fade pt-3" id="profile-settings">
-                  <!-- Settings Form -->
-                  <form>
-
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="changesMade" checked>
-                          <label class="form-check-label" for="changesMade">
-                            Changes made to your account
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="newProducts" checked>
-                          <label class="form-check-label" for="newProducts">
-                            Information on new products and services
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="proOffers">
-                          <label class="form-check-label" for="proOffers">
-                            Marketing and promo offers
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
-                          <label class="form-check-label" for="securityNotify">
-                            Security alerts
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form><!-- End settings Form -->
-
-                </div>
-
-                <div class="tab-pane fade pt-3" id="profile-change-password">
-                  <!-- Change Password Form -->
-                  <form>
-
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
-                    </div>
-                 <!-- End Change Password Form -->
-
-                </div>
-
-              </div><!-- End Bordered Tabs -->
-          
+                    <table class="table">
+                      <thead>
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Anggota Sejak</th>
+                        <th scope="col">Berlaku Hingga</th>
+                        <th scope="col">Instansi</th>
+                        <th></th>
+                      </tr>
+                    </thead>  
+                    <tbody>
+                           
+                      {% for z in data %} 
+                      <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{z.nama}}</td>
+                        <td>{{z.anggota_sejak}}</td>
+                        <td>{{z.berlaku_hingga}}</td>
+                        <td>{{z.instansi}}</td>
+                        <td>
+                          <a type="button" class="btn btn-success" href="{{z.id}}/delete_anggota">Delete</a>
+                          <a href="#" data-bs-toggle="modal" class="btn btn-success" data-bs-target="#exampledetail">Detail</a>
+                      </td>
+                      </tr>
+                      {% endfor %}     
+                    </tbody>                
+                  </table>
+              </div>   
+            </div>
           </div>
-
         </div>
       </div>
-    </section>
-
-  </main><!-- End #main -->
-
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Perpustakaankita </span></strong>. All Rights Reserved
     </div>
-  </footer><!-- End Footer -->
+  </div>
+  </section>
+  <!-- End #main -->
 
+  <!-- Modal detail -->
+	<div class="modal fade" id="exampledetail" tabindex="-1" aria-labelledby="exampledetailLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div style="
+      text-align: center;
+        color: black;
+        margin-top: 5%;
+      ">
+			  <h5 >Detail</h5>
+			</div>
+			<div class="modal-body">
+            <form method="post" action="">
+              {% for z in data %} 
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Nama</label>
+                </div>:                    
+                <div class="col">
+                  {{z.nama}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Tanggal Lahir</label>
+                </div>:                    
+                <div class="col">
+                  {{z.tanggal_lahir}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Jenis Kelamin</label>
+                </div>:
+                <div class="col">
+                  {{z.jenis_kelamin}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Anggota Sejak</label>
+                </div>:                    
+                <div class="col">
+                  {{z.anggota_sejak}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Tanggal Registrasi</label>
+                </div>:                    
+                <div class="col">
+                  {{z.tanggal_registrasi}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Berlaku Hingga</label>
+                </div>:                
+                <div class="col">
+                  {{z.berlaku_hingga}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Tipe Anggota</label>
+                </div>:                    
+                <div class="col">
+                  {{z.tipe_anggota}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Pekerjaan</label>
+                </div>:                    
+                <div class="col">
+                  {{z.pekerjaan}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Alamat</label>
+                </div>:                    
+                <div class="col">
+                  {{z.alamat}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Negara</label>
+                </div>:                    
+                <div class="col">
+                  {{z.negara}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">No. HP</label>
+                </div>:                    
+                <div class="col">
+                  {{z.no_hp}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Email</label>
+                </div>:                    
+                <div class="col">
+                  {{z.email}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="mt-1">Instansi</label>
+                </div>:                    
+                <div class="col">
+                  {{z.instansi}}
+                </div>
+              </div>
+              {% endfor %}  
+              <br>
+              <div class="row mb-3">
+                <div class="col-sm-12">
+                  <!-- <a href="#" data-bs-toggle="modal" class="btn btn-success" data-bs-target="#exampleedit">Edit</a> -->
+                  <a type="button" data-bs-toggle="modal" data-bs-target="#exampleedit" class="btn btn-success" href="{{z.id}}/delete_anggota">Edit</a>
+                </div>
+              </div>
+            </form>  
+         </div>
+				</div>
+			</div>
+		</div>
+     <!-- Modal Edit -->
+	<div class="modal fade" id="exampleedit" tabindex="-1" aria-labelledby="exampleeditLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div style="
+      text-align: center;
+        color: black;
+        margin-top: 5%;
+      ">
+			  <h5 >Form Edit</h5>
+			</div>
+        <div class= "form">
+          {% for d in data %}
+          <form class="col-8" method="POST" action="/main2/anggota/{{d.id}}/edit_anggota/">
+                {% csrf_token %} 
+                <br>
+                <input type="text" class="form-control" name="nama" value="{{d.nama}}" class = "form-control">
+                <input type="date" class="form-control" name="tanggal_lahir"value="{{d.tanggal_lahir}}" class = "form-control">
+                <input type="text" class="form-control" name="jenis_kelamin" value="{{d.jenis_kelamin}}" class = "form-control">
+                <input type="date" class="form-control" name="anggota_sejak"value="{{d.anggota_sejak}}" class = "form-control">
+                <input type="date" class="form-control" name="tanggal_registrasi"value="{{d.tanggal_registrasi}}" class = "form-control">
+                <input type="date" class="form-control" name="berlaku_hingga"value="{{d.berlaku_hingga}}" class = "form-control">
+                <input type="text" class="form-control" name="tipe_anggota"value="{{d.tipe_anggota}}" class = "form-control">
+                <input type="text" class="form-control" name="pekerjaan"value="{{d.pekerjaan}}" class = "form-control">
+                <input type="text" class="form-control" name="alamat"value="{{d.alamat}}" class = "form-control">
+                <input type="text" class="form-control" name="negara"value="{{d.negara}}" class = "form-control">
+                <input type="number" class="form-control" name="no_hp"value="{{d.no_hp}}" class = "form-control">
+                <input type="text" class="form-control" name="email"value="{{d.email}}" class = "form-control">
+                <input type="text" class="form-control" name="instansi"value="{{d.instansi}}" class = "form-control">
+                <br>
+                <button type="submit" class="btn btn-success">Simpan</button>
+              </form>
+              {% endfor %}
+            </div>
+			</div>
+		</div>
+	</div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="{%static 'vendor2/apexcharts/apexcharts.min.js' %}"></script>
-  <script src="{%static 'vendor2/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{%static 'vendor2/chart.js/chart.min.js' %}"></script>
-  <script src="{%static 'vendor2/echarts/echarts.min.js' %}"></script>
-  <script src="{%static 'vendor2/quill/quill.min.js' %}"></script>
-  <script src="{%static 'vendor2/simple-datatables/simple-datatables.js' %}"></script>
-  <script src="{%static 'vendor2/tinymce/tinymce.min.js' %}"></script>
-  <script src="{%static 'vendor2/php-email-form/validate.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{%static 'js2/main.js' %}"></script>
-
-</body>
-
-</html>
+{% endblock %}

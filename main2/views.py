@@ -32,13 +32,13 @@ def biblografi(request):
     return render(request,'biblografi.html',{
         'data': data,
     })
-
+# Fungsi Anggota
 def anggota(request):
     if request.POST:
         models.anggota.objects.create(
             nama = request.POST ['nama'],
             tanggal_lahir = request.POST ['tl'],
-            anggota_sejak = request.POST ['as'],
+            # anggota_sejak = request.POST ['as'],
             tanggal_registrasi = request.POST ['tr'],
             berlaku_hingga = request.POST ['bg'],
             tipe_anggota = request.POST ['tk'],
@@ -59,9 +59,41 @@ def delete_anggota(request,id):
     models.anggota.objects.filter(pk=id).delete()
     return redirect ('anggota')
 
+
+def edit_anggota(request,id):
+    if request.POST:
+        models.anggota.objects.filter(id=id).update(
+            nama = request.POST ['nama'],
+            tanggal_lahir = request.POST ['tanggal_lahir'],
+            # anggota_sejak = request.POST ['anggota_sejak'],
+            tanggal_registrasi = request.POST ['tanggal_registrasi'],
+            berlaku_hingga = request.POST ['berlaku_hingga'],
+            tipe_anggota = request.POST ['tipe_anggota'],
+            pekerjaan = request.POST ['pekerjaan'],
+            alamat = request.POST ['alamat'],
+            negara = request.POST ['negara'],
+            no_hp = request.POST['no_hp'],
+            email = request.POST ['email'],
+            instansi = request.POST ['instansi'],
+            jenis_kelamin = request.POST ['jenis_kelamin'],
+        )
+        return redirect('anggota')
+    data = models.anggota.objects.filter(pk=id).first()
+    print(data)
+    return render (request, 'edit_anggota.html',{
+        'data':data,
+    })
+
+def detail_anggota(request,id):
+    detail = models.anggota.objects.filter(pk=id).first()
+    return render (request,'detail_anggota.html', {
+        'data': detail,
+    })
 def exemplar(request):
     return render(request,'exemplar.html')
 def biodata(request):
     return render(request,'biodata.html')
 def sirkulasi(request):
     return render(request,'sirkulasi.html')
+def sidebarpustaka(request):
+    return render(request,'sidebarpustaka.html')

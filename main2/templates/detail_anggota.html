@@ -1,0 +1,125 @@
+{% extends "sidebarpustaka.html" %}
+{% block content %}
+{% load static %}
+ <!-- Modal detail -->
+ <div class="tab-content pt-2">
+       <div style="text-align: center;color: black;margin-top: 5%;">
+          <h5 >Form Detail</h5>
+        </div>
+        <div class="modal-body">
+    <form method="post" action="">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Nama</label>
+            </div>:                    
+            <div class="col">
+              {{data.nama}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tanggal Lahir</label>
+            </div>:                    
+            <div class="col">
+              {{data.tanggal_lahir}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Jenis Kelamin</label>
+            </div>:
+            <div class="col">
+              {{data.jenis_kelamin}}
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Anggota Sejak</label>
+            </div>:                    
+            <div class="col">
+              {{data.anggota_sejak}}
+            </div>
+          </div> -->
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tanggal Registrasi</label>
+            </div>:                    
+            <div class="col">
+              {{data.tanggal_registrasi}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Berlaku Hingga</label>
+            </div>:                
+            <div class="col">
+              {{data.berlaku_hingga}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tipe Anggota</label>
+            </div>:                    
+            <div class="col">
+              {{data.tipe_anggota}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Pekerjaan</label>
+            </div>:                    
+            <div class="col">
+              {{data.pekerjaan}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Alamat</label>
+            </div>:                    
+            <div class="col">
+              {{data.alamat}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Negara</label>
+            </div>:                    
+            <div class="col">
+              {{data.negara}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">No. HP</label>
+            </div>:                    
+            <div class="col">
+              {{data.no_hp}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Email</label>
+            </div>:                    
+            <div class="col">
+              {{data.email}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Instansi</label>
+            </div>:                    
+            <div class="col">
+              {{data.instansi}}
+            </div>
+          </div>
+          <br>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+                <a type="submit" class="btn btn-success" href="{% url 'anggota' %}">Kembali</a>
+            </div>
+          </div> 
+        </form>  
+     </div>
+     </div>
+{% endblock %}

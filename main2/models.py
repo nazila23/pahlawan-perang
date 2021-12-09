@@ -10,8 +10,8 @@ class anggota(models.Model):
 
     nama = models.TextField(max_length=200)
     tanggal_lahir =models.CharField(max_length=200)
-    anggota_sejak =models.CharField(max_length=200)
-    tanggal_registrasi =models.CharField(max_length=200)
+    # anggota_sejak =models.CharField(max_length=200)
+    tanggal_registrasi = models.DateField(auto_now_add=True)
     berlaku_hingga =models.CharField(max_length=200)
     tipe_anggota =models.TextField(max_length=200)
     pekerjaan =models.TextField(max_length=200)
