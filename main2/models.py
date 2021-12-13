@@ -33,8 +33,13 @@ class buku(models.Model):
         ('online', 'online'),
     ]
 
-    opac = [
+    opac = [ 
         ('tampil','tampil'),
+        ('sembunyi','sembunyi'),
+    ]
+
+    beranda = [
+         ('tampil','tampil'),
         ('sembunyi','sembunyi'),
     ]
     judul = models.CharField(max_length=200)
@@ -42,7 +47,7 @@ class buku(models.Model):
     edisi = models.CharField(max_length=200)
     info_detail_spesifikasi = models.CharField(max_length=200)
     tipe_isi = models.CharField(choices=isi, max_length=200)
-    tipe_media = models.CharField(choices = media, max_length=200)
+    tipe_media = models.CharField(choices=media, max_length=200)
     isbn = models.CharField(max_length=200)
     penerbit = models.CharField(max_length=200)
     tahun_terbit = models.IntegerField()
@@ -51,6 +56,6 @@ class buku(models.Model):
     klasifikasi = models.CharField(max_length=200)
     no_panggil = models.IntegerField()
     bahasa = models.CharField(max_length=200)
-    cover = models.ImageField(upload_to='cars')
-    opac = models.TextField(choices=opac)
-    beranda = models.TextField(max_length=200)
+    cover = models.ImageField (upload_to = "images/", null=True, blank=True)
+    opac =models.CharField(choices=opac, max_length=200)
+    beranda = models.CharField(choices=beranda, max_length=200)

@@ -1,0 +1,189 @@
+{% extends "sidebarpustaka.html" %}
+{% block content %}
+{% load static %}
+     <!-- Profile Edit Form -->
+<div style="text-align: center;color: black;margin-top: 5%;">
+	    <h5 >Form Edit Koleksi</h5>
+</div>
+<form class="col-12" method="POST">
+         {% csrf_token %} 
+         <br>
+         <div class="row mb-3">
+            <label for="Judul" class="col-md-4 col-lg-3 col-form-label">Judul</label>
+            <div class="col-md-8 col-lg-9">
+                <input type="text" class="form-control" name="judul" value="{{data.judul}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="Pengarang" class="col-md-4 col-lg-3 col-form-label">Pengarang</label>
+            <div class="col-md-8 col-lg-9">
+              <input type="text" class="form-control" name="pengarang" value="{{data.pengarang}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="Edisi" class="col-md-4 col-lg-3 col-form-label">Edisi</label>
+            <div class="col-md-8 col-lg-9">
+              <input type="text" class="form-control" name="edisi" value="{{data.edisi}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="ids" class="col-md-4 col-lg-3 col-form-label">Info Detail Spesifik</label>
+            <div class="col-md-8 col-lg-9">
+              <input type="text" class="form-control" name="info_detail_spesifikasi" value="{{data.info_detail_spesifikasi}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="ids" class="col-md-4 col-lg-3 col-form-label">Tipe Isi</label>
+            <div class="col-md-8 col-lg-5">
+                <select class="form-select" name="tipe_isi" value="{{data.tipe_isi}}"aria-label="Default select example">
+                <option selected>Pilih</option>
+                <option>Fiksi</option>
+                <option>Pendidikan</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="ids" class="col-md-4 col-lg-3 col-form-label">Tipe Media</label>
+            <div class="col-md-8 col-lg-5">
+                <select class="form-select" name="tipe_media" value="{{data.tipe_media}}"aria-label="Default select example">
+                <option selected>Pilih</option>
+                <option>Cetak</option>
+                <option>Online</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="isbn" class="col-md-4 col-lg-3 col-form-label">ISBN/ISSN</label>
+            <div class="col-md-8 col-lg-9">
+              <input type="text" class="form-control" name="isbn" value="{{data.isbn}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="penerbit" class="col-md-4 col-lg-3 col-form-label">Penerbit</label>
+            <div class="col-md-8 col-lg-9">
+              <input type="text" class="form-control" name="penerbit" value="{{data.penerbit}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <label class="mt-1">Tahun Penerbit</label>
+            </div>                    
+            <div class="col">
+              <input type="number" class="form-control" name="tahun_terbit" value="{{data.tahun_terbit}}" class = "form-control">
+            </div>
+          </div>
+          <br>
+          <!-- <div class="row mb-3">
+            <label for="tpenerbit" class="col-md-4 col-lg-3 col-form-label">Tahun Penerbit</label>
+            <div class="col-md-8 col-lg-9">
+              <input name="tpenerbit" type="number" class="form-control" id="tpenerbit" >
+            </div>
+          </div> -->
+
+          <div class="row mb-3">
+            <label for="tterbit" class="col-md-4 col-lg-3 col-form-label">Tempat terbit</label>
+            <div class="col-md-8 col-lg-9">
+              <input type="text" class="form-control" name="tempat_terbit" value="{{data.tempat_terbit}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="ds" class="col-md-4 col-lg-3 col-form-label">Diskripsi  Fisik</label>
+            <div class="col-md-8 col-lg-9">
+              <input type="text" class="form-control" name="diskripsi_fisik" value="{{data.diskripsi_fisik}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="klasifikasi" class="col-md-4 col-lg-3 col-form-label">Klasifikasi</label>
+            <div class="col-md-8 col-lg-5">
+              <select class="form-select" name="klasifikasi" value="{{data.klasifikasi}}"aria-label="Default select example">
+                <option selected>Pilih</option>
+                <option>123</option>
+                <option>23432</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <label class="mt-1">No Panggil</label>
+            </div>                    
+            <div class="col">
+              <input type="text" class="form-control" name="no_panggil" value="{{data.no_panggil}}" class = "form-control">
+            </div>
+          </div>
+          <br>
+
+          <!-- <div class="row mb-3">
+            <label for="np" class="col-md-4 col-lg-3 col-form-label">No Panggil</label>
+            <div class="col-md-8 col-lg-9">
+              <input name="np" type="text" class="form-control" id="ds" >
+            </div>
+          </div> -->
+
+          <div class="row mb-3">
+            <label for="bhs" class="col-md-4 col-lg-3 col-form-label">Bahasa</label>
+            <div class="col-md-8 col-lg-5">
+              <select class="form-select" name="bahasa" value="{{data.bahasa}}"aria-label="Default select example">
+                <option selected>Pilih</option>
+                <option>Bahasa Indonesia</option>
+                <option>English</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="img" class="col-sm-3 col-form-label">Cover Upload</label>
+            <div class="col-sm-5">
+            <input class="form-control" name="cover" type="file" id="formFile"><br>
+            </div>
+        </div>
+
+        <fieldset class="row mb-3">
+          <legend class="col-form-label col-sm-3 pt-0">Sembunyikan Diopac</legend>
+          <div class="col-sm-5">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="opac" id="gridRadios1" value="{{data.opac}}" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Tampilkan
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="opac" id="gridRadios2" value="{{data.opac}}">
+              <label class="form-check-label" for="gridRadios2">
+                Sembunyikan
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="row mb-3">
+          <legend class="col-form-label col-sm-3 pt-0">Promosikan di Beranda</legend>
+          <div class="col-sm-5">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="beranda" id="gridRadios1" value="{{data.beranda}}" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Promosikan
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="beranda" id="gridRadios2" value="{{data.beranda}}">
+              <label class="form-check-label" for="gridRadios2">
+                Jangan Promosikan
+              </label>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-success">Simpan</button>
+      </form><!-- End Profile Edit Form -->
+    
+{% endblock %}
