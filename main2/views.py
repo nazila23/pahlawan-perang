@@ -149,4 +149,6 @@ def sidebarpustaka(request):
     return render(request,'sidebarpustaka.html')
 def transaksi(request):
     return render(request,'transaksi.html')
+def login(request):
+    return render(request,'login.html')
 

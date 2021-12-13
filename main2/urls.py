@@ -14,6 +14,4 @@ urlpatterns = [
     path('biodata/', views.biodata, name='biodata'),
     path('sirkulasi/', views.sirkulasi, name='sirkulasi'),
     path('sidebarpustaka/', views.sidebarpustaka, name='sidebarpustaka'),
-    path('sirkulasi/transaksi/', views.transaksi, name='transaksi'),
-
 ]
