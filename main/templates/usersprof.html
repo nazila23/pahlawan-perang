@@ -152,7 +152,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="{% url 'katalog' %}">
           <i class="bi bi-card-list"></i>
           <span>Katalog Online</span>
         </a>
@@ -172,7 +172,7 @@
         <!-- End usulan Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed"  href="#">
+        <a class="nav-link collapsed"  href="{% url 'history-peminjaman' %}">
           <i class="bi bi-bar-chart"></i><span>History Peminjaman</span>
         </a>
         <!-- End history Nav -->
@@ -272,9 +272,9 @@
               </ul>
               <div class="tab-content pt-2">
 
-                <div class="tab-pane fade show active profile-overview" id="profile-overview"></div>
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                {% for data in data  %}
                   <h5 class="card-title">Profile Details</h5>
-                  {% for data in isi %}
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
                     <div class="col-lg-9 col-md-8">{{data.nama}}</div>
@@ -314,9 +314,8 @@
                     <div class="col-lg-3 col-md-4 label">Password</div>
                     <div class="col-lg-9 col-md-8">{{data.password}}</div>
                   </div>
-                  {% endfor %} 
                 </div>
-
+                {% endfor %} 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
@@ -335,49 +334,49 @@
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="Aulia Hamidah">
+                        <input name="nama" type="text" class="form-control" id="fullName" value="{{data.nama}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="company" type="text" class="form-control" id="company" value="Indonesia">
+                        <input name="instansi" type="text" class="form-control" id="company" value="{{data.instansi}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="Mahasiswa">
+                        <input name="pekerjaan" type="text" class="form-control" id="Job" value="{{data.pekerjaan}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="country" type="text" class="form-control" id="Country" value="Indonesia">
+                        <input name="negara" type="text" class="form-control" id="Country" value="{{data.negara}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="address" type="text" class="form-control" id="Address" value="kab.Banyuasin Sumatera Selatan">
+                        <input name="alamat" type="text" class="form-control" id="Address" value="{{data.alamat}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                        <input name="no_hp" type="text" class="form-control" id="Phone" value="{{data.no_hp}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="Aulia32@gmail.com">
+                        <input name="email" type="email" class="form-control" id="Email" value="{{data.email}}">
                       </div>
                     </div>
 

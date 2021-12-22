@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields import CharField, EmailField, IntegerField
+from main2.models import anggota
 # Create your models here.
 # class buku(models.Model):
 #     judul = models.TextField(max_length=200)
@@ -15,6 +16,7 @@ from django.db.models.fields import CharField, EmailField, IntegerField
 #     Subyek = models.TextField(max_length=200)
 #     bahasa = models.TextField(max_length=200)
 #     gambar_sampul = models.TextField(max_length=200)
+
     
 
     

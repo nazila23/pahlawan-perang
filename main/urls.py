@@ -12,4 +12,9 @@ urlpatterns = [
     path('upload/', views.upload, name='upload-karya'),
     path('order/', views.order, name='order-buku'),
     path('bebas/', views.bebas, name='bebas-pustaka'),
+    path('history/', views.history, name='history-peminjaman'),
+    path('katalog/', views.katalog, name='katalog'),
+    path('home/', views.home, name='home'),
+     path('detail/', views.detail, name='detail'),
+    path('detail1/', views.detail1, name='detail1'),
 ]

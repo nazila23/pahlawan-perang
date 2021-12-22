@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -90,6 +91,7 @@
             width: 100%;
             background-color: #01579B;
             margin-top: 30px;
+            /* position: fixed; */
         }
 
           .about{
@@ -171,6 +173,7 @@
               float: left;
               width: 75%;
               height: 500px;
+              overflow: scroll;
               
               margin-top: 20px;
               margin-left: 20px;
@@ -231,6 +234,37 @@
         <img src="https://cdn.pixabay.com/photo/2016/11/14/22/18/beach-1824855_960_720.jpg" alt="">
     </div>
     <div class="sidebar">
+      <section class="section">
+        <div class = "row">
+          <div class="col-lg-14">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+
+                <!-- List group with Links and buttons -->
+                <div class="list-group">
+                  <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                    KAKTEGORI SUBYEK
+                  </button>
+                  <button type="button" class="list-group-item list-group-item-action">Informatika Ilmu Sosial</button>
+                  <button type="button" class="list-group-item list-group-item-action">Ilmu Sosial</button>
+                  <button type="button" class="list-group-item list-group-item-action">Ilmu Agama</button>
+                  <button type="button" class="list-group-item list-group-item-action">Informatika Ilmu Sosial</button>
+                  <button type="button" class="list-group-item list-group-item-action">Ilmu Sosial</button>
+                  <button type="button" class="list-group-item list-group-item-action">Ilmu Agama</button>
+                  <button type="button" class="list-group-item list-group-item-action">Informatika Ilmu Sosial</button>
+                  <button type="button" class="list-group-item list-group-item-action">Ilmu Sosial</button>
+                  <button type="button" class="list-group-item list-group-item-action">Ilmu Agama</button>
+                  
+                  
+                  
+                </div><!-- End List group with Links and buttons -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
        
     </div>
     
@@ -243,22 +277,306 @@
             <li><a href="" class="cek">LAPORAN STUDY</a></li>
             <li><a href="" class="cek">PENELITIAN</a></li>
             <li><a href="" class="cek">MEDIA CETAK</a></li>
-        </ul>
+          </ul>
         </div>
         <div class="koleksi">
           <h5>PENCARIAN KOLEKSI BUKU</h5>
         </div>
-        <div class="pencarian">
+        <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand">Kelas Pencarian >></a>
+            <form action="">
+            <!-- <div class="row mb-5">
+              <label for="ids" class="col-md-5 col-lg-4 col-form-label">Semua Kolom</label>
+              <div class="col-md-8 col-lg-5">
+                <select id="inputState" name="isi" class="form-select">
+                  <option selected>1</option>
+                  <option>Fiksi</option>
+                  <option>Pendidikan</option>
+                </select>
+              </div>
+            </div> -->
+            </form>
 
-        </div>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Cari</button>
+            </form>
+
+            
+          </div>
+
+          
+        </nav>
         <div class="text">
           <p> Untuk melakukan proses pencarian silahkan memasukkan
             kata kunci pada kotak yang telah disediakan dan kemudian tekan tombol "Cari".
             Untuk mendapatkan hasil pencarian yang akurat maka gunakan kata kunci yang
             relevan dengan informasi yang hendak dicari.</p>
-            <img src="templates\kol.png" alt="">
+            <img src="/static/img/kol.PNG" alt="">
         </div>
-       
+      <div class="row">
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Bisa Karena Biasa</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Bisa Karena Biasa </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Selengkapnya</a>
+            </div>
+          </div> 
+        </div> 
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div> 
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div> 
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div> 
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div> 
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div> 
+        <div>
+          <img src="/static/img/koll.PNG" alt="">
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Bisa Karena Biasa</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Bisa Karena Biasa </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Selengkapnya</a>
+            </div>
+          </div> 
+        </div>
+        
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div>
+        
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div> 
+
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div> 
+
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div> 
+
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <img src="/static/img/card.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Programer Web Dasar</h5>
+              <p class="card-text">Abdillah AG</p>
+            </div>
+          </div><!-- End Card with an image overlay -->
+
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Programen Dasar Web </h6>
+              <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+              <p class="card-text"><a href="#" class="btn btn-primary">Detail</a></p>
+              <a href="#" class="card-link">Keterangan</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> 
+        </div> 
+      </div>
      </div>
      
     <div class="footer">

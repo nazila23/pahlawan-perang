@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Usulan Koleksi</title>
+  <title>Profil User</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -76,10 +76,13 @@
         </li><!-- End Notification Nav -->
 
         <li class="nav-item dropdown">
+
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
             <!-- <span class="badge bg-success badge-number">3</span> -->
           </a><!-- End Messages Icon -->
+
+         
         </li><!-- End Messages Nav -->
 
         <li class="nav-item dropdown pe-3">
@@ -99,7 +102,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="usersprof">
+              <a class="dropdown-item d-flex align-items-center" href="/usersprof/">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -129,7 +132,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="index.html">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -212,69 +215,126 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Usulan Koleksi</h1>
+      <h1>Daftar Buku Yang Di Pinjam</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Usulan Koleksi</li>
+          <li class="breadcrumb-item active">History</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
-    <div class="col-lg-12">
 
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Silahkan Usul Buku yang anda butuhkan</h3>
-          <!-- Vertical Form -->
-          <form class="row g-3">
-            <div class="col-12">
-              <label for="inputNanme4" class="form-label">Your Name</label>
-              <input type="text" class="form-control" id="inputNanme4">
+    <section class="section profile">
+      <div class="row">
+        <div class="col-xl-12">
+        </div>
+
+        <div class="col-xl-12">
+
+          <div class="card">
+            <div class="card-body pt-3">
+              <!-- Bordered Tabs -->
+              <ul class="nav nav-tabs nav-tabs-bordered">
+
+                <li class="nav-item">
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">History Buku Yang Dipinjam</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Buku Yang Sedang Dipinjam</button>
+                </li>
+
+              </ul>
+              <div class="tab-content pt-2">
+              <div class="tab-pane fade profile-edit pt-3" id="profile-overview">
+
+                <!-- Profile Edit Form -->
+                <form>            
+                  <div class="card mb-3">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="{% static '/img/book1.jpg' %}" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Buku Dasar-Dasar Informatika</h5>
+                          <p class="card-text">Pengarang Rizal-Hidzh</p>
+                          <p class="card-text">Tgl-05-08-2021</p>
+                          <p class="card-text">Lokasi Perpus UNU Yogyakarta</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card mb-3">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="{% static '/img/book2.jpg' %}" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Buku Sejarah Dunia</h5>
+                          <p class="card-text">Pengarang Ilzam Cawil</p>
+                          <p class="card-text">Tgl-07-08-2021</p>
+                          <p class="card-text">Lokasi Graha Pustaka</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nama Buku</th>
+                      <th scope="col">Nama Perpustakaan</th>
+                      <th scope="col">Jumlah</th>
+                      <th scope="col">TGL Pinjam</th>
+                      <th scope="col">Tgl Pengambalian</th>
+                      <th scope="col">Status</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Buku Dasar Informatika</th>
+                      <td>UNU Yogyakarta</td>
+                      <td>1 Buah</td>
+                      <td>05-08-2021</td>
+                      <td>08-08-2021</td>
+                      <td>Sedang Berlangsung</td>
+                    </tr>
+                      <th scope="row">Buku Sejarah Dunia</th>
+                      <td>Graha Pustaka</td>
+                      <td>2 Buah</td>
+                      <td>05-08-2021</td>
+                      <td>08-08-2021</td>
+                      <td>Denda 2 Hari</td>
+                    
+                  </tbody>
+                </table>
+                
+               
+
+                
+              </div>
             </div>
-            <div class="col-12">
-              <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4">
             </div>
-            <div class="col-12">
-              <label for="inputJudul4" class="form-label">Judul</label>
-              <input type="text" class="form-control" id="inputJudul">
-            </div>
-            <div class="col-12">
-              <label for="inputPengarang" class="form-label">Pengarang</label>
-              <input type="text" class="form-control" id="inputPengarang">
-            </div>
-            <div class="col-12">
-              <label for="inputTahun Terbit" class="form-label">Tahun Terbit</label>
-              <input type="text" class="form-control" id="inputTahun Terbit">
-            </div>
-            <div class="col-12">
-              <label for="inputPenerbit" class="form-label">Penerbit</label>
-              <input type="text" class="form-control" id="inputPenerbit">
-            </div>
-            <div class="col-12">
-              <label for="inputISBN" class="form-label">ISBN</label>
-              <input type="text" class="form-control" id="inputISBN">
-            </div>
-            <div class="col-12">
-              <label for="inputHarga" class="form-label">Harga</label>
-              <input type="number" class="form-control" id="inputHarga">
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <button type="reset" class="btn btn-secondary">Reset</button>
-            </div>
-          </form><!-- Vertical Form -->
+          </div>
+
         </div>
       </div>
-  </main><!-- End #main -->
+    </section>
 
+  </main><!-- End #main -->
 
   <footer id="footer" class="footer">
     <div class="copyright">
       &copy; Copyright <strong><span>Perpustakaankita </span></strong>. All Rights Reserved
     </div>
-   
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
