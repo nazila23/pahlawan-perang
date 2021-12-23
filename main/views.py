@@ -78,8 +78,44 @@ def usersprof(request):
     return render(request,'usersprof.html', {
         'data': user,
     })
+
 def usulan(request):
-    return render(request,'usulan.html')
+    if request.POST:
+        models.usulan.objects.create(
+            nama = request.POST ['nama'],
+            email = request.POST ['email'],
+            judul= request.POST ['judul'],
+            pengarang = request.POST ['pengarang'],
+            tahun_terbit = request.POST ['tahun_terbit'],
+            penerbit = request.POST ['penerbit'],
+            isbn = request.POST ['isbn'],
+            harga = request.POST ['harga'],
+        )
+    data=models.usulan.objects.all()
+    return render(request,'usulan.html',{
+        'data': data,
+    })
+
+def edit_usulan(request, id):
+    if request.POST:
+        models.usulan.objects.filter(id=id).update(
+            nama = request.POST ['nama'],
+            email = request.POST ['email'],
+            judul= request.POST ['judul'],
+            pengarang = request.POST ['pengarang'],
+            tahun_terbit = request.POST ['tahun_terbit'],
+            penerbit = request.POST ['penerbit'],
+            isbn = request.POST ['isbn'],
+            harga = request.POST ['harga'],
+        )
+        return redirect('usulan')
+    data=models.usulan.objects.filter(pk=id).first()
+    print (data)
+    return render(request,'edit_usulan.html',{
+        'data': data,
+    })
+# def usulan(request):
+#     return render(request,'usulan.html')
 def upload(request):
     return render(request,'upload-karya.html')
 def order(request):
@@ -96,3 +132,5 @@ def detail1(request):
     return render(request,'detail1.html')
 def detail(request):
     return render(request,'detail.html')
+def sidebarpustaka(request):
+    return render(request,'sidebarpustaka.html')
