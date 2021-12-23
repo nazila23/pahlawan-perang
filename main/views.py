@@ -48,6 +48,43 @@ def register(request):
         'form':form,
     })
 
+# def login(request):
+    
+#     if request.POST:
+#         username = request.POST['username']
+#         password = request.POST['password']
+
+#         query = "select * from manajemen.user a where a.user_name='{0}' and a.user_password='{1}'"
+
+#         cursor.execute(query.format(username, password))
+#         data = cursor.fetchone()
+
+#         if data is not None:
+
+#             request.session['user_id'] = data[0]
+#             request.session['user_role'] = data[7]
+
+#             if data[7] == 1:
+#                 return redirect('main/')
+#             elif data[7] == 2:
+#                 return redirect('main2/')
+#             elif data[7] == 3:
+#                 return redirect('main3/')
+#             # elif data[7] == 4:
+#             #     return redirect('tendik/')
+#             # elif data[7] == 5:
+#             #     return redirect('dekan/')
+        
+
+        
+#     return render(request, 'login.html',{
+#     })
+
+# def logout(request):
+#     del request.session['user_id']
+#     del request.session['user_role']
+
+#     return redirect('/')
 
 def order(request):
     return render(request,'order.html')

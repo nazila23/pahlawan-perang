@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'main',
     'main2',
     'main3',
+    # 'management',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'perpus',
         'USER': 'postgres',
-        'PASSWORD': 'unuyogya18',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -114,6 +115,8 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
+DATE_INPUT_FORMATS = ('YYYY-MM-DD')
+
 USE_I18N = True
 
 USE_L10N = True
@@ -133,6 +136,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
 ]
+
+MEDIA_URL = '/images/'
+
+# MEDIA_ROOT = Path.join(BASE_DIR, 'static/images')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -1,0 +1,165 @@
+{% extends "sidebarpustaka.html" %}
+{% block content %}
+{% load static %}
+ <!-- Modal detail -->
+ <div class="tab-content pt-2">
+       <div style="text-align: center;color: black;margin-top: 5%;">
+          <h5 >Form Detail</h5>
+        </div>
+        <div class="modal-body">
+    <form method="post" action="">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Judul</label>
+            </div>:                    
+            <div class="col">
+              {{data.judul}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Pengarang</label>
+            </div>:                    
+            <div class="col">
+              {{data.pengarang}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Edisi</label>
+            </div>:
+            <div class="col">
+              {{data.edisi}}
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Anggota Sejak</label>
+            </div>:                    
+            <div class="col">
+              {{data.anggota_sejak}}
+            </div>
+          </div> -->
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Info Detail Spesifikasi</label>
+            </div>:                    
+            <div class="col">
+              {{data.info_detail_spesifikasi}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tipe Isi</label>
+            </div>:                    
+            <div class="col">
+              {{data.tipe_isi}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tipe Media</label>
+            </div>:                    
+            <div class="col">
+              {{data.tipe_media}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">ISBN</label>
+            </div>:                    
+            <div class="col">
+              {{data.isbn}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Penerbit</label>
+            </div>:                    
+            <div class="col">
+              {{data.penerbit}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tahun Terbit</label>
+            </div>:                    
+            <div class="col">
+              {{data.tahun_terbit}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tempat Terbit</label>
+            </div>:                    
+            <div class="col">
+              {{data.tempat_terbit}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Deskripsi Fisik</label>
+            </div>:                    
+            <div class="col">
+              {{data.diskripsi_fisik}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Klasifikasi</label>
+            </div>:                    
+            <div class="col">
+              {{data.klasifikasi}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">No Panggil</label>
+            </div>:                    
+            <div class="col">
+              {{data.no_panggil}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Bahasa</label>
+            </div>:                    
+            <div class="col">
+              {{data.bahasa}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Cover</label>
+            </div>:                    
+            <div class="col">
+              {{data.cover}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Opac</label>
+            </div>:                    
+            <div class="col">
+              {{data.opac}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Beranda</label>
+            </div>:                    
+            <div class="col">
+              {{data.beranda}}
+            </div>
+          </div>
+          <br>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+                <a type="submit" class="btn btn-success" href="{% url 'biblografi' %}">Kembali</a>
+            </div>
+          </div> 
+        </form>  
+     </div>
+     </div>
+{% endblock %}

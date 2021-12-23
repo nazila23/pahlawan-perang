@@ -1,7 +1,18 @@
 {% extends "sidebarpustaka.html" %}
 {% block content %}
 {% load static %}
-  <!-- ======= Header ======= -->
+<!-- ======= Header ======= -->
+<!-- {% if messages %}
+  {% for message in message%}
+    <div {% if message.tags %} class="alert alert-{{ message.tags}} " {% endif %}>{{message}}</div>
+  {% endfor %}
+{% endif %} -->
+
+{% if messages %}
+      {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+      {% endfor %}
+    {% endif %}
     <section class="section profile">
       <div class="row">
         <div class="col-xl-12">
@@ -9,7 +20,6 @@
           <div class="card">
             <div class="card-body pt-3">
               <ul class="nav nav-tabs nav-tabs-bordered">
-
                 <li class="nav-item">
                   <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Tambah Anggota</button>
                 </li>
