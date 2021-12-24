@@ -149,35 +149,63 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="{% url 'katalog' %}">
           <i class="bi bi-card-list"></i>
           <span>Katalog Online</span>
         </a>
-      </li>
+      </li><!-- End Katalog Nav -->
+
+
       <li class="nav-item">
-       <a class="nav-link collapsed" href="{% url 'biodata' %}">
+        <a class="nav-link collapsed" href="{% url 'usersprof' %}">
           <i class="bi bi-menu-button-wide"></i><span>Biodata Diri</span>
         </a>
-        <a class="nav-link collapsed" href="{% url 'biblografi' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Biblografi</span>
+        <!-- End Biodata Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="{% url 'usulan' %}">
+          <i class="bi bi-journal-text"></i><span>Usulan Koleksi</span>
         </a>
-        <a class="nav-link collapsed" href="{% url 'exemplar' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Exemplar</span>
+        <!-- End usulan Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="{% url 'history-peminjaman' %}">
+          <i class="bi bi-bar-chart"></i><span>History Peminjaman</span>
         </a>
-        <a class="nav-link collapsed" href="{% url 'anggota' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Keanggotaan</span>
+        <!-- End history Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="{% url 'bebas-pustaka' %}">
+          <i class="bi bi-journal"></i><span>Bebas Pustaka</span>
         </a>
-        <a class="nav-link collapsed" href="{% url 'sirkulasi' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Sirkulasi</span>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href=#>
+          <i class="bi bi-question-circle"></i>
+          <span>Informasi Literasi Daring</span>
         </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'order-buku' %}">
+          <i class="bi bi-cart2"></i>
+          <span>Order Buku</span>
+        </a>
+      </li><!-- End Order Buku Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'upload-karya' %}">
+          <i class="bi bi-file-earmark-plus"></i>
+          <span>Upload Karya</span>
+        </a>
+      </li><!-- End karya Page Nav -->
+
       
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="{% url 'index' %}">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>
-      </li>
-
+      </li><!-- End Logout Page Nav -->
     </ul>
   </aside><!-- End Sidebar-->
 

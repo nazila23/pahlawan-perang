@@ -26,6 +26,16 @@ class usulan(models.Model):
     penerbit =models.CharField(max_length=200)
     isbn =models.CharField(max_length=200)
     harga =models.CharField(max_length=200)
+
+class usersprof (models.Model):
+    nama = models.TextField(max_length=200)
+    instansi =models.CharField(max_length=200)
+    pekerjaan =models.CharField(max_length=200)
+    negara =models.CharField(max_length=200)
+    alamat = models.DateField(auto_now_add=True)
+    no_hp =models.CharField(max_length=200)
+    email =models.CharField(max_length=200)
+    pasword =models.CharField(max_length=200)
     
 
     

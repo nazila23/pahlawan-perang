@@ -19,4 +19,8 @@ urlpatterns = [
     path('detail1/', views.detail1, name='detail1'),
     path('sidebarpustaka/', views.sidebarpustaka, name='sidebarpustaka'),
     path('usulan/<id>/edit_usulan', views.edit_usulan, name='edit_usulan'),
+    path('usulan/<id>/delete_usulan', views.delete_usulan, name='delet_usulan'),
+    path('usulan/<id>/detail_usulan', views.detail_usulan, name='detail_usulan'),
+
+    
 ]

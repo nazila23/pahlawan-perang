@@ -92,6 +92,8 @@ def dashboard(request):
     return render(request,'dashboard.html')
 def tambah(request):
     return render(request,'tambah.html')
+
+
 def usersprof(request):
     if request.POST:
         main_mod.anggota.objects.filter(id=id).update(
@@ -133,7 +135,7 @@ def usulan(request):
         'data': data,
     })
 
-def edit_usulan(request, id):
+def edit_usulan(request,id):
     if request.POST:
         models.usulan.objects.filter(id=id).update(
             nama = request.POST ['nama'],
@@ -151,6 +153,17 @@ def edit_usulan(request, id):
     return render(request,'edit_usulan.html',{
         'data': data,
     })
+
+def detail_usulan(request,id):
+    detail = models.usulan.objects.filter(pk=id).first()
+    return render (request,'detail_usulan.html', {
+        'data': detail,
+    })
+
+
+def delete_usulan(request,id):
+    models.usulan.objects.filter(pk=id).delete()
+    return redirect ('usulan')
 # def usulan(request):
 #     return render(request,'usulan.html')
 def upload(request):

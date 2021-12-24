@@ -212,7 +212,11 @@
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
-
+{% if messages %}
+      {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+      {% endfor %}
+    {% endif %}
     <div class="pagetitle">
       <h1>Usulan Koleksi</h1>
       <nav>

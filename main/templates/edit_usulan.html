@@ -1,4 +1,4 @@
-{% extends "sidebarpustaka.html" %}
+{% extends "debarpustaka.html" %}
 {% block content %}
 {% load static %}
      <!-- Profile Edit Form -->
@@ -37,9 +37,9 @@
           </div>
 
           <div class="row mb-3">
-            <label for="Address" class="col-md-4 col-lg-3 col-form-label">Tahun Terbit</label>
+            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Tahun Terbit</label>
             <div class="col-md-8 col-lg-9">
-                <input type="text" class="form-control" name="tahun_terbit"value="{{data.tahun_terbit}}" class = "form-control">
+                <input type="date" class="form-control" name="tahun_terbit"value="{{data.tahun_terbit}}" class = "form-control">
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-{% extends "sidebarpustaka.html" %}
+{% extends "debarpustaka.html" %}
 {% block content %}
 {% load static %}
  <!-- Modal detail -->
@@ -19,18 +19,18 @@
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label class="mt-1">Tanggal Lahir</label>
+              <label class="mt-1">Email</label>
             </div>:                    
             <div class="col">
-              {{data.tanggal_lahir}}
+              {{data.email}}
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label class="mt-1">Jenis Kelamin</label>
+              <label class="mt-1">Judul</label>
             </div>:
             <div class="col">
-              {{data.jenis_kelamin}}
+              {{data.judul}}
             </div>
           </div>
           <!-- <div class="row">
@@ -43,82 +43,44 @@
           </div> -->
           <div class="row">
             <div class="col-md-4">
-              <label class="mt-1">Tanggal Registrasi</label>
+              <label class="mt-1">Pengarang</label>
             </div>:                    
             <div class="col">
-              {{data.tanggal_registrasi}}
+              {{data.pengarang}}
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label class="mt-1">Berlaku Hingga</label>
+              <label class="mt-1">Tahun Terbit</label>
             </div>:                
             <div class="col">
-              {{data.berlaku_hingga}}
+              {{data.tahun_terbit}}
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label class="mt-1">Tipe Anggota</label>
+              <label class="mt-1">Penerbit</label>
             </div>:                    
             <div class="col">
-              {{data.tipe_anggota}}
+              {{data.penerbit}}
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label class="mt-1">Pekerjaan</label>
+              <label class="mt-1">ISBN</label>
             </div>:                    
             <div class="col">
-              {{data.pekerjaan}}
+              {{data.isbn}}
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label class="mt-1">Alamat</label>
+              <label class="mt-1">Harga</label>
             </div>:                    
             <div class="col">
-              {{data.alamat}}
+              {{data.harga}}
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-4">
-              <label class="mt-1">Negara</label>
-            </div>:                    
-            <div class="col">
-              {{data.negara}}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <label class="mt-1">No. HP</label>
-            </div>:                    
-            <div class="col">
-              {{data.no_hp}}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <label class="mt-1">Email</label>
-            </div>:                    
-            <div class="col">
-              {{data.email}}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <label class="mt-1">Instansi</label>
-            </div>:                    
-            <div class="col">
-              {{data.instansi}}
-            </div>
-          </div>
-          <br>
-          <div class="row mb-3">
-            <div class="col-sm-12">
-                <a type="submit" class="btn btn-success" href="{% url 'anggota' %}">Kembali</a>
-            </div>
-          </div> 
         </form>  
      </div>
      </div>

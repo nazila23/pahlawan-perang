@@ -13,5 +13,7 @@ urlpatterns = [
     path('exemplar/', views.exemplar, name='exemplar'),
     path('biodata/', views.biodata, name='biodata'),
     path('sirkulasi/', views.sirkulasi, name='sirkulasi'),
+    path('transaksi/', views.transaksi, name='transaksi'),
     path('sidebarpustaka/', views.sidebarpustaka, name='sidebarpustaka'),
+    path('anggota/', views.anggota, name='anggota'),
 ]
