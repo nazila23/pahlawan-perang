@@ -213,31 +213,9 @@ def sirkulasi(request):
         'data': data,
     })
     
-# def peminjaman(request):
-#     if request.POST:
-#         no_pang=request.POST['pilih']
-#         tgl_pinjam=request.POST['tp']
-#         tgl_kembali=request.POST['tk']
-#         pinjam = models.Pinjam.objects.create(
-#             no_pang=no_pang, tgl_pinjam=tgl_pinjam, tgl_kembali=tgl_kembali
-#         )
-#         print (no_pang,tgl_pinjam,tgl_kembali)
-#         filter_data = models.buku.objects.filter(pk=no_pang).first()
-#         data=models.buku.objects.all()
-#         return render(request,'peminjaman.html',{
-#         'data': data,
-#         "filter_data": filter_data
-#         })
-#     data = models.buku.objects.all()
-#     pinjam = models.Pinjam.objects.all()
-#     return render(request,'peminjaman.html',{
-#         'buku': data,
-#         'pinjam': pinjam,
-#     })
 def peminjaman(request,id):
     if request.POST:
         bakul=models.buku.objects.filter(pk=request.POST['buku']).first()
-
         models.Pinjam.objects.create(
         no_pang=bakul,
         tgl_pinjam=request.POST['tp'],
