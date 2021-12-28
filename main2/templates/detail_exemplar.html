@@ -1,0 +1,125 @@
+{% extends "sidebarpustaka.html" %}
+{% block content %}
+{% load static %}
+ <!-- Modal detail -->
+ <div class="tab-content pt-2">
+       <div style="text-align: center;color: black;margin-top: 5%;">
+          <h5 >Form Detail</h5>
+        </div>
+        <div class="modal-body">
+    <form method="post" action="">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Judul</label>
+            </div>:                    
+            <div class="col">
+              {{data.judul}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Pengarang</label>
+            </div>:                    
+            <div class="col">
+              {{data.pengarang}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Kode Exemplar</label>
+            </div>:
+            <div class="col">
+              {{data.kode_exemplar}}
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Anggota Sejak</label>
+            </div>:                    
+            <div class="col">
+              {{data.anggota_sejak}}
+            </div>
+          </div> -->
+          <!-- <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tanggal Registrasi</label>
+            </div>:                    
+            <div class="col">
+              {{data.tanggal_registrasi}}
+            </div>
+          </div> -->
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">No_panggil</label>
+            </div>:                
+            <div class="col">
+              {{data.no_panggil}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Kode Inventaris</label>
+            </div>:                    
+            <div class="col">
+              {{data.kode_inventaris}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Lokasi</label>
+            </div>:                    
+            <div class="col">
+              {{data.lokasi}}
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Exemplar</label>
+            </div>:                    
+            <div class="col">
+              {{data.exemplar}}
+            </div>
+          </div> -->
+          <!-- <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Kode Pemesanan</label>
+            </div>:                    
+            <div class="col">
+              {{data.kode_pemesanan}}
+            </div>
+          </div> -->
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tanggal Pesan</label>
+            </div>:                    
+            <div class="col">
+              {{data.tgl_pesan}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Tanggal Terima</label>
+            </div>:                    
+            <div class="col">
+              {{data.tgl_terima}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="mt-1">Promosi</label>
+            </div>:                    
+            <div class="col">
+              {{data.promosi}}
+            </div>
+          </div>
+          <br>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+                <a type="submit" class="btn btn-success" href="{% url 'exemplar' %}">Kembali</a>
+            </div>
+          </div> 
+        </form>  
+     </div>
+     </div>
+{% endblock %}
