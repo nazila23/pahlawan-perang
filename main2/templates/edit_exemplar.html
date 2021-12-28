@@ -1,0 +1,101 @@
+{% extends "sidebarpustaka.html" %}
+{% block content %}
+{% load static %}
+     <!-- Profile Edit Form -->
+<div style="text-align: center;color: black;margin-top: 5%;">
+	    <h5 >Form Edit Anggota</h5>
+</div>
+<form class="col-12" method="POST">
+         {% csrf_token %} 
+         <br>
+         <div class="row mb-3">
+          <label for="Judul" class="col-md-4 col-lg-3 col-form-label">Judul</label>
+          <div class="col-md-8 col-lg-9">
+            <input name="Judul" type="text" class="form-control" value="{{data.judul}}" >
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="Pengarang" class="col-md-4 col-lg-3 col-form-label">Pengarang</label>
+          <div class="col-md-8 col-lg-9">
+            <input name="Pengarang" type="text" class="form-control" value="{{data.pengarang}}" >
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="Edisi" class="col-md-4 col-lg-3 col-form-label">Kode Exemplar</label>
+          <div class="col-md-8 col-lg-9">
+            <input name="k_exemplar" type="text" class="form-control" value="{{data.kode_exemplar}}" >
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="ids" class="col-md-4 col-lg-3 col-form-label">No Panggil</label>
+          <div class="col-md-8 col-lg-9">
+            <input name="no_panggil" type="text" class="form-control" value="{{data.no_panggil}}" >
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="ids" class="col-md-4 col-lg-3 col-form-label">Kode Inventaris</label>
+          <div class="col-md-8 col-lg-9">
+            <input name="k_inventaris" type="text" class="form-control" value="{{data.kode_inventaris}}" >
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="isbn" class="col-md-4 col-lg-3 col-form-label">Lokasi</label>
+          <div class="col-md-8 col-lg-9">
+            <input name="lokasi" type="text" class="form-control" value="{{data.lokasi}}" >
+          </div>
+        </div>
+
+        <!-- <div class="row mb-3">
+          <label for="penerbit" class="col-md-4 col-lg-3 col-form-label">Exemplar</label>
+          <div class="col-md-8 col-lg-9">
+            <input name="penerbit" type="text" class="form-control" id="exemplar" >
+          </div>
+        </div> -->
+
+        <!-- <div class="row mb-3">
+          <label for="tpenerbit" class="col-md-4 col-lg-3 col-form-label">Kode Pemesanan</label>
+          <div class="col-md-8 col-lg-9">
+            <input name="tpenerbit" type="number" class="form-control" id="k_pemesanan" >
+          </div>
+        </div> -->
+
+        <div class="row mb-3">
+          <label for="tterbit" class="col-md-4 col-lg-3 col-form-label">Tanggal Pemesanan</label>
+          <div class="col-md-8 col-lg-5">
+            <input name="t_pemesanan" type="date" class="form-control" value="{{data.exemplar}}" >
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="ds" class="col-md-4 col-lg-3 col-form-label">Tanggal Perimaan</label>
+          <div class="col-md-8 col-lg-5">
+            <input name="t_penerima" type="date" class="form-control" value="{{data.tgl_pesan}}" >
+          </div>
+        </div>
+
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-3 pt-0">Promosikan di Beranda</legend>
+        <div class="col-sm-5">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="{{data.beranda}}" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Promosikan
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="{{data.beranda}}">
+            <label class="form-check-label" for="gridRadios2">
+              Jangan Promosikan
+            </label>
+          </div>
+        </div>
+          <br>
+          <button type="submit" class="btn btn-success col-lg-12">Simpan</button>
+      </form><!-- End Profile Edit Form -->
+    
+{% endblock %}

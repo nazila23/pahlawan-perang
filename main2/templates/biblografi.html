@@ -1,6 +1,13 @@
 {% extends "sidebarpustaka.html" %}
 {% block content %}
 {% load static %}
+
+
+{% if messages %}
+      {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+      {% endfor %}
+    {% endif %}
     <section class="section profile">
       <div class="row">
         <div class="col-xl-4">
@@ -137,7 +144,7 @@
                       <label class="mt-1">No Panggil</label>
                     </div>                    
                     <div class="col">
-                      <input class="form-control" type="number" name="np">
+                      <input class="form-control" type="text" name="np">
                     </div>
                   </div>
 
@@ -210,7 +217,8 @@
                 </div>
               </form>
               </div>
-            <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+              <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
               <!-- Profile Tampil Form -->
               <table class="table">
                 <thead>
@@ -227,7 +235,6 @@
                 </tr>
               </thead>  
               <tbody>
-                     
                 {% for z in data %} 
                 <tr>
                   <td>{{forloop.counter}}</td>
@@ -235,25 +242,44 @@
                   <td>{{z.info_detail_spesifikasi}}</td>
                   <td>{{z.pengarang}}</td>
                   <td>{{z.bahasa}}</td>
-                  <td></td>
+                  <td> <img src="{{buku.cover.url}}"></td>
                   <td>
-                    <a type="button" style="padding: 5px;" class="bi bi-trash-fill" href="{{z.id}}/delete_biblografi"></a>
+                   <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal_{{z.id}}" style="padding: 5px;" class="bi bi-trash-fill"></a>
                     <a type="button" style="padding: 5px;" class="bi bi-pencil-fill" href="{{z.id}}/edit_biblografi"></a>
                     <a type="button" style="padding: 5px;" class="bi bi-eye-fill"href="{{z.id}}/detail_biblografi"></a>
                 </td>
-                </tr>
+              </tr>
+                <div class="modal fade" id="exampleModal_{{z.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form class="modal-body">
+                          <center>
+                          <h6>Apakah Anda ingin menghapus data ini?</h6>
+                          <div class="row">
+                            <div class="col-8">
+                              <a type="button"  href="{{z.id}}/delete_biblografi">Ya</a>
+                            </div>
+                            <div class="col-1">
+                              <a type="button"  href="{% url 'biblografi' %}">Tidak</a>
+                            </div>
+                          </div>
+                          <br>
+                        </center>
+                      </form>
+                    </div> 
+                  </div>
+                </div>
                 {% endfor %}     
               </tbody>                
             </table>
           </div>
-                </div>
-              </div><!-- End Bordered Tabs -->
-
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
+      </div><!-- End Bordered Tabs -->
+     </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Login -->
 
     {% endblock %}

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,8 +26,8 @@ SECRET_KEY = 'django-insecure-mgj$u_-u6m76&gq!k@l7zow(a@+qnynmi*mpa6s_h)zvod145-
  # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 # Application definition
 
@@ -37,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'crispy_forms',
     'main',
     'main2',
     'main3',
-    # 'management',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +83,7 @@ WSGI_APPLICATION = 'perpus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'perpus',
+        'NAME': 'jaran',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
@@ -117,6 +120,8 @@ TIME_ZONE = 'UTC'
 
 DATE_INPUT_FORMATS = ('YYYY-MM-DD')
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 USE_I18N = True
 
 USE_L10N = True
@@ -134,11 +139,24 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
-MEDIA_URL = '/images/'
-
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 # MEDIA_ROOT = Path.join(BASE_DIR, 'static/images')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS ={
+    messages.DEBUG : 'alert-info',
+    messages.INFO : 'alert-info',
+    messages.ERROR : 'alert-danger',
+    messages.SUCCESS : 'alert-success',
+    messages.WARNING : 'alert-warning',
+}

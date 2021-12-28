@@ -27,8 +27,4 @@ urlpatterns = [
     path('main2/',include('main2.urls')),
     path('main3/',include('main3.urls')),
     # path('management/',include('management.urls')),
-
-]
-
-# ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

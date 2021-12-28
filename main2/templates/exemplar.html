@@ -2,12 +2,17 @@
 {% block content %}
 {% load static %}
 
+{% if messages %}
+      {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+      {% endfor %}
+    {% endif %}
     <section class="section profile">
       <div class="row">
         <div class="col-xl-4">
         </div>
 
-        <div class="col-xl-10">
+        <div class="col-xl-12">
 
           <div class="card">
             <div class="card-body pt-3">
@@ -15,7 +20,7 @@
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Daftar Exemplar</button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Tambah Exemplar</button>
                 </li>
 
                 <li class="nav-item">
@@ -26,6 +31,8 @@
               <div class="tab-content pt-6">
                 <br>
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <form method="post" action="">
+                  {% csrf_token %}
                   <div class="row mb-3">
                     <label for="Judul" class="col-md-4 col-lg-3 col-form-label">Judul</label>
                     <div class="col-md-8 col-lg-9">
@@ -43,71 +50,70 @@
                   <div class="row mb-3">
                     <label for="Edisi" class="col-md-4 col-lg-3 col-form-label">Kode Exemplar</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="Edisi" type="text" class="form-control" id="Edisi" >
+                      <input name="k_exemplar" type="text" class="form-control" id="k_exemplar" >
                     </div>
                   </div>
 
                   <div class="row mb-3">
                     <label for="ids" class="col-md-4 col-lg-3 col-form-label">No Panggil</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="ids" type="text" class="form-control" id="ids" >
+                      <input name="no_panggil" type="text" class="form-control" id="no_panggil" >
                     </div>
                   </div>
 
                   <div class="row mb-3">
                     <label for="ids" class="col-md-4 col-lg-3 col-form-label">Kode Inventaris</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="ids" type="text" class="form-control" id="ids" >
+                      <input name="k_inventaris" type="text" class="form-control" id="k_inventaris" >
                     </div>
                   </div>
 
                   <div class="row mb-3">
                     <label for="isbn" class="col-md-4 col-lg-3 col-form-label">Lokasi</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="isbn" type="text" class="form-control" id="isbn" >
+                      <input name="lokasi" type="text" class="form-control" id="lokasi" >
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <!-- <div class="row mb-3">
                     <label for="penerbit" class="col-md-4 col-lg-3 col-form-label">Exemplar</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="penerbit" type="text" class="form-control" id="penerbit" >
+                      <input name="penerbit" type="text" class="form-control" id="exemplar" >
                     </div>
-                  </div>
+                  </div> -->
 
-                  <div class="row mb-3">
+                  <!-- <div class="row mb-3">
                     <label for="tpenerbit" class="col-md-4 col-lg-3 col-form-label">Kode Pemesanan</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="tpenerbit" type="number" class="form-control" id="tpenerbit" >
+                      <input name="tpenerbit" type="number" class="form-control" id="k_pemesanan" >
                     </div>
-                  </div>
+                  </div> -->
 
-                  <div class="row mb-5">
+                  <div class="row mb-3">
                     <label for="tterbit" class="col-md-4 col-lg-3 col-form-label">Tanggal Pemesanan</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="tterbit" type="text" class="form-control" id="tterbit" >
+                    <div class="col-md-8 col-lg-5">
+                      <input name="t_pemesanan" type="date" class="form-control" id="t_pemesanan" >
                     </div>
                   </div>
 
                   <div class="row mb-3">
                     <label for="ds" class="col-md-4 col-lg-3 col-form-label">Tanggal Perimaan</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="ds" type="text" class="form-control" id="ds" >
+                    <div class="col-md-8 col-lg-5">
+                      <input name="t_penerima" type="date" class="form-control" id="t_penerima" >
                     </div>
                   </div>
 
-                  
                 <fieldset class="row mb-3">
                   <legend class="col-form-label col-sm-3 pt-0">Promosikan di Beranda</legend>
                   <div class="col-sm-5">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="tampil" checked>
                       <label class="form-check-label" for="gridRadios1">
                         Promosikan
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="sembunyi">
                       <label class="form-check-label" for="gridRadios2">
                         Jangan Promosikan
                       </label>
@@ -117,9 +123,8 @@
 
                 <br>
                 <div class="row mb-3">
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Tambahkan</button>
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                  <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                   </div>
                 </div>
               </div>
@@ -129,128 +134,38 @@
                   <table class="table">
                     <thead>
                     <tr>
-                      <th scope="col">Kode Exem</th>
+                      <th scope="col">No</th>
                       <th scope="col">Judul</th>
-                      <th scope="col">Tipe Koleksi</th>
+                      <th scope="col">pengarang</th>
+                      <th scope="col">Kode Exemplar</th>
                       <th scope="col">Lokasi</th>
-                      <th scope="col">NO Panggil</th>
-                      <th scope="col">Tanggal</th>
-                      <th scope="col">Hapus</th>
-                      <th scope="col">Sunting</th>
+                      <th scope="col">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
+                    {% for d in data %} 
                     <tr>
-                      <td>EX00SOS</td>
-                      <td>Sosiologi 
-                        Hadi Susilo.S.Om</td>
-                      <td>Piskologi</td>
-                      <td>Perpus UNU Yogyakarta</td>
-                      <td>UNUY23</td>
-                      <td>05-12-2021</td>
-                      <td>Hapus</td>
-                      <td>Sunting</td>
+                      <td>{{forloop.counter}}</td>
+                      <td>{{d.judul}}</td>
+                      <td>{{d.pengarang}}</td>
+                      <td>{{d.kode_exemplar}}</td>
+                      <td>{{d.lokasi}}</td>
+                      <td>
+                        <a type="button" style="padding: 3px;" class="bi bi-trash-fill" href="{{d.id}}/delete_exemplar"></a>
+                        <a type="button" style="padding: 3px;" class="bi bi-pencil-fill" href="{{d.id}}/edit_exemplar"></a>
+                        <a type="button" style="padding: 3px;" class="bi bi-eye-fill" href="{{d.id}}/detail_exemplar"></a>
+                    </td>
                     </tr>
-                  </tbody>  
-                  <tbody>
-                    <tr>
-                      <td>EX00SOS</td>
-                      <td>Sosiologi 
-                        Hadi Susilo.S.Om</td>
-                      <td>Piskologi</td>
-                      <td>Perpus UNU Yogyakarta</td>
-                      <td>UNUY23</td>
-                      <td>05-12-2021</td>
-                      <td>Hapus</td>
-                      <td>Sunting</td>
+                    {% endfor %}     
                     </tr>
-                  </tbody>                                     
+                  </tbody>                              
                 </table>
-                  </form><!-- End Profile Edit Form -->
-
-                </div>
-
-                <div class="tab-pane fade pt-3" id="profile-settings">
-
-                  <!-- Settings Form -->
-                  <form>
-
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="changesMade" checked>
-                          <label class="form-check-label" for="changesMade">
-                            Changes made to your account
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="newProducts" checked>
-                          <label class="form-check-label" for="newProducts">
-                            Information on new products and services
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="proOffers">
-                          <label class="form-check-label" for="proOffers">
-                            Marketing and promo offers
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
-                          <label class="form-check-label" for="securityNotify">
-                            Security alerts
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form><!-- End settings Form -->
-
-                </div>
-
-                <div class="tab-pane fade pt-3" id="profile-change-password">
-                  <!-- Change Password Form -->
-                  <form>
-
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
-                      </div>
-                    </div>
--
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
-                    </div>
-                  </form><!-- End Change Password Form -->
-
-                </div>
-
-              </div><!-- End Bordered Tabs -->
-
+              </form><!-- End Profile Edit Form -->
             </div>
-          </div>
-
+          </div><!-- End Bordered Tabs -->
         </div>
       </div>
-    </section>
-
-    {% endblock %}
+    </div>
+  </div>
+</section>
+{% endblock %}
