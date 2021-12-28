@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7730d72fdb.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>Perpustakaan Kita</title>
     <style>
@@ -226,7 +228,7 @@
             width: 100%;
             background-color: #01579B;
             margin-top: 30px;
-        }
+         }
 
           .about{
               float: left;
@@ -290,9 +292,11 @@
               <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
-        <li class="notif"><a href=""><i class='fa fa-bell'></i></a></li>
-        <li class="pesan"><a href=""><i class='fa fa-fw fa-envelope'></i></a></li>
-        <li class="user"><a href=""><i class='fa fa-user'></i><label for=>Farhan</label></a></li>
+        <li>
+          <li class="notif"><a href=""><i class='fa fa-bell'></i></a></li>
+          <li class="pesan"><a href=""><i class='fa fa-fw fa-envelope'></i></a></li>
+          <li class="user"><a href=""><i class='fa fa-user'></i><label for=>Aulia</label></a></li>
+        </li>
        
         
 
@@ -301,10 +305,9 @@
         <h5>Filter</h5>
         <label>Perpus</label>
         <i class='fa fa-chevron-circle-right'></i>
-        <i class="fa fa-tachometer-alt"></i>
         <div class="menu">
           <a href=""><i class="fa fa-dashboard"></i>Dashboard</a>
-          <a href=""><i class="fa fa-user"></i>Profile</a>
+          <a href="/usersprof/"><i class="fa fa-user"></i>Profile</a>
           <a href=""><i class='fa fa-bell'></i>Pemberitahuan</a>
           
         </div>
@@ -329,156 +332,485 @@
 
       </form>
     </div>
-    <div class="content">
-        <div class="perpus-kiri">
-            <div class="buku">
-                <div class="buku-atas">
-                    <li><a href="" ><img src="https://sribu-sg.s3.amazonaws.com/assets/media/contest_detail/2014/12/re-desain-logo-untuk-perpustakaan-nasional-republik-indonesia-54867089b79de4e691000003/46f1149f30.png" alt=""></a></li>
-                    <li><a href=""><label>Perpus Umum Jogja</label></a></li>
-                    <li><a href=""><button type="button" class="btn btn-primary">Lihat Perpus</button></a></li>
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-4">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Buku Keren</h5>
+
+              <!-- Slides only carousel -->
+              <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/img/Tabloid-1.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Pemrogaman Web</h5>
+                      <p>Abdillah.Ag</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <a href="{% url 'detail' %}"> <button type="button" class="btn btn-outline-warning" href>Lihat Selengkapnya</button></a>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <a href="{% url 'detail' %}"> <button type="button" class="btn btn-outline-warning" href>Lihat Selengkapnya</button></a>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <a href="{% url 'detail' %}"> <button type="button" class="btn btn-outline-warning" href>Lihat Selengkapnya</button></a>
+                    </div>
+                  </div>
                 </div>
-                <div class="buku-bawah">
-                    <div class="gambar1">
-                        <a href=""><img src="https://id-live-05.slatic.net/p/ae7ab32393bb1616c680d79b5bfa5bf7.jpg_2200x2200q80.jpg_.webp" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                        <a href=""><img src="https://ebooks.gramedia.com/ebook-covers/3978/big_covers/ID_EMK2013MTH05PPBKR_B.jpg" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                       <a href=""><img src="https://www.belbuk.com/images/products/buku/komputer--internet/komputer-umum/2%20Hari%20Belajar%20Komputer%20dan%20Internetl.jpg" alt=""></a>
-                    </div>
-                </div>
+              </div><!-- End Slides only carousel-->
+
             </div>
-            <div class="buku">
-                <div class="buku-atas">
-                    <li><a href="" ><img src="https://sribu-sg.s3.amazonaws.com/assets/media/contest_detail/2014/12/re-desain-logo-untuk-perpustakaan-nasional-republik-indonesia-54867089b79de4e691000003/46f1149f30.png" alt=""></a></li>
-                    <li><a href=""><label>Perpus Umum Jogja</label></a></li>
-                    <li><a href=""><button type="button" class="btn btn-primary">Lihat Perpus</button></a></li>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Buku Terbaru</h5>
+
+              <!-- Slides with indicators -->
+              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                <div class="buku-bawah">
-                    <div class="gambar1">
-                        <a href=""><img src="https://id-live-05.slatic.net/p/ae7ab32393bb1616c680d79b5bfa5bf7.jpg_2200x2200q80.jpg_.webp" alt=""></a>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/img/slides-1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <a href="{% url 'detail' %}"> <button type="button" class="btn btn-outline-warning" href>Lihat Selengkapnya</button></a>
                     </div>
-                    <div class="gambar1">
-                        <a href=""><img src="https://ebooks.gramedia.com/ebook-covers/3978/big_covers/ID_EMK2013MTH05PPBKR_B.jpg" alt=""></a>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <a href="{% url 'detail' %}"> <button type="button" class="btn btn-outline-warning" href>Lihat Selengkapnya</button></a>
                     </div>
-                    <div class="gambar1">
-                       <a href=""><img src="https://www.belbuk.com/images/products/buku/komputer--internet/komputer-umum/2%20Hari%20Belajar%20Komputer%20dan%20Internetl.jpg" alt=""></a>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <a href="{% url 'detail' %}"> <button type="button" class="btn btn-outline-warning" href>Lihat Selengkapnya</button></a>
                     </div>
+                  </div>
                 </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+
+              </div><!-- End Slides with indicators -->
+
             </div>
-            <div class="buku">
-                <div class="buku-atas">
-                    <li><a href="" ><img src="https://sribu-sg.s3.amazonaws.com/assets/media/contest_detail/2014/12/re-desain-logo-untuk-perpustakaan-nasional-republik-indonesia-54867089b79de4e691000003/46f1149f30.png" alt=""></a></li>
-                    <li><a href=""><label>Perpus Umum Jogja</label></a></li>
-                    <li><a href=""><button type="button" class="btn btn-primary">Lihat Perpus</button></a></li>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Buku Trending</h5>
+
+              <!-- Slides with fade transition -->
+              <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/img/slides-1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <a href="{% url 'detail' %}"> <button type="button" class="btn btn-outline-warning" href>Lihat Selengkapnya</button></a>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <a href="{% url 'detail' %}"> <button type="button" class="btn btn-outline-warning" href>Lihat Selengkapnya</button></a>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <a href="{% url 'detail' %}"> <button type="button" class="btn btn-outline-warning" href>Lihat Selengkapnya</button></a>
+                    </div>
+                  </div>
                 </div>
-                <div class="buku-bawah">
-                    <div class="gambar1">
-                        <a href=""><img src="https://id-live-05.slatic.net/p/ae7ab32393bb1616c680d79b5bfa5bf7.jpg_2200x2200q80.jpg_.webp" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                        <a href=""><img src="https://ebooks.gramedia.com/ebook-covers/3978/big_covers/ID_EMK2013MTH05PPBKR_B.jpg" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                       <a href=""><img src="https://www.belbuk.com/images/products/buku/komputer--internet/komputer-umum/2%20Hari%20Belajar%20Komputer%20dan%20Internetl.jpg" alt=""></a>
-                    </div>
-                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+
+              </div><!-- End Slides with fade transition -->
+
             </div>
-            <div class="buku">
-                <div class="buku-atas">
-                    <li><a href="" ><img src="https://sribu-sg.s3.amazonaws.com/assets/media/contest_detail/2014/12/re-desain-logo-untuk-perpustakaan-nasional-republik-indonesia-54867089b79de4e691000003/46f1149f30.png" alt=""></a></li>
-                    <li><a href=""><label>Perpus Umum Jogja</label></a></li>
-                    <li><a href=""><button type="button" class="btn btn-primary">Lihat Perpus</button></a></li>
-                </div>
-                <div class="buku-bawah">
-                    <div class="gambar1">
-                        <a href=""><img src="https://id-live-05.slatic.net/p/ae7ab32393bb1616c680d79b5bfa5bf7.jpg_2200x2200q80.jpg_.webp" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                        <a href=""><img src="https://ebooks.gramedia.com/ebook-covers/3978/big_covers/ID_EMK2013MTH05PPBKR_B.jpg" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                       <a href=""><img src="https://www.belbuk.com/images/products/buku/komputer--internet/komputer-umum/2%20Hari%20Belajar%20Komputer%20dan%20Internetl.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
+          </div>
+
         </div>
-        <div class="perpus-kanan">
-            <div class="buku">
-                <div class="buku-atas">
-                    <li><a href="" ><img src="https://sribu-sg.s3.amazonaws.com/assets/media/contest_detail/2014/12/re-desain-logo-untuk-perpustakaan-nasional-republik-indonesia-54867089b79de4e691000003/46f1149f30.png" alt=""></a></li>
-                    <li><a href=""><label>Perpus Umum Jogja</label></a></li>
-                    <li><a href=""><button type="button" class="btn btn-primary">Lihat Perpus</button></a></li>
+
+        <div class="col-lg-4">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Buku Kampus</h5>
+
+              <!-- Slides with controls -->
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/img/slides-1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Sosiologi</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi UNU Yogyakarta</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="buku-bawah">
-                    <div class="gambar1">
-                        <a href=""><img src="https://id-live-05.slatic.net/p/ae7ab32393bb1616c680d79b5bfa5bf7.jpg_2200x2200q80.jpg_.webp" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                        <a href=""><img src="https://ebooks.gramedia.com/ebook-covers/3978/big_covers/ID_EMK2013MTH05PPBKR_B.jpg" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                       <a href=""><img src="https://www.belbuk.com/images/products/buku/komputer--internet/komputer-umum/2%20Hari%20Belajar%20Komputer%20dan%20Internetl.jpg" alt=""></a>
-                    </div>
-                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+
+              </div><!-- End Slides with controls -->
+
             </div>
-            <div class="buku">
-                <div class="buku-atas">
-                    <li><a href="" ><img src="https://sribu-sg.s3.amazonaws.com/assets/media/contest_detail/2014/12/re-desain-logo-untuk-perpustakaan-nasional-republik-indonesia-54867089b79de4e691000003/46f1149f30.png" alt=""></a></li>
-                    <li><a href=""><label>Perpus Umum Jogja</label></a></li>
-                    <li><a href=""><button type="button" class="btn btn-primary">Lihat Perpus</button></a></li>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sejarah</h5>
+
+              <!-- Slides with captions -->
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                <div class="buku-bawah">
-                    <div class="gambar1">
-                        <a href=""><img src="https://id-live-05.slatic.net/p/ae7ab32393bb1616c680d79b5bfa5bf7.jpg_2200x2200q80.jpg_.webp" alt=""></a>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/img/slides-1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Pemrograman Web</h5>
+                      <p>Abdillah.AG</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Perpus UNU Yogyakarta</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
                     </div>
-                    <div class="gambar1">
-                        <a href=""><img src="https://ebooks.gramedia.com/ebook-covers/3978/big_covers/ID_EMK2013MTH05PPBKR_B.jpg" alt=""></a>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
                     </div>
-                    <div class="gambar1">
-                       <a href=""><img src="https://www.belbuk.com/images/products/buku/komputer--internet/komputer-umum/2%20Hari%20Belajar%20Komputer%20dan%20Internetl.jpg" alt=""></a>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Dakwah Masa Kini</h5>
+                      <p>Ustadz. Ilzam Cawil</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Perpus Graha Pustaka</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
                     </div>
+                  </div>
                 </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+
+              </div><!-- End Slides with captions -->
+
             </div>
-            <div class="buku">
-                <div class="buku-atas">
-                    <li><a href="" ><img src="https://sribu-sg.s3.amazonaws.com/assets/media/contest_detail/2014/12/re-desain-logo-untuk-perpustakaan-nasional-republik-indonesia-54867089b79de4e691000003/46f1149f30.png" alt=""></a></li>
-                    <li><a href=""><label>Perpus Umum Jogja</label></a></li>
-                    <li><a href=""><button type="button" class="btn btn-primary">Lihat Perpus</button></a></li>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sejarah</h5>
+
+              <!-- Slides with captions -->
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                <div class="buku-bawah">
-                    <div class="gambar1">
-                        <a href=""><img src="https://id-live-05.slatic.net/p/ae7ab32393bb1616c680d79b5bfa5bf7.jpg_2200x2200q80.jpg_.webp" alt=""></a>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/img/slides-1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Pemrograman Web</h5>
+                      <p>Abdillah.AG</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Perpus UNU Yogyakarta</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
                     </div>
-                    <div class="gambar1">
-                        <a href=""><img src="https://ebooks.gramedia.com/ebook-covers/3978/big_covers/ID_EMK2013MTH05PPBKR_B.jpg" alt=""></a>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
                     </div>
-                    <div class="gambar1">
-                       <a href=""><img src="https://www.belbuk.com/images/products/buku/komputer--internet/komputer-umum/2%20Hari%20Belajar%20Komputer%20dan%20Internetl.jpg" alt=""></a>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Dakwah Masa Kini</h5>
+                      <p>Ustadz. Ilzam Cawil</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Perpus Graha Pustaka</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
                     </div>
+                  </div>
                 </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+
+              </div>
+
             </div>
-            <div class="buku">
-                <div class="buku-atas">
-                    <li><a href="" ><img src="https://sribu-sg.s3.amazonaws.com/assets/media/contest_detail/2014/12/re-desain-logo-untuk-perpustakaan-nasional-republik-indonesia-54867089b79de4e691000003/46f1149f30.png" alt=""></a></li>
-                    <li><a href=""><label>Perpus Umum Jogja</label></a></li>
-                    <li><a href=""><button type="button" class="btn btn-primary">Lihat Perpus</button></a></li>
-                </div>
-                <div class="buku-bawah">
-                    <div class="gambar1">
-                        <a href=""><img src="https://id-live-05.slatic.net/p/ae7ab32393bb1616c680d79b5bfa5bf7.jpg_2200x2200q80.jpg_.webp" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                        <a href=""><img src="https://ebooks.gramedia.com/ebook-covers/3978/big_covers/ID_EMK2013MTH05PPBKR_B.jpg" alt=""></a>
-                    </div>
-                    <div class="gambar1">
-                       <a href=""><img src="https://www.belbuk.com/images/products/buku/komputer--internet/komputer-umum/2%20Hari%20Belajar%20Komputer%20dan%20Internetl.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
+          </div>
+
         </div>
-    </div>
+        <div class="col-lg-4">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Buku Kampus</h5>
+
+              <!-- Slides with controls -->
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/img/slides-1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Sosiologi</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi UNU Yogyakarta</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+
+              </div><!-- End Slides with controls -->
+
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sejarah</h5>
+
+              <!-- Slides with captions -->
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/img/slides-1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Pemrograman Web</h5>
+                      <p>Abdillah.AG</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Perpus UNU Yogyakarta</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Dakwah Masa Kini</h5>
+                      <p>Ustadz. Ilzam Cawil</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Perpus Graha Pustaka</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+
+              </div><!-- End Slides with captions -->
+
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sejarah</h5>
+
+              <!-- Slides with captions -->
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/img/slides-1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Pemrograman Web</h5>
+                      <p>Abdillah.AG</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Perpus UNU Yogyakarta</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Bisa Karena Biasa</h5>
+                      <p>Rizal Hidzh</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Ponpes Krapyak</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/img/slides-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Dakwah Masa Kini</h5>
+                      <p>Ustadz. Ilzam Cawil</p>
+                      <P><span><i class="fas fa-map-marker-alt"></i></span> lokasi Perpus Graha Pustaka</P>
+                      <button type="button" class="btn btn-outline-warning">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
     <div class="pagination">
         <a href="#">&laquo;</a>
         <a href="#" class="active">1</a>

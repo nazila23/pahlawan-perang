@@ -1,3 +1,5 @@
+
+{% block content %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -169,7 +171,7 @@
         <!-- End usulan Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed"  href="#">
+        <a class="nav-link collapsed"  href="{% url 'history-peminjaman' %}">
           <i class="bi bi-bar-chart"></i><span>History Peminjaman</span>
         </a>
         <!-- End history Nav -->
@@ -210,7 +212,11 @@
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
-
+{% if messages %}
+      {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+      {% endfor %}
+    {% endif %}
     <div class="pagetitle">
       <h1>Usulan Koleksi</h1>
       <nav>
@@ -222,49 +228,86 @@
       </nav>
     </div><!-- End Page Title -->
     <div class="col-lg-12">
-
       <div class="card">
         <div class="card-body">
           <h3 class="card-title">Silahkan Usul Buku yang anda butuhkan</h3>
           <!-- Vertical Form -->
-          <form class="row g-3">
+          <form class="row g-3" method="POST">
+            {% csrf_token %}
             <div class="col-12">
               <label for="inputNanme4" class="form-label">Your Name</label>
-              <input type="text" class="form-control" id="inputNanme4">
+              <input type="text" class="form-control" id="inputNanme4" name="nama">
             </div>
             <div class="col-12">
               <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4">
+              <input type="email" class="form-control" id="inputEmail4" name="email">
             </div>
             <div class="col-12">
               <label for="inputJudul4" class="form-label">Judul</label>
-              <input type="text" class="form-control" id="inputJudul">
+              <input type="text" class="form-control" id="inputJudul" name="judul">
             </div>
             <div class="col-12">
               <label for="inputPengarang" class="form-label">Pengarang</label>
-              <input type="text" class="form-control" id="inputPengarang">
+              <input type="text" class="form-control" id="inputPengarang" name="pengarang">
             </div>
             <div class="col-12">
               <label for="inputTahun Terbit" class="form-label">Tahun Terbit</label>
-              <input type="text" class="form-control" id="inputTahun Terbit">
+              <input type="text" class="form-control" id="inputTahun Terbit" name="tahun_terbit">
             </div>
             <div class="col-12">
               <label for="inputPenerbit" class="form-label">Penerbit</label>
-              <input type="text" class="form-control" id="inputPenerbit">
+              <input type="text" class="form-control" id="inputPenerbit" name="penerbit">
             </div>
             <div class="col-12">
               <label for="inputISBN" class="form-label">ISBN</label>
-              <input type="text" class="form-control" id="inputISBN">
+              <input type="text" class="form-control" id="inputISBN" name="isbn">
             </div>
             <div class="col-12">
               <label for="inputHarga" class="form-label">Harga</label>
-              <input type="number" class="form-control" id="inputHarga">
+              <input type="number" class="form-control" id="inputHarga" name="harga">
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-primary">Submit</button>
               <button type="reset" class="btn btn-secondary">Reset</button>
+
             </div>
           </form><!-- Vertical Form -->
+          <div class=>
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Nama</th>
+                <th scope="col">Email</th>
+                <th scope="col">Judul</th>
+                <th scope="col">Pengarang</th>
+                <th scope="col">Tahun Terbit</th>
+                <th scope="col">Penerbit</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Harga</th>
+              </tr>
+            </thead>  
+            <tbody>
+                   
+              {% for z in data %} 
+              <tr>
+                <td>{{z.nama}}</td>
+                <td>{{z.email}}</td>
+                <td>{{z.judul}}</td>
+                <td>{{z.pengarang}}</td>
+                <td>{{z.tahun_terbit}}</td>
+                <td>{{z.penerbit}}</td>
+                <td>{{z.isbn}}</td>
+                <td>{{z.harga}}</td>
+                <td>
+                  <a type="button" style="padding: 10px;" class="bi bi-trash-fill" href="{{z.id}}/delete_usulan"></a>
+                  <a type="button" style="padding: 10px;" class="bi bi-pencil-fill" href="{{z.id}}/edit_usulan"></a>
+                  <a type="button" style="padding: 10px;" class="bi bi-eye-fill"href="{{z.id}}/detail_usulan"></a>
+              </td>
+              </tr>
+              {% endfor %}     
+            </tbody>                
+          </table>
+          </div>
         </div>
       </div>
   </main><!-- End #main -->
@@ -295,3 +338,4 @@
 </body>
 
 </html>
+{% endblock %}

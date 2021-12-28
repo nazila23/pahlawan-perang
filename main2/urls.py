@@ -23,19 +23,13 @@ urlpatterns = [
     path('sidebarpustaka/', views.sidebarpustaka, name='sidebarpustdeaka'),
     path('peminjaman/<id>/', views.peminjaman,name='peminjaman'),
     path('peminjaman/<id>/delete_pinjam', views.delete_pinjam),
-    # path('peminjaman/', views.peminjaman,name='peminjaman'),
     path('cek/', views.cek, name='cek'),
     path('cek/<id>/delete_cek', views.delete_cek),      
 ]
 
 
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-#     admin.autodiscover()
-# urlpatterns = patterns('',
-#     ...........
-# ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# urlpatterns += staticfiles_urlpatterns()

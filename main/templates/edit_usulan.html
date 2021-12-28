@@ -1,0 +1,71 @@
+{% extends "debarpustaka.html" %}
+{% block content %}
+{% load static %}
+     <!-- Profile Edit Form -->
+<div style="text-align: center;color: black;margin-top: 5%;">
+	    <h5 >Form Edit Usulan Koleksi</h5>
+</div>
+<form class="col-12" method="POST">
+         {% csrf_token %} 
+         <br>
+        <div class="row mb-3">
+          <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
+          <div class="col-md-8 col-lg-9">
+            <input type="text" class="form-control" name="nama" value="{{data.nama}}" class = "form-control">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="company" class="col-md-4 col-lg-3 col-form-label">Email</label>
+          <div class="col-md-8 col-lg-3">
+            <input type="text" class="form-control" name="email"value="{{data.email}}" class = "form-control">
+          </div>
+        </div> 
+
+        <div class="row mb-3">
+            <label for="Address" class="col-md-4 col-lg-3 col-form-label">Judul</label>
+            <div class="col-md-8 col-lg-3">
+                <input type="text" class="form-control" name="judul"value="{{data.judul}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Pengarang</label>
+            <div class="col-md-8 col-lg-3">
+                <input type="Text" class="form-control" name="pengarang"value="{{data.pengarang}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Tahun Terbit</label>
+            <div class="col-md-8 col-lg-9">
+                <input type="date" class="form-control" name="tahun_terbit"value="{{data.tahun_terbit}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="Address" class="col-md-4 col-lg-3 col-form-label">Penerbit</label>
+            <div class="col-md-8 col-lg-9">
+                <input type="text" class="form-control" name="penerbit"value="{{data.penerbit}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="Address" class="col-md-4 col-lg-3 col-form-label">ISBN</label>
+            <div class="col-md-8 col-lg-9">
+                <input type="text" class="form-control" name="isbn"value="{{data.isbn}}" class = "form-control">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="Address" class="col-md-4 col-lg-3 col-form-label">Harga</label>
+            <div class="col-md-8 col-lg-9">
+                <input type="text" class="form-control" name="harga"value="{{data.harga}}" class = "form-control">
+            </div>
+          </div>
+
+          <br>
+          <button type="submit" class="btn btn-success">Simpan</button>
+      </form><!-- End Profile Edit Form -->
+    
+{% endblock %}
