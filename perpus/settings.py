@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'main2',
     'main3',
     'account',
-    # 'management',
     'django_filters',
 
 ]

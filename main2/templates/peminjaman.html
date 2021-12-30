@@ -1,105 +1,157 @@
 {% extends "sidebarpustaka.html" %}
 {% block content %}
 {% load static %}
-    <section class="section profile">
-      <div class="row">
-        <div class="col-xl-12">
-          <div class="card">
-            <div class="card-body pt-12">
-              <!-- Bordered Tabs -->
-              <ul class="nav nav-tabs nav-tabs-bordered">
-                <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-transaksi">Mulai Transaksi</button>
-                </li>
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Aturan Peminjaman</button>
-                </li>
-             </ul>
-             <div class="tab-content pt-12">            
-                  <form>
-                    {% csrf_token %} 
-                     <div class="row">
-                        <div class="col-md-1">
-                            <label class="mt-1">ID</label>
-                        </div>:                    
-                        <div class="col">
-                          {{data.id}}
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-1">
-                          <label class="mt-1">Nama</label>
-                        </div>:                
-                        <div class="col">
-                          {{data.nama}}
-                        </div>
-                      </div>
-                    </form>
-                    <br>
-                    <form class="col-4" action="" method="POST">
-                      {% csrf_token %} 
-                      <div class="row">
-                        <label for="na">Kode Buku</label>
-                          <select class="form-select" name="buku" aria-label="Default select example" required>
-                            <option value=""></option>
-                              {% for d in buku %}
-                            <option value="{{d.id}}">{{d.id}} - {{d.judul}}</option>
-                             {% endfor %}
-                          </select>
-                          <div class="row">
-                            <div class="col-md-3">
-                              <label class="mt-1">Tanggal Pinjam</label>
-                            </div>                    
-                            <div class="col">
-                              <input class="form-control" type="date" name="tp">
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-3">
-                              <label class="mt-1">Tanggal Kembali</label>
-                            </div>                    
-                            <div class="col">
-                              <input class="form-control" type="date" name="tk">
-                            </div>
-                          </div>
-                      </div>
-                      <br>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                    </form>
+<section class="section profile">
+      <h4>Sirkulasi</h4>
+      <div class="card">
+        <div class="card-body pt-12">
+          <form>
+            {% csrf_token %} 
+              <div class="row">
+                <div class="col-md-1">
+                  <label class="mt-1">ID</label>
+                </div>:                    
+                <div class="col">
+                  {{data.id}}
                 </div>
-                <br>
-                    <form class = "col-9" action="">
-                      <table class="table table-dark">
-                          <thead>
-                            
-                            <tr>
-                              <th scope="col">No</th>
-                              <th scope="col">Kode Buku</th>        
-                              <th scope="col">Tgl-Pinjam</th>
-                              <th scope="col">Tgl-Kembali</th>
-                              <th>Aksi</th>
-                            </tr>
-                          </thead>
-                          <tbody>    
-                            {% for d in data_pinjaman%}                      
-                            <tr>
-                              <td>{{forloop.counter}}</td>
-                              <td>{{d.no_pang.no_panggil}}</td>
-                              <td>{{d.tgl_pinjam}}</td>
-                              <td>{{d.tgl_kembali}}</td>
-                              <td> 
-                                    <a type="button" class="btn btn-success" href="{{z.id}}/delete_pinjam/">Delete</a>
-                              </td>
-                            </tr>
-                            {% endfor %}   
-                      </table>
-                    </form>
+              </div>
+              <div class="row">
+                <div class="col-md-1">
+                  <label class="mt-1">Nama</label>
+                </div>:                
+                <div class="col">
+                  {{data.nama}}
+                </div>
+              </div>
+          </form>
+          <br>
+          <ul class="nav nav-tabs nav-tabs-bordered">
+            <li class="nav-item">
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Peminjaman</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Pinjam Saat ini</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-denda">Denda</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-sejarah">Sejarah Peminjaman</button>
+            </li>
+          </ul>
+          <div class="tab-content pt-6">
+            <div class="tab-content pt-6">
+              <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <div class="tab-content pt-12">   
+                  <br>         
+                  <form class="col-4" action="" method="POST">
+                      {% csrf_token %} 
+                <div class="row">
+                  <div class="col-md-11,5">
+                    <label for="na">Kode Buku</label>
+                      <select class="form-select" name="buku" aria-label="Default select example" required>
+                        <option value=""></option>
+                          {% for d in buku %}
+                          <option value="{{d.id}}">{{d.no_panggil}}</option>
+                          {% endfor %}
+                      </select>
                   </div>
-                </div>     
-              </div><!-- End Bordered Tabs -->
-            </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">
+                    <label class="mt-1">Judul</label>
+                  </div>                    
+                  <div class="col-12">
+                    <input class="form-control" type="text" name="judul">
+                  </div>
+              </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <label class="mt-1">Tanggal Pinjam</label>
+                  </div>                    
+                  <div class="col">
+                    <input class="form-control" type="date" name="tp">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <label class="mt-1">Tanggal Kembali</label>
+                  </div>                    
+                  <div class="col">
+                    <input class="form-control" type="date" name="tk">
+                  </div>
+                </div>
+                  <br>
+                <div class="row">
+                  <div class="col-md-5">
+                      <button type="submit" class="btn btn-primary">Simpan</button>
+                  </div>
+                </div>      
+            </form>
           </div>
         </div>
+        <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+          <form class = "col">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Kode Buku</th>
+                  <th scope="col">Judul Buku</th>        
+                  <th scope="col">Tgl-Pinjam</th>
+                  <th scope="col">Tgl-Kembali</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>    
+                {% for d in data_pinjaman %}                      
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td>{{d.no_pang.no_panggil}}</td>
+                  <td>{{d.judul}}</td>
+                  <td>{{d.tgl_pinjam}}</td>
+                  <td>{{d.tgl_kembali}}</td>
+                  <td> 
+                    <a type="button"  class="bi bi-trash-fill" href="/main2/peminjaman/{{d.id}}/delete_pinjam"></a>
+                  </td>
+                </tr>
+                {% endfor %}   
+            </table>
+          </form>
+        </div>
+        <div class="tab-pane fade profile-denda pt-3" id="profile-denda">
+          <form class = "col">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Kode Buku</th>
+                  <th scope="col">Judul Buku</th>        
+                  <th scope="col">Tgl-Pinjam</th>
+                  <th scope="col">Tgl-Kembali</th>
+                  <th>Denda</th>
+                </tr>
+              </thead>
+              <tbody>    
+                {% for d in data_pinjaman %}                      
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td>{{d.no_pang.no_panggil}}</td>
+                  <td>{{d.judul}}</td>
+                  <td>{{d.tgl_pinjam}}</td>
+                  <td>{{d.tgl_kembali}}</td>
+                  <td>{{d.denda}}</td>
+                  <td> 
+                    <a type="button"  class="bi bi-trash-fill" href="/main2/peminjaman/{{d.id}}/delete_pinjam"></a>
+                  </td>
+                </tr>
+                {% endfor %}   
+            </table>
+          </form>
+        </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>     
+</section>
 {% endblock %}

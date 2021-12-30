@@ -21,6 +21,7 @@ urlpatterns = [
     path('biodata/', views.biodata, name='biodata'),
     path('sirkulasi/', views.sirkulasi, name='sirkulasi'),
     path('sidebarpustaka/', views.sidebarpustaka, name='sidebarpustdeaka'),
+    # path('peminjaman/', views.peminjaman,name='peminjaman'),
     path('peminjaman/<id>/', views.peminjaman,name='peminjaman'),
     path('peminjaman/<id>/delete_pinjam', views.delete_pinjam),
     path('cek/', views.cek, name='cek'),
