@@ -79,6 +79,8 @@ class pinjam (models.Model):
     tgl_pinjam =models.DateField(auto_now=True)
     tgl_kembali = models.CharField(max_length=200)
     denda = models.IntegerField(null=True, blank=True)
+    
+
 
 class exemplar (models.Model):
     beranda = [

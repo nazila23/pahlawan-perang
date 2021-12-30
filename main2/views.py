@@ -5,6 +5,7 @@ from django.http.response import Http404
 from django.db.models.base import Model
 from.import models
 from django.db.models import Q
+from datetime import date, datetime
 # Create your views here. 
 
 #Fungsi Biblografi
@@ -224,13 +225,6 @@ def peminjaman(request,id):
         tgl_kembali=request.POST['tk'],
         judul=request.POST['judul'],
     )
-        # models.pinjam.objects.create(
-        #     no_pang=bakul,
-        #     tgl_pinjam=request.POST['tp'],
-        #     tgl_kembali=request.POST['tk'],
-        #     judul=request.POST['judul']
-        # )
-        # return redirect(request,'peminjaman.html')
     data_pinjaman=models.pinjam.objects.filter(no_pang=id)
     data = models.anggota.objects.filter(id=id).first()
     buku= models.buku.objects.all()
@@ -240,6 +234,20 @@ def peminjaman(request,id):
         'data_pinjaman': data_pinjaman,
         'buku': buku,
 })
+
+# def days_between(d1,d2):
+#     d1 = datetime.strptime(d1,"%y-%m-%d")
+#     d2 = datetime.strptime(d2,"%y-%m-%d" )
+#     return  redirect (abs((d2-d1).days),'peminjaman')
+
+# if abs > 3:
+#     denda = abs * 2000
+# else :
+#     denda = abs * 0
+   
+
+
+
 
 def delete_pinjam(request,id):
     models.pinjam.objects.filter(pk=id).delete()
