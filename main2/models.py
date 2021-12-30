@@ -98,3 +98,5 @@ class exemplar (models.Model):
     tgl_pesan= models.CharField(max_length=200)
     tgl_terima= models.CharField(max_length=200)
     promosi= models.CharField(choices=beranda, max_length=200)
+
+

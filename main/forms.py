@@ -24,3 +24,11 @@
 #         self.fields['email'].widget.attrs['class'] = 'form-control'
 #         self.fields['password1'].widget.attrs['class'] = 'form-control'
 #         self.fields['password2'].widget.attrs['class'] = 'form-control'
+
+# from django import forms 
+# from .models import Image 
+#     class ImageForm(forms.ModelForm): 
+#     class Meta: 
+#     model=Image 
+#     fields=("caption","image") 
+

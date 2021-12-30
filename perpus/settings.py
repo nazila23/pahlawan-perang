@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'perpus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'perpustakaan',
+        'NAME': 'perpus',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'unuyogya18',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -156,6 +156,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account.User'
+
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 from django.contrib.messages import constants as messages
