@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.files import File
 from django.conf import settings
 import PIL.Image
+from django.db.models.fields import IntegerField
 
 
 class anggota(models.Model):
@@ -19,7 +20,7 @@ class anggota(models.Model):
     tipe_anggota =models.TextField(max_length=200)
     pekerjaan =models.TextField(max_length=200)
     alamat =models.TextField(max_length=200)
-    jenis_kelamin =models.TextField(choices=kelamin, max_length=200)
+    jenis_kelamin =models.CharField(choices=kelamin, max_length=200)
     negara =models.TextField(max_length=200)
     no_hp =models.IntegerField()
     email =models.TextField(max_length=200)
@@ -65,12 +66,19 @@ class buku(models.Model):
     opac =models.CharField(choices=opac, max_length=200)
     beranda = models.CharField(choices=beranda, max_length=200)
 
-class Pinjam (models.Model):
+# class pinjam (models.Model):
+#     no_pang = models.ForeignKey(buku, on_delete=models.CASCADE)
+#     judul = models.CharField(max_length=200)
+#     tgl_pinjam = models.DateField(auto_now=True)
+#     tgl_kembali = models.CharField(max_length=200)
+#     denda = models.CharField(max_length=250)
+
+class pinjam (models.Model):
     no_pang = models.ForeignKey(buku, on_delete=models.CASCADE)
-    tgl_pinjam = models.DateField(auto_now=True)
+    judul = models.CharField(max_length=200)
+    tgl_pinjam =models.DateField(auto_now=True)
     tgl_kembali = models.CharField(max_length=200)
-
-
+    denda = models.IntegerField(null=True, blank=True)
 
 class exemplar (models.Model):
     beranda = [

@@ -4,7 +4,7 @@ from django.http.response import Http404
 from main import forms
 from.import models, forms
 from django.db.models.base import Model
-from .forms import SignUpForm
+# from .forms import SignUpForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -15,38 +15,38 @@ from main2 import models as main_mod
 # sigin
 
 def index(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            if user is not None:
-                login(request, user)
-            return redirect('/')
-    else:
+    # if request.method == 'POST':
+    #     form = UserCreationForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         username = form.cleaned_data.get('username')
+    #         raw_password = form.cleaned_data.get('password1')
+    #         user = authenticate(username=username, password=raw_password)
+    #         login(request, user)
+    #         if user is not None:
+    #             login(request, user)
+    #         return redirect('/')
+    # else:
 
-        form = SignUpForm()
+    #     form = SignUpForm()
     return render(request,'index.html', {
-        'form': form,
+        # 'form': form,
     })
 
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)    
-    else:
-        form = UserCreationForm()
-    return render(request, 'index.html', {
-        'form':form,
-    })
+# def register(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data.get('username')
+#             raw_password = form.cleaned_data.get('password1')
+#             user = authenticate(username=username, password=raw_password)
+#             login(request, user)    
+#     else:
+#         form = UserCreationForm()
+#     return render(request, 'index.html', {
+#         'form':form,
+    # })
 
 # def login(request):
     
@@ -92,7 +92,6 @@ def dashboard(request):
     return render(request,'dashboard.html')
 def tambah(request):
     return render(request,'tambah.html')
-
 
 def usersprof(request):
     if request.POST:

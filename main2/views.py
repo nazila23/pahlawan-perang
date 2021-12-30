@@ -91,7 +91,7 @@ def anggota(request):
             no_hp = request.POST['hp'],
             email = request.POST['email'],
             instansi = request.POST['ins'],
-            jenis_kelamin = request.POST['jenisk']
+            jenis_kelamin = request.POST['jenis_kelamin'],
         )
         messages.success(request, f'Tambah Berhasil')
     data = models.anggota.objects.all()
@@ -213,19 +213,28 @@ def sirkulasi(request):
         'data': data,
     })
     
+
 def peminjaman(request,id):
     if request.POST:
         bakul=models.buku.objects.filter(pk=request.POST['buku']).first()
-        models.Pinjam.objects.create(
+        print(bakul)
+        models.pinjam.objects.create(
         no_pang=bakul,
         tgl_pinjam=request.POST['tp'],
         tgl_kembali=request.POST['tk'],
+        judul=request.POST['judul'],
     )
+        # models.pinjam.objects.create(
+        #     no_pang=bakul,
+        #     tgl_pinjam=request.POST['tp'],
+        #     tgl_kembali=request.POST['tk'],
+        #     judul=request.POST['judul']
+        # )
         # return redirect(request,'peminjaman.html')
-    
-    data_pinjaman=models.Pinjam.objects.all()
+    data_pinjaman=models.pinjam.objects.filter(no_pang=id)
     data = models.anggota.objects.filter(id=id).first()
     buku= models.buku.objects.all()
+    print(buku)
     return render(request,'peminjaman.html',{
         'data' :data,
         'data_pinjaman': data_pinjaman,
@@ -233,7 +242,7 @@ def peminjaman(request,id):
 })
 
 def delete_pinjam(request,id):
-    models.Pinjam.objects.filter(pk=id).delete()
+    models.pinjam.objects.filter(pk=id).delete()
     messages.success(request, f'Hapus Berhasil')
     return redirect ('peminjaman')
 
@@ -250,6 +259,11 @@ def cek(request):
     return render(request, 'cek.html', {
         'datanama' : cari_data
     })
+# def (request):
+#     cari_data = models.anggota.objects.all()
+#     return render(request, 'cek.html', {
+#         'datanama' : cari_data
+#     })
 
 def delete_cek(request,id):
     models.anggota.objects.filter(pk=id).delete()
