@@ -3,7 +3,7 @@ from django.forms.models import model_to_dict
 from django.shortcuts import redirect, render
 from django.http.response import Http404
 from django.db.models.base import Model
-from.import models
+from . import models
 from django.db.models import Q
 # Create your views here. 
 
@@ -155,7 +155,8 @@ def exemplar(request):
             tgl_terima = request.POST['t_penerima'],
             promosi = request.POST['gridRadios'],
         )
-    data=models.exemplar.objects.all()
+    data = models.exemplar.objects.all()
+
     return render(request,'exemplar.html',{
         'data': data,
     })

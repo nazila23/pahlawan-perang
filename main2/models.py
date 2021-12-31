@@ -87,14 +87,14 @@ class exemplar (models.Model):
     ]
     judul = models.CharField(max_length=200)
     pengarang = models.CharField(max_length=200)
-    kode_exemplar= models.CharField(max_length=200)
-    no_panggil=  models.CharField(max_length=200)
+    kode_exemplar = models.CharField(max_length=200)
+    no_panggil =  models.CharField(max_length=200)
     kode_inventaris=  models.CharField(max_length=200)
-    lokasi= models.CharField(max_length=200)
+    lokasi = models.CharField(max_length=200)
     exemplar= models.CharField(max_length=200)
     # kode_pemesanan= models.IntegerField()
-    tgl_pesan= models.CharField(max_length=200)
-    tgl_terima= models.CharField(max_length=200)
-    promosi= models.CharField(choices=beranda, max_length=200)
+    tgl_pesan = models.CharField(max_length=200)
+    tgl_trima = models.CharField(max_length=200)
+    promosi = models.CharField(choices=beranda, max_length=200)
 
 
