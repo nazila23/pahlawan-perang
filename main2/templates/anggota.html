@@ -33,13 +33,6 @@
                 <div class="tab-content pt-6">
                   <br>
                   <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <!-- <div class="row mb-3">
-                    <label for="id" class="col-md-4 col-lg-3 col-form-label">ID Anggota</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="id" type="text" class="form-control" id="id" >
-                    </div>
-                  </div> -->
-
                 <form method="post" action="">
                   {% csrf_token %}
                   <div class="row">
@@ -88,10 +81,15 @@
                   </div>
                   <div class="row">
                     <div class="col-md-4">
-                      <label class="mt-1">Tipe_anggota</label>
-                    </div>                    
+                      <label class="mt-1">Tipe Anggota</label>
+                    </div>
                     <div class="col">
-                      <input class="form-control" type="text" name="tk">
+                      <select class="form-select" name="tk" aria-label="Default select example">
+                        <option selected>Pilih</option>
+                        <option value="Umum">Umum</option>
+                        <option value="Mahasiswa">Mahasiswa</option>
+                        <option value="Santri">Santri</option>
+                      </select>
                     </div>
                   </div>
                   <div class="row">
@@ -179,7 +177,7 @@
                           <a type="button" style="padding: 10px;" class="bi bi-eye-fill"href="{{z.id}}/detail_anggota"></a>
                       </td>
                       </tr>
-                      {% endfor %}     
+                        {% endfor %}
                     </tbody>                
                   </table>
               </div>   
