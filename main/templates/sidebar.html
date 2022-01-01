@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Profil Pustakawan</title>
+  <title>Profil User</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -26,18 +26,16 @@
   <link href="{%static 'vendor2/quill/quill.bubble.css'%}" rel="stylesheet">
   <link href="{%static 'vendor2/remixicon/remixicon.css'%}" rel="stylesheet">
   <link href="{%static 'vendor2/simple-datatables/style.css'%}" rel="stylesheet">
+
   <!-- Template Main CSS File -->
   <link href="{%static 'css2/style.css'%}" rel="stylesheet">
 
-  <!-- =======================================================-->
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"></script> 
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.2.0
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
@@ -66,36 +64,38 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
-          </a>
-
-        </li>
+            <!-- <span class="badge bg-primary badge-number">4</span> -->
+          </a><!-- End Notification Icon -->
+        </li><!-- End Notification Nav -->
 
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
-          </a>
+            <!-- <span class="badge bg-success badge-number">3</span> -->
+          </a><!-- End Messages Icon -->
 
-        </li>
+         
+        </li><!-- End Messages Nav -->
 
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="{%static 'img/messages-2.jpg' %}" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Alny Nurafia</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">Aulia</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Alny Nurafia</h6>
-              <span>Pustakawan</span>
+              <h6>{{User.Username}}</h6>
+              <span>Mahasiswa</span>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="usersprof">
+              <a class="dropdown-item d-flex align-items-center" href="/usersprof/">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -125,18 +125,19 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="index.html">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
             </li>
 
           </ul><!-- End Profile Dropdown Items -->
-        </li>
-      </ul>
-    </nav>
+        </li><!-- End Profile Nav -->
 
-  </header>
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
@@ -147,33 +148,60 @@
         <a class="nav-link collapsed" href="{% url 'katalog' %}">
           <i class="bi bi-card-list"></i>
           <span>Katalog Online</span>
-          <i class="bi bi-menu-button-wide"></i><span>Katalog</span>
-       </a>
-      </li>
+        </a>
+      </li><!-- End Katalog Nav -->
+
+
       <li class="nav-item">
-       <a class="nav-link collapsed" href="{% url 'biodata' %}">
+        <a class="nav-link collapsed" href="{% url 'usersprof' %}">
           <i class="bi bi-menu-button-wide"></i><span>Biodata Diri</span>
         </a>
-        <a class="nav-link collapsed" href="{% url 'biblografi' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Biblografi</span>
+        <!-- End Biodata Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="{% url 'usulan' %}">
+          <i class="bi bi-journal-text"></i><span>Usulan Koleksi</span>
         </a>
-        <a class="nav-link collapsed" href="{% url 'exemplar' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Exemplar</span>
+        <!-- End usulan Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="{% url 'history-peminjaman' %}">
+          <i class="bi bi-bar-chart"></i><span>History Peminjaman</span>
         </a>
-        <a class="nav-link collapsed" href="{% url 'anggota' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Keanggotaan</span>
+        <!-- End history Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="{% url 'bebas-pustaka' %}">
+          <i class="bi bi-journal"></i><span>Bebas Pustaka</span>
         </a>
-        <a class="nav-link collapsed" href="{% url 'cek' %}">
-          <i class="bi bi-menu-button-wide"></i><span>Sirkulasi</span>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href=#>
+          <i class="bi bi-question-circle"></i>
+          <span>Informasi Literasi Daring</span>
         </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'order-buku' %}">
+          <i class="bi bi-cart2"></i>
+          <span>Order Buku</span>
+        </a>
+      </li><!-- End Order Buku Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'upload-karya' %}">
+          <i class="bi bi-file-earmark-plus"></i>
+          <span>Upload Karya</span>
+        </a>
+      </li><!-- End karya Page Nav -->
+
       
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'login_view' %}">
+        <a class="nav-link collapsed" href="{% url 'login_view' %} ">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>
-      </li>
-
+      </li><!-- End Logout Page Nav -->
     </ul>
   </aside><!-- End Sidebar-->
 
@@ -191,9 +219,7 @@
     }, 2000)
   </script>
   
-
-  <!-- Vendor JS Files -->
-  <script src="{%static 'vendor2/apexcharts/apexcharts.min.js' %}"></script>
+    <script src="{%static 'vendor2/apexcharts/apexcharts.min.js' %}"></script>
   <script src="{%static 'vendor2/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{%static 'vendor2/chart.js/chart.min.js' %}"></script>
   <script src="{%static 'vendor2/echarts/echarts.min.js' %}"></script>
@@ -204,11 +230,7 @@
 
   <!-- Template Main JS File -->
   <script src="{%static 'js2/main.js' %}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
 </body>
 
 </html>

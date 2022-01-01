@@ -5,6 +5,7 @@ from django.http.response import Http404
 from django.db.models.base import Model
 from . import models
 from django.db.models import Q
+from datetime import date, datetime
 # Create your views here. 
 
 #Fungsi Biblografi
@@ -23,7 +24,6 @@ def biblografi(request):
             tempat_terbit = request.POST['tterbit'],
             diskripsi_fisik = request.POST ['ds'],
             klasifikasi = request.POST ['klasifikasi'],
-            no_panggil = request.POST ['np'],
             bahasa = request.POST ['bhs'],
             cover = request.POST ['cover'],
             opac = request.POST ['gridRadioss'],
@@ -54,7 +54,6 @@ def edit_biblografi(request,id):
             tempat_terbit = request.POST['tempat_terbit'],
             diskripsi_fisik = request.POST['diskripsi_fisik'],
             klasifikasi = request.POST['klasifikasi'],
-            no_panggil = request.POST['no_panggil'],
             bahasa = request.POST['bahasa'],
             cover = request.POST['cover'],
             opac = request.POST['opac'],
@@ -82,6 +81,7 @@ def anggota(request):
         models.anggota.objects.create(
             nama = request.POST['nama'],
             tanggal_lahir = request.POST['tl'],
+             jenis_kelamin = request.POST['jenis_kelamin'],
             tanggal_registrasi = request.POST['tr'],
             berlaku_hingga = request.POST['bg'],
             tipe_anggota = request.POST['tk'],
@@ -91,7 +91,6 @@ def anggota(request):
             no_hp = request.POST['hp'],
             email = request.POST['email'],
             instansi = request.POST['ins'],
-            jenis_kelamin = request.POST['jenis_kelamin'],
         )
         messages.success(request, f'Tambah Berhasil')
     data = models.anggota.objects.all()
@@ -140,17 +139,17 @@ def detail_anggota(request,id):
 #Exeemplar
 def exemplar(request):
     if request.POST:
+        judul=models.buku.objects.filter(pk=request.POST['judul']).first()
+        peng=models.buku.objects.filter(pk=request.POST['pengarang']).first()
+        print (judul,peng)
         beranda = request.POST['gridRadios']
         print(beranda)
         models.exemplar.objects.create(
-            judul = request.POST['Judul'],
-            pengarang = request.POST['Pengarang'],
-            kode_exemplar = request.POST['k_exemplar'],
+            judul = request.POST['judul'],
+            #  = request.POST['judul'],
             no_panggil = request.POST['no_panggil'],
             kode_inventaris = request.POST['k_inventaris'],
             lokasi = request.POST['lokasi'],
-            # exemplar = request.POST ['exemplar'],
-            # kode_pemesanan = request.POST ['k_pemesanan'],
             tgl_pesan = request.POST['t_pemesanan'],
             tgl_terima = request.POST['t_penerima'],
             promosi = request.POST['gridRadios'],
@@ -217,10 +216,10 @@ def sirkulasi(request):
 
 def peminjaman(request,id):
     if request.POST:
-        bakul=models.buku.objects.filter(pk=request.POST['buku']).first()
-        print(bakul)
+        book=models.buku.objects.filter(pk=request.POST['book']).first()
+        print(book)
         models.pinjam.objects.create(
-        no_pang=bakul,
+        no_pang=book,
         tgl_pinjam=request.POST['tp'],
         tgl_kembali=request.POST['tk'],
         judul=request.POST['judul'],
@@ -241,6 +240,24 @@ def peminjaman(request,id):
         'data_pinjaman': data_pinjaman,
         'buku': buku,
 })
+
+# def days_between(d1,d2):
+#     d1 = datetime.strptime(d1,"%y-%m-%d")
+#     d2 = datetime.strptime(d2,"%y-%m-%d" )
+#     return  redirect (abs((d2-d1).days),'peminjaman')
+
+# if abs > 3:
+#     denda = abs * 2000
+# else :
+#     denda = abs * 0
+   
+def exemp(request):
+    cari_data = models.buku.objects.all()
+    return render(request, 'exemplar.html', {
+        'datanama' : cari_data
+    })
+
+
 
 def delete_pinjam(request,id):
     models.pinjam.objects.filter(pk=id).delete()
@@ -270,3 +287,21 @@ def delete_cek(request,id):
     models.anggota.objects.filter(pk=id).delete()
     messages.success(request, f'Hapus Berhasil')
     return redirect ('cek')
+
+#fungsi karyawan
+def karyawan(request):
+    if request.POST:
+        models.karyawan.objects.create(
+            nama = request.POST['nama'],
+            tanggal_lahir = request.POST['tgl'],
+            jabatan = request.POST['jabatan'],
+            alamat = request.POST['alamat'],           
+            no_hp = request.POST['hp'],
+            email = request.POST['mail'],          
+            jenis_kelamin = request.POST['jenis_kelamin'],
+        )
+        messages.success(request, f'Tambah Berhasil')
+    data = models.karyawan.objects.all()
+    return render(request,'biodata.html',{
+        'data': data,
+    })

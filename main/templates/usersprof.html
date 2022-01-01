@@ -1,3 +1,5 @@
+{% extends "sidebar.html" %}
+{% block content %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -244,16 +246,26 @@
               </div> -->
             </div>
           </div>
+=======
+<section class="section profile">
+  <div class="row">
+    <div class="col-xl-4">
+      <div class="card">
+        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+>>>>>>> 51939877f889904bda6075245ebe4118807c6c5f
 
+          <img src="{%static 'img/messages-2.jpg' %}" alt="Profile" class="rounded-circle">
+          <h2>Aulia Hamidah</h2>
+          <h3>Pustakawan</h3>
         </div>
+      </div>
+    </div>
 
-        <div class="col-xl-8">
-
-          <div class="card">
-            <div class="card-body pt-3">
+    <div class="col-xl-8">
+      <div class="card">
+        <div class="card-body pt-3">
               <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered">
-
                 <li class="nav-item">
                   <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                 </li>
@@ -271,11 +283,11 @@
                 </li>
 
               </ul>
-              <div class="tab-content pt-2">
-
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+              <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <form method="post" action="">
                 {% for data in data  %}
                   <h5 class="card-title">Profile Details</h5>
+
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
                     <div class="col-lg-9 col-md-8">{{data.nama}}</div>
@@ -315,12 +327,13 @@
                     <div class="col-lg-3 col-md-4 label">Password</div>
                     <div class="col-lg-9 col-md-8">{{data.password}}</div>
                   </div>
-                </div>
                 {% endfor %} 
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+              </form>
+              </div>
 
-                  <!-- Profile Edit Form -->
-                  <form>
+                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                <form>
+                  
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
@@ -384,12 +397,11 @@
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
-                  </form><!-- End Profile Edit Form -->
 
+                  </form><!-- End Profile Edit Form -->
                 </div>
 
-                <div class="tab-pane fade pt-3" id="profile-settings">
-
+                <div class="tab-pane fade pt-3 profile-settings" id="profile-settings">
                   <!-- Settings Form -->
                   <form>
                     <div class="row mb-3">
@@ -426,13 +438,11 @@
                       <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
                   </form><!-- End settings Form -->
-
                 </div>
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
                   <form>
-
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                       <div class="col-md-8 col-lg-9">
@@ -458,41 +468,13 @@
                       <button type="submit" class="btn btn-primary">Change Password</button>
                     </div>
                   </form><!-- End Change Password Form -->
-
                 </div>
-
               </div><!-- End Bordered Tabs -->
-
             </div>
           </div>
-
         </div>
-      </div>
+          </div>
+        </div>
     </section>
-
-  </main><!-- End #main -->
-
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Perpustakaankita </span></strong>. All Rights Reserved
-    </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
   <!-- Vendor JS Files -->
-  <script src="{%static 'vendor2/apexcharts/apexcharts.min.js' %}"></script>
-  <script src="{%static 'vendor2/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{%static 'vendor2/chart.js/chart.min.js' %}"></script>
-  <script src="{%static 'vendor2/echarts/echarts.min.js' %}"></script>
-  <script src="{%static 'vendor2/quill/quill.min.js' %}"></script>
-  <script src="{%static 'vendor2/simple-datatables/simple-datatables.js' %}"></script>
-  <script src="{%static 'vendor2/tinymce/tinymce.min.js' %}"></script>
-  <script src="{%static 'vendor2/php-email-form/validate.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{%static 'js2/main.js' %}"></script>
-
-</body>
-
-</html>
+  {% endblock %}

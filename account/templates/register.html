@@ -28,15 +28,21 @@
             <div class="col-md-12">
               <div class="form-block">
                   <div class="mb-4">
-                      <h1>Silahkan Daftar Dulu</h1>
+                    <!-- <h1>Silahkan Daftar Dulu</h1> -->
                 </div>
+                <center> 
                   <span class="mb-0 text-muted">
                 {% if msg %}
                     {{ msg | safe }}
                 {% else %}
+
+                   <h4>Sign page</h4> 
+
                     Register page
+
                 {% endif %}
               </span>
+            </center>
                 <form  method="post">
                     {% csrf_token %}
                   <div class="form-group first">

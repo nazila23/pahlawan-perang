@@ -28,6 +28,10 @@
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Daftar Biblografi</button>
                 </li>
 
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-exem">Tambah Exemplar</button>
+                </li>
+
               </ul>
               <div class="tab-content pt-6">
                 <br>
@@ -63,7 +67,7 @@
                   </div>
 
                   <div class="row mb-3">
-                    <label for="ids" class="col-md-4 col-lg-3 col-form-label">Tipe Isi</label>
+                    <label for="isi" class="col-md-4 col-lg-3 col-form-label">Tipe Isi</label>
                     <div class="col-md-8 col-lg-5">
                       <select id="inputState" name="isi" class="form-select">
                         <option selected>Pilih</option>
@@ -74,7 +78,7 @@
                   </div>
 
                   <div class="row mb-3">
-                    <label for="ids" class="col-md-4 col-lg-3 col-form-label">Tipe Media</label>
+                    <label for="media" class="col-md-4 col-lg-3 col-form-label">Tipe Media</label>
                     <div class="col-md-8 col-lg-5">
                       <select class="form-select" name="media" aria-label="Default select example">
                         <option selected>Pilih</option>
@@ -100,22 +104,15 @@
 
                   <div class="row">
                     <div class="col-md-3">
-                      <label class="mt-1">Tahun Penerbit</label>
+                      <label class="mt-1">Tahun Terbit</label>
                     </div>                    
                     <div class="col">
                       <input class="form-control" type="number" name="tpenerbit">
                     </div>
                   </div>
 
-                  <!-- <div class="row mb-3">
-                    <label for="tpenerbit" class="col-md-4 col-lg-3 col-form-label">Tahun Penerbit</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="tpenerbit" type="number" class="form-control" id="tpenerbit" >
-                    </div>
-                  </div> -->
-
                   <div class="row mb-3">
-                    <label for="tterbit" class="col-md-4 col-lg-3 col-form-label">Tempat terbit</label>
+                    <label for="tterbit" class="col-md-4 col-lg-3 col-form-label">Tempat Terbit</label>
                     <div class="col-md-8 col-lg-9">
                       <input name="tterbit" type="text" class="form-control" id="tterbit" >
                     </div>
@@ -138,22 +135,6 @@
                       </select>
                     </div>
                   </div>
-
-                  <div class="row">
-                    <div class="col-md-3">
-                      <label class="mt-1">No Panggil</label>
-                    </div>                    
-                    <div class="col">
-                      <input class="form-control" type="text" name="np">
-                    </div>
-                  </div>
-
-                  <!-- <div class="row mb-3">
-                    <label for="np" class="col-md-4 col-lg-3 col-form-label">No Panggil</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="np" type="text" class="form-control" id="ds" >
-                    </div>
-                  </div> -->
 
                   <div class="row mb-3">
                     <label for="bhs" class="col-md-4 col-lg-3 col-form-label">Bahasa</label>
@@ -273,10 +254,50 @@
               </tbody>                
             </table>
           </div>
+              <br>
+              <div class="tab-pane fade show active profile-exem" id="profile-exem">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Judul</th>
+                      <th scope="col">Info Detail Spesifik</th>
+                      <th scope="col">Pengarang</th>
+                      <th scope="col">Bahasa</th>
+                      <th scope="col">Cover</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </tr>
+                </thead>  
+                <tbody>
+                  {% for z in data %} 
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><a href="/main2/exemplar/{{z.id}}">{{z.judul}}</a></td>
+                    <td>{{z.info_detail_spesifikasi}}</td>
+                    <td>{{z.pengarang}}</td>
+                    <td>{{z.bahasa}}</td>
+                    <td> <img src="{{buku.cover.url}}"></td>
+                    <td>
+                     <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal_{{z.id}}" style="padding: 5px;" class="bi bi-trash-fill"></a>
+                      <a type="button" style="padding: 5px;" class="bi bi-pencil-fill" href="{{z.id}}/edit_biblografi"></a>
+                      <a type="button" style="padding: 5px;" class="bi bi-eye-fill"href="{{z.id}}/detail_biblografi"></a>
+                  </td>
+                </tr>
+                        </form>
+                      </div> 
+                    </div>
+                  </div>
+                  {% endfor %}     
+                </tbody>                
+              </table>
+              </div>
+              </div>
+              </div>     
+            </div><!-- End Bordered Tabs -->
         </div>
       </div><!-- End Bordered Tabs -->
-     </div>
-    </div>
   </div>
 </section>
 
