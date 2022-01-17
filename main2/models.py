@@ -5,6 +5,7 @@ from django.core.files import File
 from django.conf import settings
 import PIL.Image
 from django.db.models.fields import IntegerField
+from django.db.models.deletion import CASCADE
 
 
 class anggota(models.Model):
@@ -12,17 +13,21 @@ class anggota(models.Model):
         ('Laki-Laki', 'Laki-Laki'),
         ('Perempuan', 'Perempuan'),
     ]
+    tipe = [
+        ('santri', 'santri'),
+        ('umum', 'umum'),
+    ]
 
     nama = models.TextField(max_length=200)
     tanggal_lahir =models.CharField(max_length=200)
     tanggal_registrasi = models.DateField(auto_now_add=True)
     berlaku_hingga =models.CharField(max_length=200)
-    tipe_anggota =models.TextField(max_length=200)
+    tipe_anggota =models.TextField(choices=tipe, max_length=200)
     pekerjaan =models.TextField(max_length=200)
     alamat =models.TextField(max_length=200)
     jenis_kelamin =models.CharField(choices=kelamin, max_length=200)
     negara =models.TextField(max_length=200)
-    no_hp =models.IntegerField()
+    no_hp =models.BigIntegerField()
     email =models.TextField(max_length=200)
     instansi =models.TextField(max_length=200)
 
@@ -39,16 +44,16 @@ class buku(models.Model):
         ('online', 'online'),
     ]
 
-    opac = [ 
-        ('tampil','tampil'),
-        ('sembunyi','sembunyi'),
-    ]
+    # opac = [ 
+    #     ('tampil','tampil'),
+    #     ('sembunyi','sembunyi'),
+    # ]
 
     beranda = [
          ('tampil','tampil'),
         ('sembunyi','sembunyi'),
     ]
-    no_panggil= models.CharField(max_length=200)
+    
     judul = models.CharField(max_length=200)
     pengarang = models.CharField(max_length=200)
     edisi = models.CharField(max_length=200)
@@ -59,40 +64,31 @@ class buku(models.Model):
     penerbit = models.CharField(max_length=200)
     tahun_terbit = models.IntegerField()
     tempat_terbit = models.CharField(max_length=200)
-    diskripsi_fisik = models.CharField(max_length=200)
     klasifikasi = models.CharField(max_length=200)
     bahasa = models.CharField(max_length=200)
     cover = models.ImageField(default='', upload_to='images/', null=True, blank=True)
-    opac =models.CharField(choices=opac, max_length=200)
     beranda = models.CharField(choices=beranda, max_length=200)
 
-# class pinjam (models.Model):
-#     no_pang = models.ForeignKey(buku, on_delete=models.CASCADE)
-#     judul = models.CharField(max_length=200)
-#     tgl_pinjam = models.DateField(auto_now=True)
-#     tgl_kembali = models.CharField(max_length=200)
-#     denda = models.CharField(max_length=250)
 
-class pinjam (models.Model):
-    no_pang = models.ForeignKey(buku, on_delete=models.CASCADE)
-    judul = models.CharField(max_length=200)
-    tgl_pinjam =models.DateField(auto_now=True)
-    tgl_kembali = models.CharField(max_length=200)
-    denda = models.IntegerField(null=True, blank=True)
+
 
 class exemplar (models.Model):
     beranda = [
         ('tampil','tampil'),
         ('sembunyi','sembunyi'),
     ]
-    judul = models.CharField(max_length=200)
+    no_panggil= models.CharField(max_length=200)
     pengarang = models.CharField(max_length=200)
     kode_exemplar= models.CharField(max_length=200)
-    no_panggil=  models.CharField(max_length=200)
     kode_inventaris=  models.CharField(max_length=200)
     lokasi= models.CharField(max_length=200)
-    exemplar= models.CharField(max_length=200)
-    # kode_pemesanan= models.IntegerField()
-    tgl_pesan= models.CharField(max_length=200)
-    tgl_terima= models.CharField(max_length=200)
-    promosi= models.CharField(choices=beranda, max_length=200)
+    jmlh_exemplar= models.CharField(max_length=200)
+    id_buku = models.ForeignKey(buku, on_delete=CASCADE, blank=True, null=True)
+
+
+class Pinjam (models.Model):
+    tgl_pinjam = models.DateField(auto_now=True)
+    tgl_kembali = models.DateField(blank=True, null=True)
+    denda = models.CharField(max_length=200)
+    id_exemplar = models.ForeignKey(exemplar,on_delete=models.CASCADE)
+    id_anggota = models.ForeignKey(anggota,on_delete=models.CASCADE)

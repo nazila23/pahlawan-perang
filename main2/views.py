@@ -20,14 +20,11 @@ def biblografi(request):
             isbn = request.POST ['isbn'],
             penerbit = request.POST ['penerbit'],
             tahun_terbit = request.POST ['tpenerbit'],
-            tempat_terbit = request.POST['tterbit'],
-            diskripsi_fisik = request.POST ['ds'],
-            klasifikasi = request.POST ['klasifikasi'],
-            no_panggil = request.POST ['np'],
+            tempat_terbit = request.POST['tterbit'],  
+            klasifikasi = request.POST ['klasifikasi'],           
             bahasa = request.POST ['bhs'],
             cover = request.POST ['cover'],
-            opac = request.POST ['gridRadioss'],
-            beranda = request.POST ['gridRadios'],
+            beranda = request.POST ['gridRadioss'],
         )
     data=models.buku.objects.all()
     return render(request,'biblografi.html',{
@@ -52,12 +49,9 @@ def edit_biblografi(request,id):
             penerbit = request.POST['penerbit'],
             tahun_terbit = request.POST['tahun_terbit'],
             tempat_terbit = request.POST['tempat_terbit'],
-            diskripsi_fisik = request.POST['diskripsi_fisik'],
             klasifikasi = request.POST['klasifikasi'],
-            no_panggil = request.POST['no_panggil'],
             bahasa = request.POST['bahasa'],
             cover = request.POST['cover'],
-            opac = request.POST['opac'],
             beranda = request.POST['beranda'],
         )
         return redirect('biblografi')
@@ -218,7 +212,7 @@ def peminjaman(request,id):
     if request.POST:
         bakul=models.buku.objects.filter(pk=request.POST['buku']).first()
         print(bakul)
-        models.pinjam.objects.create(
+        models.Pinjam.objects.create(
         no_pang=bakul,
         tgl_pinjam=request.POST['tp'],
         tgl_kembali=request.POST['tk'],
@@ -231,7 +225,7 @@ def peminjaman(request,id):
         #     judul=request.POST['judul']
         # )
         # return redirect(request,'peminjaman.html')
-    data_pinjaman=models.pinjam.objects.filter(no_pang=id)
+    data_pinjaman=models.Pinjam.objects.filter(id_exemplar=id)
     data = models.anggota.objects.filter(id=id).first()
     buku= models.buku.objects.all()
     print(buku)
