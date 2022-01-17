@@ -81,16 +81,18 @@ WSGI_APPLICATION = 'perpus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#UNTUK MIGRASI
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'perpus',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'unuyogya18',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
+#UNTUK QUERY (INPUT, HAPUSD, TAMPILAN, EDIT)
 
 
 # Password validation
@@ -156,6 +158,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account.User'
+
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 from django.contrib.messages import constants as messages
