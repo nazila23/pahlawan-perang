@@ -85,9 +85,9 @@ WSGI_APPLICATION = 'perpus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'perpus',
+        'NAME': 'perpus2',
         'USER': 'postgres',
-        'PASSWORD': 'unuyogya18',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '',
     }

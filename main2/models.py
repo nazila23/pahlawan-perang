@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.core.files import File
 from django.conf import settings
 import PIL.Image
-from django.db.models.deletion import CASCADE
+from django.db.models.deletion import CASCADE, DO_NOTHING
 from django.db.models.fields import IntegerField
 from django.db.models import Q
 
@@ -38,7 +38,6 @@ class anggota(models.Model):
     pekerjaan =models.TextField(max_length=200)
     alamat =models.TextField(max_length=200)
     jenis_kelamin =models.CharField(choices=kelamin, max_length=200)
-    negara =models.TextField(max_length=200)
     no_hp =models.BigIntegerField()
     email =models.TextField(max_length=200)
     instansi =models.TextField(max_length=200)
@@ -68,7 +67,6 @@ class buku(models.Model):
     judul = models.CharField(max_length=200)
     pengarang = models.CharField(max_length=200)
     edisi = models.CharField(max_length=200)
-    info_detail_spesifikasi = models.CharField(max_length=200)
     tipe_isi = models.CharField(choices=isi, max_length=200)
     tipe_media = models.CharField(choices=media, max_length=200)
     isbn = models.CharField(max_length=200)
@@ -91,38 +89,13 @@ class exemplar (models.Model):
     kode_inventaris=  models.CharField(max_length=200)
     lokasi= models.CharField(max_length=200)
     jmlh_exemplar= models.CharField(max_length=200)
-    id_buku = models.ForeignKey(buku, on_delete=CASCADE, blank=True, null=True)
+    judul = models.ForeignKey(buku, on_delete=DO_NOTHING)
 
 
 class Pinjam (models.Model):
     tgl_pinjam = models.DateField(auto_now=True)
     tgl_kembali = models.DateField(blank=True, null=True)
     denda = models.CharField(max_length=200)
-    id_exemplar = models.ForeignKey(exemplar,on_delete=models.CASCADE)
-    id_anggota = models.ForeignKey(anggota,on_delete=models.CASCADE)
-#     kode_exemplar = models.CharField(max_length=200)
-#     no_panggil =  models.CharField(max_length=200)
-#     kode_inventaris=  models.CharField(max_length=200)
-#     lokasi = models.CharField(max_length=200)
-#     tgl_pesan = models.CharField(max_length=200)
-#     tgl_terima = models.CharField(max_length=200)
-#     promosi = models.CharField(choices=beranda, max_length=200)
-#     jumlah_eksemplar= models.CharField(max_length=200)
-#     id_karyawan=models.ForeignKey(karyawan, on_delete=CASCADE,related_name='aksi')
-#     id_buku=models.ForeignKey(buku, on_delete=CASCADE,related_name='data')
-# class pinjam (models.Model):
-#     aksi= [
-#         ('Ditempat','Ditempat'),
-#         ('Diambil','Diambil'),
-#          ('Dikirim','Dikirim'),
-#     ]
-#     tgl_pinjam =models.DateField(auto_now=True)
-#     tgl_kembali = models.CharField(max_length=200)
-#     denda = models.IntegerField(null=True, blank=True)
-#     alamat =models.TextField(max_length=200)
-#     transaksi=models.CharField(choices=aksi, max_length=200)
-#     id_buku=models.ForeignKey(buku, on_delete=CASCADE,related_name='inputan1')
-#     id_karyawan=models.ForeignKey(karyawan, on_delete=CASCADE,related_name='pengisi')
-#     id_exemplar=models.ForeignKey(exemplar, on_delete=CASCADE,related_name='isi')
-#     id_anggota=models.ForeignKey(anggota, on_delete=CASCADE,related_name='value')
+    no_panggil = models.ForeignKey(exemplar,on_delete=models.CASCADE)
+    nama = models.ForeignKey(anggota,on_delete=models.CASCADE)
 

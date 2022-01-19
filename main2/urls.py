@@ -13,7 +13,7 @@ urlpatterns = [
     path('anggota/', views.anggota, name='anggota'),
     path('anggota/<id>/edit_anggota', views.edit_anggota,name='edit_anggota'),
     path('anggota/<id>/detail_anggota', views.detail_anggota,name='detail_anggota'),
-    path('anggota/<id>/delete_anggota', views.delete_anggota),
+    path('anggota/<id>/delete_anggota', views.delete_anggota,name='delete_anggota'),
     path('exemplar/', views.exemplar, name='exemplar'),
     path('exemplar/<id>/edit_exemplar', views.edit_exemplar,name='edit_exemplar'),
     path('exemplar/<id>/detail_exemplar', views.detail_exemplar,name='detail_exemplar'),
