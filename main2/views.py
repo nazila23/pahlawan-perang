@@ -1,3 +1,4 @@
+from statistics import mode
 from django.contrib import messages
 from django.forms.models import model_to_dict
 from django.shortcuts import redirect, render
@@ -136,16 +137,14 @@ def detail_anggota(request,id):
 
 #Exeemplar
 def exemplar(request):
-    buku= models.buku.objects.all()
     # buku=models.buku.objects.filter(pk=request.POST.get('judul'))
+    buku= models.buku.objects.all()
     if request.POST:
-        # # peng=models.buku.objects.filter(pk=request.POST['pengarang']).first()
-        # # print (judul,peng)
-        # beranda = request.POST['gridRadios']
-        # print(beranda)
+        judul= models.buku.objects.filter(pk=request.POST.get('judul'))
+        peng=models.buku.objects.filter(pk=request.POST.get('pengarang'))
         models.exemplar.objects.create(
-            judul = request.POST['judul'],
-            pengarang = request.POST['pengarang'],
+            judul = judul,
+            pengarang = peng,
             kode_examplar = request.POST['k_exemplar'],
             no_panggil = request.POST['no_panggil'],
             kode_inventaris = request.POST['k_inventaris'],
@@ -153,37 +152,12 @@ def exemplar(request):
         )
     data = models.exemplar.objects.all()
     # print(buku)
-
+    data_buku =models.buku.objects.all()
     return render(request,'exemplar.html',{
         'data': data,
         'buku': buku,
+        'data_buku':data_buku,
     })
-# def exemplar(request):
-#     buku= models.buku.objects.all()
-#     # buku=models.buku.objects.filter(pk=request.POST.get('judul'))
-#     if request.POST:
-#         # # peng=models.buku.objects.filter(pk=request.POST['pengarang']).first()
-#         # # print (judul,peng)
-#         # beranda = request.POST['gridRadios']
-#         # print(beranda)
-#         models.exemplar.objects.create(
-#             judul = request.POST['judul'],
-#             pengarang = request.POST['pengarang'],
-#             kode_examplar = request.POST['k_exemplar'],
-#             no_panggil = request.POST['no_panggil'],
-#             kode_inventaris = request.POST['k_inventaris'],
-#             lokasi = request.POST['lokasi'],
-#             # tgl_pesan = request.POST['t_pemesanan'],
-#             # tgl_terima = request.POST['t_penerima'],
-#             # promosi = request.POST['gridRadios'],
-#         )
-#     data = models.exemplar.objects.all()
-#     # print(buku)
-
-#     return render(request,'exemplar.html',{
-#         'data': data,
-#         'buku': buku,
-#     })
 
 def detail_exemplar(request,id):
     detail = models.exemplar.objects.filter(pk=id).first()

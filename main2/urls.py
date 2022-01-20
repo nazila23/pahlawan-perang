@@ -25,7 +25,8 @@ urlpatterns = [
     path('peminjaman/<id>/', views.peminjaman,name='peminjaman'),
     path('peminjaman/<id>/delete_pinjam/', views.delete_pinjam),
     path('cek/', views.cek, name='cek'),
-    path('cek/<id>/delete_cek', views.delete_cek),      
+    path('cek/<id>/delete_cek', views.delete_cek),
+    path('karyawan/', views.karyawan, name='karyawan'),      
 ]
 
 
