@@ -143,8 +143,7 @@ def exemplar(request):
         judul= models.buku.objects.filter(pk=request.POST.get('judul'))
         peng=models.buku.objects.filter(pk=request.POST.get('pengarang'))
         models.exemplar.objects.create(
-            judul = judul,
-            pengarang = peng,
+            buku = buku.id,
             kode_examplar = request.POST['k_exemplar'],
             no_panggil = request.POST['no_panggil'],
             kode_inventaris = request.POST['k_inventaris'],
@@ -152,11 +151,9 @@ def exemplar(request):
         )
     data = models.exemplar.objects.all()
     # print(buku)
-    data_buku =models.buku.objects.all()
     return render(request,'exemplar.html',{
         'data': data,
         'buku': buku,
-        'data_buku':data_buku,
     })
 
 def detail_exemplar(request,id):
