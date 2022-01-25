@@ -136,15 +136,17 @@ def detail_anggota(request,id):
     })
 
 #Exeemplar
-def exemplar(request):
+def exemplar(request, judul_id):
     # buku=models.buku.objects.filter(pk=request.POST.get('judul'))
     buku= models.buku.objects.all()
     if request.POST:
-        judul= models.buku.objects.filter(pk=request.POST.get('judul'))
-        peng=models.buku.objects.filter(pk=request.POST.get('pengarang'))
+        # judul= models.buku.objects.filter(pk=request.POST.get('judul'))
+        # peng=models.buku.objects.filter(pk=request.POST.get('pengarang'))
+        judul = models.buku.objects.get(pk=judul_id)
         models.exemplar.objects.create(
-            buku = buku.id,
-            kode_examplar = request.POST['k_exemplar'],
+            judul = judul,
+            # judul = request.POST['judul'],
+            kode_exemplar = request.POST['k_exemplar'],
             no_panggil = request.POST['no_panggil'],
             kode_inventaris = request.POST['k_inventaris'],
             lokasi = request.POST['lokasi'],
@@ -154,6 +156,7 @@ def exemplar(request):
     return render(request,'exemplar.html',{
         'data': data,
         'buku': buku,
+
     })
 
 def detail_exemplar(request,id):

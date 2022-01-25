@@ -5,8 +5,6 @@ from django.core.files import File
 from django.conf import settings
 import PIL.Image
 from django.db.models.deletion import CASCADE, DO_NOTHING
-from django.db.models.fields import IntegerField
-from django.db.models import Q
 
 class karyawan(models.Model):
     kelamin =[
@@ -78,6 +76,9 @@ class buku(models.Model):
     cover = models.ImageField(default='', upload_to='images/', null=True, blank=True)
     beranda = models.CharField(choices=beranda, max_length=200)
 
+    def __str__(self):
+        return self.judul
+        
 class exemplar (models.Model):
     beranda = [
         ('tampil','tampil'),
