@@ -5,7 +5,6 @@
       <h4>Sirkulasi</h4>
       <div class="card">
         <div class="card-body pt-12">
-          <form>
             {% csrf_token %} 
               <div class="row">
                 <div class="col-md-1">
@@ -23,7 +22,6 @@
                   {{data.nama}}
                 </div>
               </div>
-          </form>
           <br>
           <ul class="nav nav-tabs nav-tabs-bordered">
             <li class="nav-item">
@@ -44,27 +42,28 @@
               <div class="tab-pane fade show active profile-overview" id="profile-overview">
                 <div class="tab-content pt-12">   
                   <br>         
-                  <form class="col-4" action="" method="POST">
+                  <form class="col-4" action="" method="post">
                       {% csrf_token %} 
                 <div class="row">
                   <div class="col-md-11,5">
-                    <label for="na">No Panggil</label>
-                      <select class="form-select" name="buku" aria-label="Default select example" required>
-                        <option value=""></option>
+                    <label for="no_panggil">No Panggil</label>
+                      <select class="form-select" name="no_panggil" aria-label="Default select example" required>
                           {% for d in buku %}
-                          <option value="{{d.id}}">{{d.no_panggil}}</option>
+                          <option value="{{d}}">{{d.no_panggil}}</option>
                           {% endfor %}
                       </select>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-8">
-                    <label class="mt-1">Judul</label>
-                  </div>                    
-                  <div class="col-12">
-                    <input class="form-control" type="text" name="judul">
+                  <div class="col-md-11,5">
+                    <label for="judul">Judul</label>
+                      <select class="form-select" name="judul" aria-label="Default select example" required>
+                          {% for d in buku %}
+                          <option value="{{d}}">{{d.judul}}</option>
+                          {% endfor %}
+                      </select>
                   </div>
-              </div>
+                </div>
                 <div class="row">
                   <div class="col-md-4">
                     <label class="mt-1">Tanggal Pinjam</label>

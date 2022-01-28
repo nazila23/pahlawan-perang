@@ -94,9 +94,12 @@ class exemplar (models.Model):
 
 
 class Pinjam (models.Model):
-    tgl_pinjam = models.DateField(auto_now=True)
-    tgl_kembali = models.DateField(blank=True, null=True)
+    tgl_pinjam = models.DateField(auto_now_add=True)
+    tgl_kembali = models.DateField(auto_now=True)
     denda = models.CharField(max_length=200)
-    no_panggil = models.ForeignKey(exemplar,on_delete=models.CASCADE)
-    nama = models.ForeignKey(anggota,on_delete=models.CASCADE)
+    no_panggil = models.ForeignKey(exemplar,on_delete=DO_NOTHING)
 
+    def tgl_pinjam_format(self):
+        return self.tgl_pinjam.strftime('%Y-%m-%d')
+    def tgl_kembali_format(self):
+        return self.tgl_kembali.strftime('%Y-%m-%d')

@@ -35,7 +35,7 @@
                 <div class="tab-content pt-6">
                   <br>
                   <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                    <form method="post" action="">
+                    <form method="post" action=""enctype="multipart/form-data">
                       {% csrf_token %}
                     <div class="row mb-3">
                       <label for="Judul" class="col-md-4 col-lg-3 col-form-label">Judul</label>
@@ -180,7 +180,6 @@
               </div>
 
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-                <form>
                   <table class="table">
                     <thead>
                     <tr>
@@ -201,18 +200,17 @@
                       <td>{{z.judul}}</td>
                       <td>{{z.info_detail_spesifikasi}}</td>
                       <td>{{z.pengarang}}</td>
-                      <td> <img src="{{buku.cover.url}}"></td>
+                      <td> <img src="{{z.cover.url}}"></td>
                       <td>
                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal_{{z.id}}" style="padding: 5px;" class="bi bi-trash-fill"></a>
                         <a type="button" style="padding: 5px;" class="bi bi-pencil-fill" href="{{z.id}}/edit_biblografi"></a>
                         <a type="button" style="padding: 5px;" class="bi bi-eye-fill"href="{{z.id}}/detail_biblografi"></a>
                     </td>
                   </tr>
-                  {% endfor %}     
                     <div class="modal fade" id="exampleModal_{{z.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
-                            <form class="modal-body">
+                            <form method="post" class="modal-body">
                               <center>
                               <h6>Apakah Anda ingin menghapus data ini?</h6>
                               <div class="row">
@@ -226,50 +224,11 @@
                               <br>
                             </center>
                           </form>
-                        </div> 
-                      </div>
-                    </div>
+                      {% endfor %}     
                   </tbody>                
                 </table>
-                </form>
               </div>
-
-              <div class="tab-pane fade profile-exem pt-3" id="profile-exem">
-                <form>
-                  <table class="table">
-                    <thead>
-                    <tr>
-                      <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Pengarang</th>
-                        <th scope="col">Cover</th>
-                      </tr>
-                    </tr>
-                  </thead>  
-                  <tbody>
-                    {% for z in datanama %} 
-                    <tr>
-                      <td>{{forloop.counter}}</td>
-                      <td><a href="/main2/exemplar/{{z.id}}">{{z.judul}}</a></td>
-                      <td>{{z.pengarang}}</td>
-                      <td>{{z.cover}}</td>
-                    </tr>
-                    {% endfor %}   
-                  </tbody>          
-                 </table>    
-                  </tbody>                
-                </table>
-                </form>
               </div>
-              
-
-
-
-
-
-                  
-              </div>   
         </div>
       </div>
     </div>
