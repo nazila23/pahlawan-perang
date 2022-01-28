@@ -97,7 +97,7 @@ class exemplar (models.Model):
     tgl_pesan = models.CharField(max_length=200)
     tgl_terima = models.CharField(max_length=200)
     promosi = models.CharField(choices=beranda, max_length=200)
-    jumlah_eksemplar= models.CharField(max_length=200)
+    jumlah_exemplar= models.CharField(max_length=200)
     id_karyawan=models.ForeignKey(karyawan, on_delete=CASCADE,related_name='aksi')
     id_buku=models.ForeignKey(buku, on_delete=CASCADE,related_name='data')
 class pinjam (models.Model):

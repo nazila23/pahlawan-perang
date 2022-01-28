@@ -81,7 +81,7 @@ def anggota(request):
         models.anggota.objects.create(
             nama = request.POST['nama'],
             tanggal_lahir = request.POST['tl'],
-             jenis_kelamin = request.POST['jenis_kelamin'],
+            jenis_kelamin = request.POST['jenis_kelamin'],
             tanggal_registrasi = request.POST['tr'],
             berlaku_hingga = request.POST['bg'],
             tipe_anggota = request.POST['tk'],

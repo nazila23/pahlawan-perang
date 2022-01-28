@@ -5,9 +5,9 @@
 <div style="text-align: center;color: black;margin-top: 5%;">
 	    <h5 >Form Edit Anggota</h5>
 </div>
-<form class="col-12" method="POST">
-         {% csrf_token %} 
-         <br>
+<form class="row g-3" method="POST" action="">
+         <!-- {% csrf_token %} 
+        <br>
         <div class="row mb-3">
           <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
           <div class="col-md-8 col-lg-9">
@@ -95,7 +95,66 @@
                 <input type="text" class="form-control" name="instansi"value="{{data.instansi}}" class = "form-control">
             </div>
           </div>
-          <br>
+          <br> -->
+           {% csrf_token %} 
+          <div class="col-md-6">
+            <label for="Formnama" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="Formnama" name="nama"  value="{{data.nama}}">
+          </div>
+          <div class="col-md-6">
+            <label for="Formtl" class="form-label">Tanggal_lahir</label>
+            <input type="date" class="form-control" id="Formtl" name="tanggal_lahir" value="{{data.tanggal_lahir}}">
+          </div>
+          <div class="col-md-6">
+            <label  class="form-label">Jenis Kelamin</label>
+            <select class="form-select" name="jenis_kelamin"value="{{data.tanggal_lahir}}" aria-label=".form-select-sm example">
+              <option selected>Pilih</option>
+              <option value="1">Laki-Laki</option>
+              <option value="2">Perempuan</option>
+            </select>
+          </div> 
+          <div class="col-md-6">
+            <label for="Formtanggalregistrasi" class="form-label">Tanggal Registrasi</label>
+            <input type="date" class="form-control" id="Formtanggalregistrasi" name="tanggal_registrasi" value="{{data.tanggal_registrasi_format}}">
+          </div>
+          <div class="col-md-6">
+            <label for="Formberlakuhingga" class="form-label"> Belaku Hingga</label>
+            <input type="date" class="form-control" id="Formberlakuhingga" name="berlaku_hingga"value="{{data.berlaku_hingga_format}}">
+          </div>
+          <div class="col-md-6">
+            <label for="FormT" class="form-label">Tipe anggota</label>
+            <select class="form-select"  aria-label="Default select example" name="tipe_anggota"value="{{data.tipe_anggota}}">
+              <option selected>Pilih</option>
+              <option value="Umum">Umum</option>
+              <option value="Mahasiswa">Mahasiswa</option>
+              <option value="Santri">Santri</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="Formpr" class="form-label">Pekerjaan</label>
+            <input type="text" class="form-control" id="Formpr" name="pekerjaan"value="{{data.pekerjaan}}">
+          </div>
+          <div class="col-md-6">
+            <label for="FormTanggalLahir" class="form-label">Alamat</label>
+            <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" name="alamat"value="{{data.alamat}}" required></textarea>
+          </div>
+          <div class="col-md-6">
+            <label for="FormTanggalLahir" class="form-label">Negara</label>
+            <input type="text" class="form-control" id="FormTanggalLahir" name="negara"value="{{data.negara}}">
+          </div>
+          <div class="col-md-6">
+            <label for="Formnomerhp" class="form-label">No.HP</label>
+            <input type="number" class="form-control" id="Formnomer-hp" name="no_hp"value="{{data.no_hp}}">
+          </div>
+          <div class="col-md-6">
+            <label for="Formemail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="Formemail" name="email"value="{{data.email}}">
+          </div>
+          <div class="col-md-6">
+            <label for="Formintansi" class="form-label">Instansi</label>
+            <input type="text" class="form-control" id="Formintansi" name="instansi"value="{{data.instansi}}">
+          </div>
+        <br>
           <button type="submit" class="btn btn-success col-lg-12">Simpan</button>
       </form><!-- End Profile Edit Form -->
     
