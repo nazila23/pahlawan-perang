@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'perpus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'perpus2',
+        'NAME': 'perpus',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'unuyogya18',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 #UNTUK QUERY (INPUT, HAPUSD, TAMPILAN, EDIT)
