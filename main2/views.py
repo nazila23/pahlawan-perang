@@ -1,3 +1,4 @@
+from statistics import mode
 from django.contrib import messages
 from django.forms.models import model_to_dict
 from django.shortcuts import redirect, render
@@ -15,25 +16,28 @@ def biblografi(request):
             judul = request.POST ['Judul'],
             pengarang = request.POST ['Pengarang'],
             edisi = request.POST ['Edisi'],
-            info_detail_spesifikasi = request.POST ['ids'],
             tipe_isi = request.POST ['isi'],
             tipe_media = request.POST ['media'],
             isbn = request.POST ['isbn'],
             penerbit = request.POST ['penerbit'],
             tahun_terbit = request.POST ['tpenerbit'],
-            tempat_terbit = request.POST['tterbit'],
-            diskripsi_fisik = request.POST ['ds'],
-            klasifikasi = request.POST ['klasifikasi'],
+            tempat_terbit = request.POST['tterbit'],  
+            klasifikasi = request.POST ['klasifikasi'],           
             bahasa = request.POST ['bhs'],
             cover = request.POST ['cover'],
-            opac = request.POST ['gridRadioss'],
-            beranda = request.POST ['gridRadios'],
+            beranda = request.POST ['gridRadioss'],
         )
+
+       
+    cari_data = models.anggota.objects.all()
     data=models.buku.objects.all()
     return render(request,'biblografi.html',{
         'data': data,
+        'datanama' : cari_data,
+
     })
 
+    
 def delete_biblografi(request,id):
     models.buku.objects.filter(pk=id).delete()
     messages.success(request, f'Hapus Berhasil')
@@ -45,18 +49,15 @@ def edit_biblografi(request,id):
             judul = request.POST['judul'],
             pengarang = request.POST['pengarang'],
             edisi = request.POST['edisi'],
-            info_detail_spesifikasi = request.POST['info_detail_spesifikasi'],
             tipe_isi = request.POST['tipe_isi'],
             tipe_media = request.POST['tipe_media'],
             isbn = request.POST['isbn'],
             penerbit = request.POST['penerbit'],
             tahun_terbit = request.POST['tahun_terbit'],
             tempat_terbit = request.POST['tempat_terbit'],
-            diskripsi_fisik = request.POST['diskripsi_fisik'],
             klasifikasi = request.POST['klasifikasi'],
             bahasa = request.POST['bahasa'],
             cover = request.POST['cover'],
-            opac = request.POST['opac'],
             beranda = request.POST['beranda'],
         )
         return redirect('biblografi')
@@ -87,7 +88,6 @@ def anggota(request):
             tipe_anggota = request.POST['tk'],
             pekerjaan = request.POST['pekerjaan'],
             alamat = request.POST['almt'],
-            negara = request.POST['negara'],
             no_hp = request.POST['hp'],
             email = request.POST['email'],
             instansi = request.POST['ins'],
@@ -115,7 +115,6 @@ def edit_anggota(request,id):
             tipe_anggota = request.POST ['tipe_anggota'],
             pekerjaan = request.POST ['pekerjaan'],
             alamat = request.POST ['alamat'],
-            negara = request.POST ['negara'],
             no_hp = request.POST['no_hp'],
             email = request.POST ['email'],
             instansi = request.POST ['instansi'],
@@ -137,27 +136,27 @@ def detail_anggota(request,id):
     })
 
 #Exeemplar
-def exemplar(request):
+def exemplar(request, judul_id):
+    # buku=models.buku.objects.filter(pk=request.POST.get('judul'))
+    buku= models.buku.objects.all()
     if request.POST:
-        judul=models.buku.objects.filter(pk=request.POST['judul']).first()
-        peng=models.buku.objects.filter(pk=request.POST['pengarang']).first()
-        print (judul,peng)
-        beranda = request.POST['gridRadios']
-        print(beranda)
+        # judul= models.buku.objects.filter(pk=request.POST.get('judul'))
+        # peng=models.buku.objects.filter(pk=request.POST.get('pengarang'))
+        judul = models.buku.objects.get(pk=judul_id)
         models.exemplar.objects.create(
-            judul = request.POST['judul'],
-            #  = request.POST['judul'],
+            judul = judul,
+            # judul = request.POST['judul'],
+            kode_exemplar = request.POST['k_exemplar'],
             no_panggil = request.POST['no_panggil'],
             kode_inventaris = request.POST['k_inventaris'],
             lokasi = request.POST['lokasi'],
-            tgl_pesan = request.POST['t_pemesanan'],
-            tgl_terima = request.POST['t_penerima'],
-            promosi = request.POST['gridRadios'],
         )
     data = models.exemplar.objects.all()
-
+    # print(buku)
     return render(request,'exemplar.html',{
         'data': data,
+        'buku': buku,
+
     })
 
 def detail_exemplar(request,id):
@@ -216,10 +215,10 @@ def sirkulasi(request):
 
 def peminjaman(request,id):
     if request.POST:
-        book=models.buku.objects.filter(pk=request.POST['book']).first()
-        print(book)
-        models.pinjam.objects.create(
-        no_pang=book,
+        bakul=models.buku.objects.filter(pk=request.POST['buku']).first()
+        print(bakul)
+        models.Pinjam.objects.create(
+        no_pang=bakul,
         tgl_pinjam=request.POST['tp'],
         tgl_kembali=request.POST['tk'],
         judul=request.POST['judul'],
@@ -231,7 +230,7 @@ def peminjaman(request,id):
         #     judul=request.POST['judul']
         # )
         # return redirect(request,'peminjaman.html')
-    data_pinjaman=models.pinjam.objects.filter(no_pang=id)
+    data_pinjaman=models.Pinjam.objects.filter(no_panggil=id)
     data = models.anggota.objects.filter(id=id).first()
     buku= models.buku.objects.all()
     print(buku)

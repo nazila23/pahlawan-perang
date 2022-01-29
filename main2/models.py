@@ -63,7 +63,7 @@ class buku(models.Model):
     ]
 
     beranda = [
-         ('tampil','tampil'),
+        ('tampil','tampil'),
         ('sembunyi','sembunyi'),
     ]
 
@@ -104,7 +104,7 @@ class pinjam (models.Model):
     aksi= [
         ('Ditempat','Ditempat'),
         ('Diambil','Diambil'),
-         ('Dikirim','Dikirim'),
+        ('Dikirim','Dikirim'),
     ]
     tgl_pinjam =models.DateField(auto_now=True)
     tgl_kembali = models.CharField(max_length=200)
@@ -115,4 +115,6 @@ class pinjam (models.Model):
     id_karyawan=models.ForeignKey(karyawan, on_delete=CASCADE,related_name='pengisi')
     id_exemplar=models.ForeignKey(exemplar, on_delete=CASCADE,related_name='isi')
     id_anggota=models.ForeignKey(anggota, on_delete=CASCADE,related_name='value')
-
+    lokasi= models.CharField(max_length=200)
+    jmlh_exemplar= models.CharField(max_length=200)
+    judul = models.ForeignKey(buku, on_delete=CASCADE)

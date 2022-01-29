@@ -89,7 +89,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'unuyogya18',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 #UNTUK QUERY (INPUT, HAPUSD, TAMPILAN, EDIT)

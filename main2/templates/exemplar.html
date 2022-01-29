@@ -36,14 +36,22 @@
                   <div class="row mb-3">
                     <label for="judul" class="col-md-4 col-lg-3 col-form-label">Judul</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="judul" type="text" class="form-control" id="judul" >
+                    <select name="judul" class="form-control">
+                      {% for choice in buku %}
+                          <option class="form-control" value="{{ choice }}">{{ choice.judul }}</option>
+                          {% endfor %}
+                    </select>
                     </div>
                   </div>
 
                   <div class="row mb-3">
-                    <label for="Pengarang" class="col-md-4 col-lg-3 col-form-label">Pengarang</label>
+                    <label for="pengarang" class="col-md-4 col-lg-3 col-form-label">Pengarang</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="Pengarang" type="text" class="form-control" id="Pengarang" >
+                    <select name="pengarang" class="form-control">
+                      {% for choice in buku %}
+                          <option class="form-control" value="{{ choice }}">{{ choice.pengarang }}</option>
+                          {% endfor %}
+                    </select>
                     </div>
                   </div>
 
@@ -69,13 +77,13 @@
                   </div>
 
                   <div class="row mb-3">
-                    <label for="isbn" class="col-md-4 col-lg-3 col-form-label">Lokasi</label>
+                    <label for="isbn" class="col-md-4 col-lg-3 col-form-label">Lokasi Rak</label>
                     <div class="col-md-8 col-lg-9">
                       <input name="lokasi" type="text" class="form-control" id="lokasi" >
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <!-- <div class="row mb-3">
                     <label for="tterbit" class="col-md-4 col-lg-3 col-form-label">Tanggal Pemesanan</label>
                     <div class="col-md-8 col-lg-5">
                       <input name="t_pemesanan" type="date" class="form-control" id="t_pemesanan" >
@@ -87,9 +95,9 @@
                     <div class="col-md-8 col-lg-5">
                       <input name="t_penerima" type="date" class="form-control" id="t_penerima" >
                     </div>
-                  </div>
+                  </div> -->
 
-                <fieldset class="row mb-3">
+                <!-- <fieldset class="row mb-3">
                   <legend class="col-form-label col-sm-3 pt-0">Promosikan di Beranda</legend>
                   <div class="col-sm-5">
                     <div class="form-check">
@@ -105,7 +113,7 @@
                       </label>
                     </div>
                   </div>
-                </fieldset>
+                </fieldset> -->
 
                 <br>
                 <div class="row mb-3">
@@ -142,7 +150,7 @@
                         <a type="button" style="padding: 3px;" class="bi bi-eye-fill" href="{{d.id}}/detail_exemplar"></a>
                     </td>
                     </tr>
-                    {% endfor %}     
+                     {% endfor %}    
                     </tr>
                   </tbody>                              
                 </table>

@@ -37,8 +37,33 @@
                   {% csrf_token %}
                   
                   </div>
+<<<<<<< HEAD
                   <div class="row mb-2 col-lg-7">
                     <div class="col-md-10 col-lg-7">
+=======
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      <label class="mt-8">Tanggal Lahir</label>
+                    </div>                    
+                    <div class="col-3">
+                      <input class="form-control" type="date" name="tl">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="mt-1">Jenis Kelamin</label>
+                    </div>
+                    <div class="col">
+                      <select class="form-select" name="jenis_kelamin" aria-label="Default select example">
+                        <option selected>Pilih</option>
+                        <option value="Perempuan">Perempuan</option>
+                        <option value="Laki-Laki">Laki-Laki</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+>>>>>>> 08d5b9b00952b5892c123f825ecd9eb8ea34d6b3
                       <label class="mt-1">Tanggal_registrasi</label>
                     </div>                    
                     <div class="col">
@@ -82,6 +107,7 @@
                       <input class="form-control" type="text" name="almt">
                     </div>
                   </div>
+<<<<<<< HEAD
                   <div class="row mb-3 col-lg-7">
                     <div class="col-md-7">
                       <label class="mt-1">Negara</label>
@@ -92,6 +118,11 @@
                   </div>
                   <div class="row mb-3 col-lg-7">
                     <div class="col-md-7">
+=======
+               
+                  <div class="row">
+                    <div class="col-md-4">
+>>>>>>> 08d5b9b00952b5892c123f825ecd9eb8ea34d6b3
                       <label class="mt-1">No. HP</label>
                     </div>                    
                     <div class="col">
@@ -215,7 +246,7 @@
                         <td>{{z.berlaku_hingga}}</td>
                         <td>{{z.instansi}}</td>
                         <td>
-                          <a type="button" style="padding: 10px;" class="bi bi-trash-fill" href="{{z.id}}/delete_anggota"></a>
+                      <a type="button" style="padding: 10px;" class="bi bi-trash-fill" href="{{z.id}}/delete_anggota"></a>
                           <a type="button" style="padding: 10px;" class="bi bi-pencil-fill" href="{{z.id}}/edit_anggota"></a>
                           <a type="button" style="padding: 10px;" class="bi bi-eye-fill"href="{{z.id}}/detail_anggota"></a>
                       </td>
