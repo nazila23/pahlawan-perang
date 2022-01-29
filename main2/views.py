@@ -1,3 +1,4 @@
+from msilib.schema import File
 from statistics import mode
 from django.contrib import messages
 from django.forms.models import model_to_dict
@@ -24,7 +25,7 @@ def biblografi(request):
             tempat_terbit = request.POST['tterbit'],  
             klasifikasi = request.POST ['klasifikasi'],           
             bahasa = request.POST ['bhs'],
-            cover = request.POST ['cover'],
+            cover = request.FILES ['cover'],
             beranda = request.POST ['gridRadioss'],
         )
 
@@ -136,16 +137,16 @@ def detail_anggota(request,id):
     })
 
 #Exeemplar
-def exemplar(request, judul_id):
-    # buku=models.buku.objects.filter(pk=request.POST.get('judul'))
+def exemplar(request):
     buku= models.buku.objects.all()
     if request.POST:
-        # judul= models.buku.objects.filter(pk=request.POST.get('judul'))
+        test =request.POST['judul']
+        judul= models.buku.objects.get(judul=test)
         # peng=models.buku.objects.filter(pk=request.POST.get('pengarang'))
-        judul = models.buku.objects.get(pk=judul_id)
+        # judul = models.buku.objects.get(pk=judul_id)
         models.exemplar.objects.create(
             judul = judul,
-            # judul = request.POST['judul'],
+            pengarang = judul.pengarang,
             kode_exemplar = request.POST['k_exemplar'],
             no_panggil = request.POST['no_panggil'],
             kode_inventaris = request.POST['k_inventaris'],
@@ -214,15 +215,16 @@ def sirkulasi(request):
     
 
 def peminjaman(request,id):
+    no_panggil= models.exemplar.objects.all()
     if request.POST:
-        bakul=models.buku.objects.filter(pk=request.POST['buku']).first()
-        print(bakul)
+        bakul=models.exemplar.objects.get(no_panggil=request.POST['no_panggil'])
         models.Pinjam.objects.create(
-        no_pang=bakul,
+        # no_panggil=bakul,
+        # judul=bakul.judul,
         tgl_pinjam=request.POST['tp'],
         tgl_kembali=request.POST['tk'],
-        judul=request.POST['judul'],
     )
+    
         # models.pinjam.objects.create(
         #     no_pang=bakul,
         #     tgl_pinjam=request.POST['tp'],
@@ -231,9 +233,10 @@ def peminjaman(request,id):
         # )
         # return redirect(request,'peminjaman.html')
     data_pinjaman=models.Pinjam.objects.filter(no_panggil=id)
+    print(data_pinjaman)
     data = models.anggota.objects.filter(id=id).first()
-    buku= models.buku.objects.all()
-    print(buku)
+    print(data)
+    buku= models.exemplar.objects.all()
     return render(request,'peminjaman.html',{
         'data' :data,
         'data_pinjaman': data_pinjaman,

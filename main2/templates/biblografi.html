@@ -32,12 +32,24 @@
 
               </ul>
               <div class="tab-content pt-6">
+
                 <br>
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <!-- <div class="row mb-3 col-lg-7">
                     <label for="Judul" class="col-md-4 col-lg-3 col-form-label">Judul</label>
                     <div class="col-md-15 col-lg-5">
                       <input name="Judul" type="text" class="form-control" id="Judul" >
+                <div class="tab-content pt-6">
+                  <br>
+                  <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                    <form method="post" action=""enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div class="row mb-3">
+                      <label for="Judul" class="col-md-4 col-lg-3 col-form-label">Judul</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="Judul" type="text" class="form-control" id="Judul" >
+                      </div>
+
                     </div>
   
                     <div class="row mb-3">
@@ -68,141 +80,10 @@
                     </div> -->
 
                    
-                    <div class="row mb-6">
-                      <label for="isi" class="col-md-2 col-lg-3 col-form-label">Tipe Isi</label>
-                      <div class="col-md-5 col-lg-2">
-                        <select id="inputState" name="isi" class="form-select">
-                          <option selected>Pilih</option>
-                          <option>Fiksi</option>
-                          <option>Pendidikan</option>
-                        </select>
-                      </div>
-                        
-                        <label for="media" class="col-md-2 col-lg-4 ">Tipe Media</label> 
-                      <div class="col-md-8 col-lg-2">
-                        <select class="form-select" name="media">
-                          <option selected>Pilih</option>
-                          <option>Cetak</option>
-                          <option>Online</option>
-                        </select>
-                    </div>
-                    </div>
-  
-  
-                    <div class="row mb-3">
-                      <label for="isbn" class="col-md-4 col-lg-3 col-form-label">ISBN/ISSN</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="isbn" type="text" class="form-control" id="isbn" >
-                      </div>
-                    </div>
-  
-                    <div class="row mb-3">
-                      <label for="penerbit" class="col-md-4 col-lg-3 col-form-label">Penerbit</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="penerbit" type="text" class="form-control" id="penerbit" >
-                      </div>
-                    </div>
-  
-                    <div class="row">
-                      <div class="col-md-3">
-                        <label class="mt-1">Tahun Terbit</label>
-                      </div>                    
-                      <div class="col">
-                        <input class="form-control" type="text" name="tpenerbit">
-                      </div>
-                    </div>
-  
-                    <div class="row mb-3">
-                      <label for="tterbit" class="col-md-4 col-lg-3 col-form-label">Tempat Terbit</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="tterbit" type="text" class="form-control" id="tterbit" >
-                      </div>
-                    </div>
-  
-                    <div class="row mb-3">
-                      <label for="klasifikasi" class="col-md-4 col-lg-3 col-form-label">Klasifikasi</label>
-                      <div class="col-md-8 col-lg-5">
-                        <select id="inputState" name="klasifikasi" class="form-select">
-                          <option selected>Pilih</option>
-                          <option>123</option>
-                          <option>23432</option>
-                        </select>
-                      </div>
-                    </div>
-  
-                    <div class="row mb-3">
-                      <label for="bhs" class="col-md-4 col-lg-3 col-form-label">Bahasa</label>
-                      <div class="col-md-8 col-lg-5">
-                        <select id="inputState" name="bhs" class="form-select">
-                          <option selected>Pilih</option>
-                          <option>Bahasa Indonesia</option>
-                          <option>English</option>
-                        </select>
-                      </div>
-                    </div>
-  
-                    <div class="row mb-3">
-                      <label for="img" class="col-sm-3 col-form-label">Cover Upload</label>
-                      <div class="col-sm-5">
-                      <input class="form-control" name="cover" type="file" id="formFile"><br>
-                      </div>
-                  </div>
-  
-                  <fieldset class="row mb-3">
-                    <legend class="col-form-label col-sm-3 pt-0">Promosikan di Beranda</legend>
-                    <div class="col-sm-5">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadioss" id="gridRadios1" value="Promosikan" checked>
-                        <label class="form-check-label" for="gridRadios1">
-                          Promosikan
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadioss" id="gridRadios2" value="Jangan Promosikan">
-                        <label class="form-check-label" for="gridRadios2">
-                          Jangan Promosikan
-                        </label>
-                      </div>
-                    </div>
-                  </div>
 
-                <fieldset class="row mb-3">
-                  <legend class="col-form-label col-sm-3 pt-0">Sembunyikan Diopac</legend>
-                  <div class="col-sm-5">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Tampilkan" checked>
-                      <label class="form-check-label" for="gridRadios1">
-                        Tampilkan
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Sembunyikan">
-                      <label class="form-check-label" for="gridRadios2">
-                        Sembunyikan
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
+               
 
-                <fieldset class="row mb-3">
-                  <legend class="col-form-label col-sm-3 pt-0">Promosikan di Beranda</legend>
-                  <div class="col-sm-5">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadioss" id="gridRadios1" value="Promosikan" checked>
-                      <label class="form-check-label" for="gridRadios1">
-                        Promosikan
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadioss" id="gridRadios2" value="Jangan Promosikan">
-                      <label class="form-check-label" for="gridRadios2">
-                        Jangan Promosikan
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-
-                <br> -->
+                <br> 
               <form class="row g-3" method="post" action="">
                   {% csrf_token %}
                 <div class="col-md-6">
@@ -290,7 +171,6 @@
               </div>
 
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-                <form>
                   <table class="table">
                     <thead>
                     <tr>
@@ -311,18 +191,17 @@
                       <td>{{z.judul}}</td>
                       <td>{{z.info_detail_spesifikasi}}</td>
                       <td>{{z.pengarang}}</td>
-                      <td> <img src="{{buku.cover.url}}"></td>
+                      <td> <img src="{{z.cover.url}}"></td>
                       <td>
                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal_{{z.id}}" style="padding: 5px;" class="bi bi-trash-fill"></a>
                         <a type="button" style="padding: 5px;" class="bi bi-pencil-fill" href="{{z.id}}/edit_biblografi"></a>
                         <a type="button" style="padding: 5px;" class="bi bi-eye-fill"href="{{z.id}}/detail_biblografi"></a>
                     </td>
                   </tr>
-                  {% endfor %}     
                     <div class="modal fade" id="exampleModal_{{z.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
-                            <form class="modal-body">
+                            <form method="post" class="modal-body">
                               <center>
                               <h6>Apakah Anda ingin menghapus data ini?</h6>
                               <div class="row">
@@ -336,50 +215,11 @@
                               <br>
                             </center>
                           </form>
-                        </div> 
-                      </div>
-                    </div>
+                      {% endfor %}     
                   </tbody>                
                 </table>
-                </form>
               </div>
-
-              <div class="tab-pane fade profile-exem pt-3" id="profile-exem">
-                <form>
-                  <table class="table">
-                    <thead>
-                    <tr>
-                      <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Pengarang</th>
-                        <th scope="col">Cover</th>
-                      </tr>
-                    </tr>
-                  </thead>  
-                  <tbody>
-                    {% for z in datanama %} 
-                    <tr>
-                      <td>{{forloop.counter}}</td>
-                      <td><a href="/main2/exemplar/{{z.id}}">{{z.judul}}</a></td>
-                      <td>{{z.pengarang}}</td>
-                      <td>{{z.cover}}</td>
-                    </tr>
-                    {% endfor %}   
-                  </tbody>          
-                 </table>    
-                  </tbody>                
-                </table>
-                </form>
               </div>
-              
-
-
-
-
-
-                  
-              </div>   
         </div>
       </div>
     </div>

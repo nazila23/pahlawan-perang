@@ -100,21 +100,16 @@ class exemplar (models.Model):
     jumlah_exemplar= models.CharField(max_length=200)
     id_karyawan=models.ForeignKey(karyawan, on_delete=CASCADE,related_name='aksi')
     id_buku=models.ForeignKey(buku, on_delete=CASCADE,related_name='data')
-class pinjam (models.Model):
-    aksi= [
-        ('Ditempat','Ditempat'),
-        ('Diambil','Diambil'),
-        ('Dikirim','Dikirim'),
-    ]
-    tgl_pinjam =models.DateField(auto_now=True)
-    tgl_kembali = models.CharField(max_length=200)
-    denda = models.IntegerField(null=True, blank=True)
-    alamat =models.TextField(max_length=200)
-    transaksi=models.CharField(choices=aksi, max_length=200)
-    id_buku=models.ForeignKey(buku, on_delete=CASCADE,related_name='inputan1')
-    id_karyawan=models.ForeignKey(karyawan, on_delete=CASCADE,related_name='pengisi')
-    id_exemplar=models.ForeignKey(exemplar, on_delete=CASCADE,related_name='isi')
-    id_anggota=models.ForeignKey(anggota, on_delete=CASCADE,related_name='value')
-    lokasi= models.CharField(max_length=200)
-    jmlh_exemplar= models.CharField(max_length=200)
-    judul = models.ForeignKey(buku, on_delete=CASCADE)
+
+
+
+class Pinjam (models.Model):
+    tgl_pinjam = models.DateField(auto_now_add=True)
+    tgl_kembali = models.DateField(auto_now=True)
+    denda = models.CharField(max_length=200)
+    # no_panggil = models.ForeignKey(exemplar,on_delete=DO_NOTHING)
+
+    def tgl_pinjam_format(self):
+        return self.tgl_pinjam.strftime('%Y-%m-%d')
+    def tgl_kembali_format(self):
+        return self.tgl_kembali.strftime('%Y-%m-%d')
